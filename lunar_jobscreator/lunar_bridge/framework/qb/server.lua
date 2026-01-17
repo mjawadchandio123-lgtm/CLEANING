@@ -37,11 +37,14 @@ function Framework.getItemLabel(item)
 end
 function Framework.getItems()
     if ox_inventory then
-        return exports.ox_inventory:Items()
+        local ok, items = pcall(function() return exports.ox_inventory:Items() end)
+        if ok then return items end
     elseif qs_inventory then
-        return exports['qs-inventory']:GetItemList()
+        local ok, items = pcall(function() return exports['qs-inventory']:GetItemList() end)
+        if ok then return items end
     elseif codemInventory then
-        return exports['codem-inventory']:GetItemList()
+        local ok, items = pcall(function() return exports['codem-inventory']:GetItemList() end)
+        if ok then return items end
     end
     return sharedObject.Shared.Items
 end
@@ -75,12 +78,16 @@ end
 function player:removeItem(name, count)
     count = count or 1
     if ox_inventory then
-        exports.ox_inventory:RemoveItem(self.source, name, count)
+        local ok = pcall(function() exports.ox_inventory:RemoveItem(self.source, name, count) end)
+        if not ok then return false end
     elseif codemInventory then
-        exports['codem-inventory']:RemoveItem(self.source, name, count)
+        local ok = pcall(function() exports['codem-inventory']:RemoveItem(self.source, name, count) end)
+        if not ok then return false end
     else
-        self.QBPlayer.Functions.RemoveItem(name, count)
+        local ok = pcall(function() self.QBPlayer.Functions.RemoveItem(name, count) end)
+        if not ok then return false end
     end
+    return true
 end
 function player:canCarryItem(name, count)
     count = count or 1

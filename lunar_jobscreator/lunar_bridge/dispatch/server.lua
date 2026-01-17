@@ -81,6 +81,7 @@
         }
         TriggerEvent('rcore_dispatch:server:sendAlert', data)
     else
-        error(('%s is not implemented, you can implement it in lunar_bridge/dispatch/server.lua'):format(Config.Dispatch.Type))
+        print(('WARNING: Dispatch type "%s" is not implemented. Add implementation in lunar_bridge/dispatch/server.lua'):format(Config.Dispatch.Type))
+        return false
     end
 end
