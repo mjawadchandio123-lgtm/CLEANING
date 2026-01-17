@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-fx_version 'cerulean'
-game 'gta5'
-lua54 'yes'
-author 'Lunar Scripts'
-description 'Bridge module'
-version '1.3.6'
-escrow_ignore {
     'dispatch/client.lua',
     'dispatch/server.lua',
     'config/*.lua',

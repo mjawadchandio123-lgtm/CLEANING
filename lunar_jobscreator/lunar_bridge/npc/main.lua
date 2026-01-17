@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
-L0_1 = nil
-L1_1 = nil
-L2_1 = nil
-L3_1 = {}
-L4_1 = "GENERIC_HI"
-L5_1 = "GENERIC_HOWS_IT_GOING"
 L6_1 = "CHAT_RESP"
 L3_1[1] = L4_1
 L3_1[2] = L5_1

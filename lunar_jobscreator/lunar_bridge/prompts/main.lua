@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1, L8_1, L9_1, L10_1, L11_1, L12_1, L13_1, L14_1, L15_1, L16_1, L17_1, L18_1, L19_1
-L0_1 = GetPrompt
-L0_1 = L0_1()
-L1_1 = nil
-L2_1 = Config
-L2_1 = L2_1.Prompts
-L2_1 = L2_1.RenderDistance
 L3_1 = Config
 L3_1 = L3_1.Prompts
 L3_1 = L3_1.Dict

@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-Dispatch = {}
-function Dispatch.call(coords, data)
-    if Config.Dispatch.Type == 'normal' then
-        TriggerClientEvent('lunar_bridge:dispatch:call', -1, coords, data)
-    elseif Config.Dispatch.Type == 'cd_dispatch' then
-        local title = string.format('%s - %s', data.Code, data.Title)
-        TriggerClientEvent('cd_dispatch:AddNotification', -1, {
             job_table = Config.Dispatch.Jobs,
             coords = coords,
             title = title,

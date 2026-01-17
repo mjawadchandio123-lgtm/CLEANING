@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1, L8_1, L9_1, L10_1, L11_1, L12_1
-L0_1 = {}
-L1_1 = 700
-L2_1 = CreateDui
-L3_1 = "https://cfx-nui-%s/web/index.html"
-L4_1 = L3_1
-L3_1 = L3_1.format
 L5_1 = cache
 L5_1 = L5_1.resource
 L3_1 = L3_1(L4_1, L5_1)

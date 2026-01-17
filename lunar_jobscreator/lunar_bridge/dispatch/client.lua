@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-RegisterNetEvent('lunar_bridge:dispatch:call')
-AddEventHandler('lunar_bridge:dispatch:call', function(coords, data)
-    if Utils.isPolice() then
-        lib.notify({
-            title = data.Code,
-            description = data.Message,
-            position = 'top-right',
             duration = 10000,
             style = {
                 width = 330,

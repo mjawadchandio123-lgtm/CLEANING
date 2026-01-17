@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-if GetResourceState('qb-core') ~= 'started' then return end
-Framework = { name = 'qb-core' }
-local sharedObject = exports['qb-core']:GetCoreObject()
-Framework.object = sharedObject
-local codemInventory = GetResourceState('codem-inventory') == 'started'
-function Framework.isPlayerLoaded()
-    return next(sharedObject.Functions.GetPlayerData()) ~= nil
 end
 Framework.onPlayerLoaded = function(cb)
     AddEventHandler('QBCore:Client:OnPlayerLoaded', cb)

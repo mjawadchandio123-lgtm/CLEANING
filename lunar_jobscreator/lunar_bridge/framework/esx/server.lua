@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-if GetResourceState('es_extended') ~= 'started' then return end
-local config
-CreateThread(function()
-    while GetResourceState('lunar_bridge') ~= 'started' do Wait(100) end
-    config = exports.lunar_bridge:getConfig()
-end)
-Framework = { name = 'es_extended' }
 local sharedObject = exports['es_extended']:getSharedObject()
 Framework.object = sharedObject
 local player = {}

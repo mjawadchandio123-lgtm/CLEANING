@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-if GetResourceState('qb-core') ~= 'started' then return end
-local config
-CreateThread(function()
-    while GetResourceState('lunar_bridge') ~= 'started' do Wait(100) end
-    config = exports.lunar_bridge:getConfig()
-end)
-Framework = { name = 'qb-core' }
 local sharedObject = exports['qb-core']:GetCoreObject()
 Framework.object = sharedObject
 QBCore = sharedObject

@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-function ShowNotification(message, notifyType)
-    lib.notify({
-        description = message,
-        type = notifyType,
-        position = 'top-right'
-    })
-end
 function ShowUI(text, icon)
     if icon == 0 then
         lib.showTextUI(text)

@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-Config = {}
-Config.Target = false -- Whether to use target or text UI.
-Config.Keybinds = {
-    'E', 'G', 'C'
-}
-Config.Dispatch = {
-    Enable = true, -- Enable dispatch
     Type = 'normal', --['normal'/'cd_dispatch'/'qs-dispatch'/'ps-dispatch']
 	Jobs = {
 		'police',

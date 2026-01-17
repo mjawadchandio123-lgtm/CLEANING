@@ -1,20 +1,7 @@
--- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
--- ============================================
+-- Lunar Bridge Module
+-- Deobfuscated and Cleaned
+-- 
 
-
-
-if GetResourceState('es_extended') ~= 'started' then return end
-Framework = { name = 'es_extended' }
-local sharedObject = exports['es_extended']:getSharedObject()
-Framework.object = sharedObject
-local codemInventory = GetResourceState('codem-inventory') == 'started'
-AddEventHandler('esx:setPlayerData', function(key, val, last)
-    if GetInvokingResource() == 'es_extended' then
         sharedObject.PlayerData[key] = val
         if OnPlayerData then
             OnPlayerData(key, val, last)
