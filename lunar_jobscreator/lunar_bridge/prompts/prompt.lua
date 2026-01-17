@@ -8,8 +8,8 @@
 -- ════════════════════════════════════════════════════════════
 
 function callback()
-  local L0_2, temp1, temp2, temp3, temp4
-  L0_2 = SetDuiUrl
+  local var0, temp1, temp2, temp3, temp4
+  var0 = SetDuiUrl
   temp1 = config
   temp2 = "https://cfx-nui-%s/web/index.html"
   temp3 = temp2
@@ -17,7 +17,7 @@ function callback()
   temp4 = cache
   temp4 = temp4.resource
   temp2, temp3, temp4 = temp2(temp3, temp4)
-  L0_2(temp1, temp2, temp3, temp4)
+  var0(temp1, temp2, temp3, temp4)
 end
 result(callback)
 item = {}
@@ -81,12 +81,12 @@ isActive.setOptions = value
 
 -- ─── FUNCTION ─────────────
 function value()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
+  var0 = table
+  var0 = var0.wipe
   temp1 = callback
-  L0_2(temp1)
-  L0_2 = 0
+  var0(temp1)
+  var0 = 0
   temp1 = ipairs
   temp2 = item
   temp1, temp2, temp3, temp4 = temp1(temp2)
@@ -102,7 +102,7 @@ function value()
     temp10 = temp7
     temp8(temp9, temp10)
     if temp7 then
-      L0_2 = L0_2 + 1
+      var0 = var0 + 1
     end
   end
   temp1 = index
@@ -112,16 +112,16 @@ function value()
   temp2.canInteract = temp3
   temp1(temp2)
   temp1 = result
-  if L0_2 < temp1 then
+  if var0 < temp1 then
     temp1 = isActive.setIndex
-    temp2 = L0_2
+    temp2 = var0
     temp1(temp2)
   else
     temp1 = isActive.setIndex
     temp2 = player
     temp1(temp2)
   end
-  result = L0_2
+  result = var0
 end
 isActive.updateOptions = value
 
@@ -157,11 +157,11 @@ isActive.setIndex = value
 
 -- ─── FUNCTION ─────────────
 function value()
-  local L0_2, temp1
-  L0_2 = index
+  local var0, temp1
+  var0 = index
   temp1 = {}
   temp1.action = "show"
-  L0_2(temp1)
+  var0(temp1)
 end
 isActive.show = value
 
@@ -171,15 +171,15 @@ isActive.show = value
 
 -- ─── FUNCTION ─────────────
 function value()
-  local L0_2, temp1
-  L0_2 = index
+  local var0, temp1
+  var0 = index
   temp1 = {}
   temp1.action = "hide"
-  L0_2(temp1)
-  L0_2 = {}
-  item = L0_2
-  L0_2 = 1
-  player = L0_2
+  var0(temp1)
+  var0 = {}
+  item = var0
+  var0 = 1
+  player = var0
 end
 isActive.hide = value
 
@@ -189,8 +189,8 @@ isActive.hide = value
 
 -- ─── FUNCTION ─────────────
 function value()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2
-  L0_2 = 0.27999999999999997
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13
+  var0 = 0.27999999999999997
   temp1 = GetAspectRatio
   temp2 = false
   temp1 = temp1(temp2)
@@ -200,14 +200,14 @@ function value()
   temp4 = "main"
   temp5 = 0.0
   temp6 = 0.0
-  temp7 = L0_2
+  temp7 = var0
   temp8 = temp1
   temp9 = 0.0
   temp10 = 255
   temp11 = 255
   temp12 = 255
-  L13_2 = 255
-  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2)
+  var13 = 255
+  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13)
 end
 isActive.draw = value
 value = lib
@@ -224,12 +224,12 @@ status.defaultKey = "E"
 
 -- ─── FUNCTION ─────────────
 function state()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
-  L0_2 = item
-  if not L0_2 then
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
+  var0 = item
+  if not var0 then
     return
   end
-  L0_2 = 1
+  var0 = 1
   temp1 = ipairs
   temp2 = item
   temp1, temp2, temp3, temp4 = temp1(temp2)
@@ -238,13 +238,13 @@ function state()
     temp7 = temp7[temp5]
     if temp7 then
       temp7 = player
-      if L0_2 == temp7 then
+      if var0 == temp7 then
         temp7 = temp6.onSelect
         temp8 = temp6.args
         temp7(temp8)
         return
       end
-      L0_2 = L0_2 + 1
+      var0 = var0 + 1
     end
   end
 end
@@ -259,15 +259,15 @@ status = "interact_scroll_up"
 
 -- ─── FUNCTION ─────────────
 function state()
-  local L0_2, temp1
-  L0_2 = item
-  if not L0_2 then
+  local var0, temp1
+  var0 = item
+  if not var0 then
     return
   end
-  L0_2 = isActive.setIndex
+  var0 = isActive.setIndex
   temp1 = player
   temp1 = temp1 - 1
-  L0_2(temp1)
+  var0(temp1)
 end
 value(status, state)
 value = RegisterCommand
@@ -279,15 +279,15 @@ status = "interact_scroll_down"
 
 -- ─── FUNCTION ─────────────
 function state()
-  local L0_2, temp1
-  L0_2 = item
-  if not L0_2 then
+  local var0, temp1
+  var0 = item
+  if not var0 then
     return
   end
-  L0_2 = isActive.setIndex
+  var0 = isActive.setIndex
   temp1 = player
   temp1 = temp1 + 1
-  L0_2(temp1)
+  var0(temp1)
 end
 value(status, state)
 value = RegisterKeyMapping
@@ -309,8 +309,8 @@ value(status, state, handler, L12_1)
 
 -- ─── FUNCTION ─────────────
 function value()
-  local L0_2, temp1
-  L0_2 = isActive
-  return L0_2
+  local var0, temp1
+  var0 = isActive
+  return var0
 end
 GetPrompt = value

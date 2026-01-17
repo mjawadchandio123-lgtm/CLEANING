@@ -45,11 +45,11 @@ end
 
 -- ─── FUNCTION ─────────────
 function player()
-  local L0_2, temp1
-  L0_2 = GetDraggedPed
-  L0_2 = L0_2()
-  L0_2 = nil ~= L0_2
-  return L0_2
+  local var0, temp1
+  var0 = GetDraggedPed
+  var0 = var0()
+  var0 = nil ~= var0
+  return var0
 end
 actionData(actionType, config, item, player)
 actionData = Actions

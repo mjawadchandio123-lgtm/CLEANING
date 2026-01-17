@@ -32,13 +32,13 @@ data.durations = config
 
 -- ─── FUNCTION ─────────────
 function config()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
-  L0_2 = {}
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
+  var0 = {}
   temp1 = pairs
   temp2 = Settings
   temp1, temp2, temp3, temp4 = temp1(temp2)
   for temp5, temp6 in temp1, temp2, temp3, temp4 do
-    temp7 = #L0_2
+    temp7 = #var0
     temp7 = temp7 + 1
     temp8 = {}
     temp9 = json
@@ -48,13 +48,13 @@ function config()
     temp10 = temp5
     temp8[1] = temp9
     temp8[2] = temp10
-    L0_2[temp7] = temp8
+    var0[temp7] = temp8
   end
   temp1 = MySQL
   temp1 = temp1.prepare
   temp1 = temp1.await
   temp2 = "UPDATE lunar_jobscreator_settings SET `value` = ? WHERE `key` = ?"
-  temp3 = L0_2
+  temp3 = var0
   temp1(temp2, temp3)
 end
 item = MySQL
@@ -66,14 +66,14 @@ item = item.ready
 
 -- ─── FUNCTION ─────────────
 function player()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
-  L0_2 = Wait
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  var0 = Wait
   temp1 = 1000
-  L0_2(temp1)
-  L0_2 = pairs
+  var0(temp1)
+  var0 = pairs
   temp1 = data
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = Settings
     temp6[temp4] = temp5
     temp6 = MySQL
@@ -91,16 +91,16 @@ function player()
     temp8[3] = temp11
     temp6(temp7, temp8)
   end
-  L0_2 = MySQL
-  L0_2 = L0_2.query
-  L0_2 = L0_2.await
+  var0 = MySQL
+  var0 = var0.query
+  var0 = var0.await
   temp1 = "SELECT * FROM lunar_jobscreator_settings"
-  L0_2 = L0_2(temp1)
+  var0 = var0(temp1)
   temp1 = 1
-  temp2 = #L0_2
+  temp2 = #var0
   temp3 = 1
   for temp4 = temp1, temp2, temp3 do
-    temp5 = L0_2[temp4]
+    temp5 = var0[temp4]
     temp6 = Settings
     temp7 = temp5.key
     temp8 = json
@@ -163,17 +163,17 @@ player = "lunar_unijob:getSettings"
 
 -- ─── FUNCTION ─────────────
 function result()
-  local L0_2, temp1
+  local var0, temp1
   while true do
-    L0_2 = isActive
-    if L0_2 then
+    var0 = isActive
+    if var0 then
       break
     end
-    L0_2 = Wait
+    var0 = Wait
     temp1 = 100
-    L0_2(temp1)
+    var0(temp1)
   end
-  L0_2 = Settings
-  return L0_2
+  var0 = Settings
+  return var0
 end
 item(player, result)

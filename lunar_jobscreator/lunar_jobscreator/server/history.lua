@@ -8,13 +8,13 @@
 -- ════════════════════════════════════════════════════════════
 
 function player()
-  local L0_2, temp1, temp2, temp3, temp4, temp5
-  L0_2 = Wait
+  local var0, temp1, temp2, temp3, temp4, temp5
+  var0 = Wait
   temp1 = 1000
-  L0_2(temp1)
-  L0_2 = config
-  L0_2 = L0_2()
-  temp1 = L0_2 - 172800
+  var0(temp1)
+  var0 = config
+  var0 = var0()
+  temp1 = var0 - 172800
   temp2 = MySQL
   temp2 = temp2.query
   temp2 = temp2.await

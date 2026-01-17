@@ -8,7 +8,7 @@
 -- ════════════════════════════════════════════════════════════
 
 function result(param1, param2, param3, param4, param5)
-  local temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2
+  local temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15
   temp5 = param1
   temp6 = Framework
   temp6 = temp6.getPlayerFromId
@@ -41,9 +41,9 @@ function result(param1, param2, param3, param4, param5)
     temp11 = Utils
     temp11 = temp11.distanceCheck
     temp12 = temp5
-    L13_2 = temp9
-    L14_2 = 5.0
-    temp11 = temp11(temp12, L13_2, L14_2)
+    var13 = temp9
+    var14 = 5.0
+    temp11 = temp11(temp12, var13, var14)
     if temp11 then
       temp11 = temp10.grade
       if not temp11 then
@@ -71,50 +71,50 @@ function result(param1, param2, param3, param4, param5)
   if not temp12 then
     temp12 = "money"
   end
-  L14_2 = temp6
-  L13_2 = temp6.getAccountMoney
-  L15_2 = temp12
-  L13_2 = L13_2(L14_2, L15_2)
-  if temp11 > L13_2 then
-    L13_2 = false
-    L14_2 = locale
-    L15_2 = "not_enough_money"
-    L14_2, L15_2 = L14_2(L15_2)
-    return L13_2, L14_2, L15_2
+  var14 = temp6
+  var13 = temp6.getAccountMoney
+  var15 = temp12
+  var13 = var13(var14, var15)
+  if temp11 > var13 then
+    var13 = false
+    var14 = locale
+    var15 = "not_enough_money"
+    var14, var15 = var14(var15)
+    return var13, var14, var15
   end
-  L13_2 = SetTimeout
-  L14_2 = 3000
+  var13 = SetTimeout
+  var14 = 3000
 
 -- Local function handler
 
 -- Local function handler
-  function L15_2()
-    local L0_3, L1_3, L2_3, L3_3
-    L0_3 = temp6
-    L1_3 = L0_3
-    L0_3 = L0_3.getAccountMoney
-    L2_3 = temp12
-    L0_3 = L0_3(L1_3, L2_3)
-    L1_3 = temp11
-    if L0_3 < L1_3 then
+  function var15()
+    local inner0, inner1, inner2, inner3
+    inner0 = temp6
+    inner1 = inner0
+    inner0 = inner0.getAccountMoney
+    inner2 = temp12
+    inner0 = inner0(inner1, inner2)
+    inner1 = temp11
+    if inner0 < inner1 then
       return
     end
-    L0_3 = temp6
-    L1_3 = L0_3
-    L0_3 = L0_3.removeAccountMoney
-    L2_3 = temp12
-    L3_3 = temp11
-    L0_3(L1_3, L2_3, L3_3)
-    L0_3 = temp6
-    L1_3 = L0_3
-    L0_3 = L0_3.addItem
-    L2_3 = temp10.name
-    L3_3 = param5
-    L0_3(L1_3, L2_3, L3_3)
+    inner0 = temp6
+    inner1 = inner0
+    inner0 = inner0.removeAccountMoney
+    inner2 = temp12
+    inner3 = temp11
+    inner0(inner1, inner2, inner3)
+    inner0 = temp6
+    inner1 = inner0
+    inner0 = inner0.addItem
+    inner2 = temp10.name
+    inner3 = param5
+    inner0(inner1, inner2, inner3)
   end
-  L13_2(L14_2, L15_2)
-  L13_2 = true
-  return L13_2
+  var13(var14, var15)
+  var13 = true
+  return var13
 end
 item(player, result)
 

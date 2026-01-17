@@ -57,19 +57,19 @@ function config(param1)
 
 -- Local function handler
   function temp9()
-    local L0_3, L1_3, L2_3
-    L0_3 = data
-    L1_3 = temp3.from
-    L1_3 = L1_3.coords
-    L2_3 = temp3.disableAnim
-    L0_3(L1_3, L2_3)
-    L0_3 = TriggerServerEvent
-    L1_3 = "lunar_unijob:exitTeleport"
-    L0_3(L1_3)
-    L0_3 = temp4
-    if L0_3 then
-      L0_3 = temp4.remove
-      L0_3()
+    local inner0, inner1, inner2
+    inner0 = data
+    inner1 = temp3.from
+    inner1 = inner1.coords
+    inner2 = temp3.disableAnim
+    inner0(inner1, inner2)
+    inner0 = TriggerServerEvent
+    inner1 = "lunar_unijob:exitTeleport"
+    inner0(inner1)
+    inner0 = temp4
+    if inner0 then
+      inner0 = temp4.remove
+      inner0()
     end
   end
   temp8.onSelect = temp9
@@ -133,10 +133,10 @@ function item(param1)
 
 -- Local function handler
     function temp11()
-      local L0_3, L1_3
-      L0_3 = HasGrade
-      L1_3 = temp6.grade
-      return L0_3(L1_3)
+      local inner0, inner1
+      inner0 = HasGrade
+      inner1 = temp6.grade
+      return inner0(inner1)
     end
     temp10.canInteract = temp11
     temp9[1] = temp10
@@ -157,18 +157,18 @@ end
 
 -- ─── FUNCTION ─────────────
 function player()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6
+  var0 = ipairs
   temp1 = isActive
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = isActive
-  L0_2(temp1)
+  var0(temp1)
 end
 result = {}
 result.create = item

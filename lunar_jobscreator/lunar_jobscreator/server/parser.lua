@@ -129,7 +129,7 @@ end
 
 -- ─── FUNCTION ─────────────
 function config(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13
   temp1 = nil
   temp3 = param1
   temp2 = param1.gmatch
@@ -220,8 +220,8 @@ function config(param1)
             if temp1 then
               temp12 = temp6
               temp11 = temp6.match
-              L13_2 = "%((.-)%)"
-              temp11 = temp11(temp12, L13_2)
+              var13 = "%((.-)%)"
+              temp11 = temp11(temp12, var13)
               if not temp11 then
                 goto lbl_87
               end
@@ -263,7 +263,7 @@ end
 
 -- ─── FUNCTION ─────────────
 function player(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16
   temp1 = config
   temp2 = param1
   temp1 = temp1(temp2)
@@ -323,11 +323,11 @@ function player(param1)
           if "skipping" == temp2 then
             temp12 = temp7
             temp11 = temp7.match
-            L13_2 = "%((.-)%)"
-            temp11 = temp11(temp12, L13_2)
+            var13 = "%((.-)%)"
+            temp11 = temp11(temp12, var13)
             temp12 = item
-            L13_2 = temp11
-            temp12 = temp12(L13_2)
+            var13 = temp11
+            temp12 = temp12(var13)
             if temp12 then
               temp2 = "reading_to_end"
             end
@@ -337,28 +337,28 @@ function player(param1)
         else
           temp12 = temp7
           temp11 = temp7.find
-          L13_2 = "---@elseif_not_resource"
-          temp11 = temp11(temp12, L13_2)
+          var13 = "---@elseif_not_resource"
+          temp11 = temp11(temp12, var13)
           if temp11 then
             if "skipping" == temp2 then
-              L13_2 = temp7
+              var13 = temp7
               temp12 = temp7.match
-              L14_2 = "%((.-)%)"
-              temp12 = temp12(L13_2, L14_2)
-              L13_2 = item
-              L14_2 = temp12
-              L13_2 = L13_2(L14_2)
-              if not L13_2 then
+              var14 = "%((.-)%)"
+              temp12 = temp12(var13, var14)
+              var13 = item
+              var14 = temp12
+              var13 = var13(var14)
+              if not var13 then
                 temp2 = "reading_to_end"
               end
             elseif "reading_to_end" == temp2 then
               temp2 = "skipping_to_end"
             end
           else
-            L13_2 = temp7
+            var13 = temp7
             temp12 = temp7.find
-            L14_2 = "---@else"
-            temp12 = temp12(L13_2, L14_2)
+            var14 = "---@else"
+            temp12 = temp12(var13, var14)
             if temp12 then
               if "skipping" == temp2 then
                 temp2 = "reading_to_end"
@@ -366,20 +366,20 @@ function player(param1)
                 temp2 = "skipping"
               end
             else
-              L14_2 = temp7
-              L13_2 = temp7.find
-              L15_2 = "---@end"
-              L13_2 = L13_2(L14_2, L15_2)
-              if L13_2 then
+              var14 = temp7
+              var13 = temp7.find
+              var15 = "---@end"
+              var13 = var13(var14, var15)
+              if var13 then
                 if "skipping" == temp2 or "reading_to_end" == temp2 or "skipping_to_end" == temp2 then
                   temp2 = "reading"
                 end
               elseif "reading" == temp2 or "reading_to_end" == temp2 then
-                L14_2 = temp1
-                L15_2 = "\n"
-                L16_2 = temp7
-                L14_2 = L14_2 .. L15_2 .. L16_2
-                temp1 = L14_2
+                var14 = temp1
+                var15 = "\n"
+                var16 = temp7
+                var14 = var14 .. var15 .. var16
+                temp1 = var14
               end
             end
           end

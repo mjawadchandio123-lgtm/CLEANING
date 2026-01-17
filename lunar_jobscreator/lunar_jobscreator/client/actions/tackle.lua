@@ -8,7 +8,7 @@
 -- ════════════════════════════════════════════════════════════
 
 function index(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17
   temp1 = lib
   temp1 = temp1.requestAnimDict
   temp2 = isTackling
@@ -16,8 +16,8 @@ function index(param1)
   temp1 = GetPlayerPed
   temp2 = GetPlayerFromServerId
   temp3 = param1
-  temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2 = temp2(temp3)
-  temp1 = temp1(temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2)
+  temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17 = temp2(temp3)
+  temp1 = temp1(temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17)
   temp2 = AttachEntityToEntity
   temp3 = cache
   temp3 = temp3.ped
@@ -30,12 +30,12 @@ function index(param1)
   temp10 = 0.5
   temp11 = 180.0
   temp12 = false
-  L13_2 = false
-  L14_2 = false
-  L15_2 = false
-  L16_2 = 2
-  L17_2 = false
-  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2)
+  var13 = false
+  var14 = false
+  var15 = false
+  var16 = 2
+  var17 = false
+  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17)
   temp2 = TaskPlayAnim
   temp3 = cache
   temp3 = temp3.ped
@@ -48,8 +48,8 @@ function index(param1)
   temp10 = 0
   temp11 = false
   temp12 = false
-  L13_2 = false
-  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2)
+  var13 = false
+  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13)
   temp2 = Wait
   temp3 = 3000
   temp2(temp3)
@@ -63,24 +63,24 @@ function index(param1)
 
 -- Local function handler
   function temp3()
-    local L0_3, L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3
-    L0_3 = 1
-    L1_3 = 30
-    L2_3 = 1
-    for L3_3 = L0_3, L1_3, L2_3 do
-      L4_3 = SetPedToRagdoll
-      L5_3 = cache
-      L5_3 = L5_3.ped
-      L6_3 = 1000
-      L7_3 = 1000
-      L8_3 = 0
-      L9_3 = false
-      L10_3 = false
-      L11_3 = false
-      L4_3(L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3)
-      L4_3 = Wait
-      L5_3 = 100
-      L4_3(L5_3)
+    local inner0, inner1, inner2, inner3, inner4, inner5, inner6, inner7, inner8, inner9, inner10, inner11
+    inner0 = 1
+    inner1 = 30
+    inner2 = 1
+    for inner3 = inner0, inner1, inner2 do
+      inner4 = SetPedToRagdoll
+      inner5 = cache
+      inner5 = inner5.ped
+      inner6 = 1000
+      inner7 = 1000
+      inner8 = 0
+      inner9 = false
+      inner10 = false
+      inner11 = false
+      inner4(inner5, inner6, inner7, inner8, inner9, inner10, inner11)
+      inner4 = Wait
+      inner5 = 100
+      inner4(inner5)
     end
   end
   temp2(temp3)

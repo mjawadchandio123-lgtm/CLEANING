@@ -210,11 +210,11 @@ function result(param1, param2, param3)
 
 -- Local function handler
   function temp9()
-    local L0_3, L1_3
-    L1_3 = temp4
-    L0_3 = data
-    L0_3 = L0_3[L1_3]
-    return L0_3
+    local inner0, inner1
+    inner1 = temp4
+    inner0 = data
+    inner0 = inner0[inner1]
+    return inner0
   end
   temp8.canInteract = temp9
   temp9 = config
@@ -231,12 +231,12 @@ function result(param1, param2, param3)
 
 -- Local function handler
   function temp10()
-    local L0_3, L1_3
-    L1_3 = temp4
-    L0_3 = data
-    L0_3 = L0_3[L1_3]
-    L0_3 = not L0_3
-    return L0_3
+    local inner0, inner1
+    inner1 = temp4
+    inner0 = data
+    inner0 = inner0[inner1]
+    inner0 = not inner0
+    return inner0
   end
   temp9.canInteract = temp10
   temp10 = item
@@ -253,18 +253,18 @@ function result(param1, param2, param3)
 
 -- Local function handler
   function temp11()
-    local L0_3, L1_3
-    L1_3 = temp4
-    L0_3 = data
-    L0_3 = L0_3[L1_3]
-    if L0_3 then
-      L0_3 = param1.name
-      L1_3 = Framework
-      L1_3 = L1_3.getJob
-      L1_3 = L1_3()
-      L0_3 = L0_3 == L1_3
+    local inner0, inner1
+    inner1 = temp4
+    inner0 = data
+    inner0 = inner0[inner1]
+    if inner0 then
+      inner0 = param1.name
+      inner1 = Framework
+      inner1 = inner1.getJob
+      inner1 = inner1()
+      inner0 = inner0 == inner1
     end
-    return L0_3
+    return inner0
   end
   temp10.canInteract = temp11
   temp11 = player
@@ -289,22 +289,22 @@ end
 
 -- ─── FUNCTION ─────────────
 function callback()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18, var19, var20, L21_2
+  var0 = ipairs
   temp1 = isActive
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = isActive
-  L0_2(temp1)
-  L0_2 = GetJobs
-  L0_2 = L0_2()
+  var0(temp1)
+  var0 = GetJobs
+  var0 = var0()
   temp1 = pairs
-  temp2 = L0_2
+  temp2 = var0
   temp1, temp2, temp3, temp4 = temp1(temp2)
   for temp5, temp6 in temp1, temp2, temp3, temp4 do
     temp7 = temp6.registers
@@ -313,15 +313,15 @@ function callback()
       temp8 = temp6.registers
       temp7, temp8, temp9, temp10 = temp7(temp8)
       for temp11, temp12 in temp7, temp8, temp9, temp10 do
-        L13_2 = ipairs
-        L14_2 = temp12.locations
-        L13_2, L14_2, L15_2, L16_2 = L13_2(L14_2)
-        for L17_2 in L13_2, L14_2, L15_2, L16_2 do
-          L18_2 = result
-          L19_2 = temp6
-          L20_2 = temp11
-          L21_2 = L17_2
-          L18_2(L19_2, L20_2, L21_2)
+        var13 = ipairs
+        var14 = temp12.locations
+        var13, var14, var15, var16 = var13(var14)
+        for var17 in var13, var14, var15, var16 do
+          var18 = result
+          var19 = temp6
+          var20 = temp11
+          L21_2 = var17
+          var18(var19, var20, L21_2)
         end
       end
     end

@@ -39,12 +39,12 @@
 
 -- Local function handler
   function temp7()
-    local L0_3, L1_3
-    L1_3 = param2.job
-    L0_3 = data
-    L0_3 = L0_3[L1_3]
-    L1_3 = param2.index
-    L0_3[L1_3] = nil
+    local inner0, inner1
+    inner1 = param2.job
+    inner0 = data
+    inner0 = inner0[inner1]
+    inner1 = param2.index
+    inner0[inner1] = nil
   end
   temp5(temp6, temp7)
   temp5 = Dispatch

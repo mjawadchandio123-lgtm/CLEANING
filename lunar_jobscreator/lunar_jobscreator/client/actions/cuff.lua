@@ -56,7 +56,7 @@ L12_1 = "lunar_unijob:cuffReceiver"
 
 -- ─── FUNCTION ─────────────
 function L13_1(targetId)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2, L23_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18, var19, var20, L21_2, L22_2, L23_2
   temp1 = lib
   temp1 = temp1.callback
   temp1 = temp1.await
@@ -108,13 +108,13 @@ function L13_1(targetId)
     temp10 = 0.0
     temp11 = 0.0
     temp12 = 20.0
-    L13_2 = false
-    L14_2 = false
-    L15_2 = false
-    L16_2 = false
-    L17_2 = 20
-    L18_2 = false
-    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2)
+    var13 = false
+    var14 = false
+    var15 = false
+    var16 = false
+    var17 = 20
+    var18 = false
+    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18)
     temp3 = TaskPlayAnim
     temp4 = cache
     temp4 = temp4.ped
@@ -126,9 +126,9 @@ function L13_1(targetId)
     temp10 = 33
     temp11 = 0
     temp12 = false
-    L13_2 = false
-    L14_2 = false
-    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2)
+    var13 = false
+    var14 = false
+    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14)
     temp3 = Wait
     temp4 = 3500
     temp3(temp4)
@@ -158,9 +158,9 @@ function L13_1(targetId)
     temp10 = 0
     temp11 = 0
     temp12 = true
-    L13_2 = true
-    L14_2 = true
-    temp7 = temp7(temp8, temp9, temp10, temp11, temp12, L13_2, L14_2)
+    var13 = true
+    var14 = true
+    temp7 = temp7(temp8, temp9, temp10, temp11, temp12, var13, var14)
     cuffData = temp7
     temp7 = GetPedBoneIndex
     temp8 = cache
@@ -173,18 +173,18 @@ function L13_1(targetId)
     temp10 = temp10.ped
     temp11 = temp7
     temp12 = temp5.x
-    L13_2 = temp5.y
-    L14_2 = temp5.z
-    L15_2 = temp6.x
-    L16_2 = temp6.y
-    L17_2 = temp6.z
-    L18_2 = true
-    L19_2 = true
-    L20_2 = false
+    var13 = temp5.y
+    var14 = temp5.z
+    var15 = temp6.x
+    var16 = temp6.y
+    var17 = temp6.z
+    var18 = true
+    var19 = true
+    var20 = false
     L21_2 = true
     L22_2 = 1
     L23_2 = true
-    temp8(temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2, L23_2)
+    temp8(temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18, var19, var20, L21_2, L22_2, L23_2)
   else
     temp3 = targetPlayer
     if temp3 then
@@ -206,13 +206,13 @@ function L13_1(targetId)
     temp10 = 0.0
     temp11 = 0.0
     temp12 = 20.0
-    L13_2 = false
-    L14_2 = false
-    L15_2 = false
-    L16_2 = false
-    L17_2 = 20
-    L18_2 = false
-    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2)
+    var13 = false
+    var14 = false
+    var15 = false
+    var16 = false
+    var17 = 20
+    var18 = false
+    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18)
     temp3 = Wait
     temp4 = 2000
     temp3(temp4)
@@ -268,7 +268,7 @@ L12_1 = "lunar_unijob:cuffSender"
 
 -- ─── FUNCTION ─────────────
 function L13_1(targetId)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13
   temp1 = lib
   temp1 = temp1.callback
   temp1 = temp1.await
@@ -293,8 +293,8 @@ function L13_1(targetId)
     temp10 = 0
     temp11 = false
     temp12 = false
-    L13_2 = false
-    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2)
+    var13 = false
+    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13)
     temp2 = Wait
     temp3 = 3500
     temp2(temp3)
@@ -326,8 +326,8 @@ function L13_1(targetId)
     temp10 = 0
     temp11 = false
     temp12 = false
-    L13_2 = false
-    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2)
+    var13 = false
+    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13)
     temp2 = Wait
     temp3 = 2000
     temp2(temp3)
@@ -360,16 +360,16 @@ L12_1 = "lunar_unijob:syncCuff"
 
 -- ─── FUNCTION ─────────────
 function L13_1()
-  local L0_2, temp1, temp2, temp3, temp4
-  L0_2 = lib
-  L0_2 = L0_2.callback
-  L0_2 = L0_2.await
+  local var0, temp1, temp2, temp3, temp4
+  var0 = lib
+  var0 = var0.callback
+  var0 = var0.await
   temp1 = "lunar_unijob:getPlayerCuffState"
   temp2 = false
   temp3 = cache
   temp3 = temp3.serverId
-  L0_2 = L0_2(temp1, temp2, temp3)
-  if not L0_2 then
+  var0 = var0(temp1, temp2, temp3)
+  if not var0 then
     temp1 = SetEnableHandcuffs
     temp2 = cache
     temp2 = temp2.ped
@@ -398,7 +398,7 @@ function L13_1()
       temp1(temp2)
     end
   end
-  isCuffed = L0_2
+  isCuffed = var0
 end
 handler(L12_1, L13_1)
 handler = "anim@move_m@prisoner_cuffed"
@@ -418,7 +418,7 @@ L14_1 = "lunar_unijob:drag"
 
 -- ─── FUNCTION ─────────────
 function L15_1(targetId)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17
   temp1 = isCuffed
   if not temp1 then
     return
@@ -443,12 +443,12 @@ function L15_1(targetId)
     temp10 = 0.0
     temp11 = 0.0
     temp12 = false
-    L13_2 = false
-    L14_2 = false
-    L15_2 = true
-    L16_2 = 2
-    L17_2 = true
-    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2)
+    var13 = false
+    var14 = false
+    var15 = true
+    var16 = 2
+    var17 = true
+    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17)
   else
     temp1 = DetachEntity
     temp2 = cache
@@ -543,28 +543,28 @@ L14_1 = "lunar_unijob:outTheVehicle"
 
 -- ─── FUNCTION ─────────────
 function L15_1()
-  local L0_2, temp1, temp2, temp3, temp4
-  L0_2 = isCuffed
-  if L0_2 then
-    L0_2 = IsPedSittingInAnyVehicle
+  local var0, temp1, temp2, temp3, temp4
+  var0 = isCuffed
+  if var0 then
+    var0 = IsPedSittingInAnyVehicle
     temp1 = cache
     temp1 = temp1.ped
-    L0_2 = L0_2(temp1)
-    if L0_2 then
+    var0 = var0(temp1)
+    if var0 then
       goto lbl_11
     end
   end
   do return end
   ::lbl_11::
-  L0_2 = GetVehiclePedIsIn
+  var0 = GetVehiclePedIsIn
   temp1 = cache
   temp1 = temp1.ped
   temp2 = false
-  L0_2 = L0_2(temp1, temp2)
+  var0 = var0(temp1, temp2)
   temp1 = TaskLeaveVehicle
   temp2 = cache
   temp2 = temp2.ped
-  temp3 = L0_2
+  temp3 = var0
   temp4 = 64
   temp1(temp2, temp3, temp4)
 end
@@ -690,43 +690,43 @@ L17_1 = SetInterval
 
 -- ─── FUNCTION ─────────────
 function L18_1()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
-  L0_2 = isCuffed
-  if L0_2 then
-    L0_2 = targetPlayer
-    if L0_2 then
-      L0_2 = result
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  var0 = isCuffed
+  if var0 then
+    var0 = targetPlayer
+    if var0 then
+      var0 = result
       temp1 = targetPlayer
-      L0_2 = L0_2(temp1)
-      if not L0_2 then
+      var0 = var0(temp1)
+      if not var0 then
         return
       end
       temp1 = L13_1
-      temp2 = L0_2
+      temp2 = var0
       temp1(temp2)
     end
-    L0_2 = IsEntityPlayingAnim
+    var0 = IsEntityPlayingAnim
     temp1 = cache
     temp1 = temp1.ped
     temp2 = L14_1
     temp3 = "idle"
     temp4 = 3
-    L0_2 = L0_2(temp1, temp2, temp3, temp4)
-    if L0_2 then
-      L0_2 = Config
-      L0_2 = L0_2.forceCuffAnim
-      if not L0_2 then
-        L0_2 = L16_1
-        if not L0_2 then
+    var0 = var0(temp1, temp2, temp3, temp4)
+    if var0 then
+      var0 = Config
+      var0 = var0.forceCuffAnim
+      if not var0 then
+        var0 = L16_1
+        if not var0 then
           goto lbl_57
         end
       end
     end
-    L0_2 = lib
-    L0_2 = L0_2.requestAnimDict
+    var0 = lib
+    var0 = var0.requestAnimDict
     temp1 = L14_1
-    L0_2(temp1)
-    L0_2 = TaskPlayAnim
+    var0(temp1)
+    var0 = TaskPlayAnim
     temp1 = cache
     temp1 = temp1.ped
     temp2 = L14_1
@@ -739,40 +739,40 @@ function L18_1()
     temp9 = false
     temp10 = false
     temp11 = false
-    L0_2(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
-    L0_2 = RemoveAnimDict
+    var0(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
+    var0 = RemoveAnimDict
     temp1 = L14_1
-    L0_2(temp1)
-    L0_2 = true
-    L15_1 = L0_2
-    L0_2 = false
-    L16_1 = L0_2
+    var0(temp1)
+    var0 = true
+    L15_1 = var0
+    var0 = false
+    L16_1 = var0
     ::lbl_57::
-    L0_2 = IsPedRagdoll
+    var0 = IsPedRagdoll
     temp1 = cache
     temp1 = temp1.ped
-    L0_2 = L0_2(temp1)
-    if L0_2 then
-      L0_2 = true
-      L16_1 = L0_2
+    var0 = var0(temp1)
+    if var0 then
+      var0 = true
+      L16_1 = var0
     end
   else
-    L0_2 = L15_1
-    if L0_2 then
-      L0_2 = IsEntityPlayingAnim
+    var0 = L15_1
+    if var0 then
+      var0 = IsEntityPlayingAnim
       temp1 = cache
       temp1 = temp1.ped
       temp2 = L14_1
       temp3 = "idle"
       temp4 = 3
-      L0_2 = L0_2(temp1, temp2, temp3, temp4)
-      if L0_2 then
-        L0_2 = ClearPedTasks
+      var0 = var0(temp1, temp2, temp3, temp4)
+      if var0 then
+        var0 = ClearPedTasks
         temp1 = cache
         temp1 = temp1.ped
-        L0_2(temp1)
-        L0_2 = false
-        L15_1 = L0_2
+        var0(temp1)
+        var0 = false
+        L15_1 = var0
       end
     end
   end
@@ -789,20 +789,20 @@ L17_1 = CreateThread
 
 -- ─── FUNCTION ─────────────
 function L18_1()
-  local L0_2, temp1
+  local var0, temp1
   while true do
-    L0_2 = isCuffed
-    if L0_2 then
-      L0_2 = Editable
-      L0_2 = L0_2.handcuffControls
-      L0_2()
-      L0_2 = Wait
+    var0 = isCuffed
+    if var0 then
+      var0 = Editable
+      var0 = var0.handcuffControls
+      var0()
+      var0 = Wait
       temp1 = 0
-      L0_2(temp1)
+      var0(temp1)
     else
-      L0_2 = Wait
+      var0 = Wait
       temp1 = 500
-      L0_2(temp1)
+      var0(temp1)
     end
   end
 end
@@ -816,9 +816,9 @@ L17_1(L18_1)
 
 -- ─── FUNCTION ─────────────
 function L17_1()
-  local L0_2, temp1
-  L0_2 = isCuffed
-  return L0_2
+  local var0, temp1
+  var0 = isCuffed
+  return var0
 end
 IsHandcuffed = L17_1
 
@@ -830,10 +830,10 @@ IsHandcuffed = L17_1
 
 -- ─── FUNCTION ─────────────
 function L17_1()
-  local L0_2, temp1
-  L0_2 = targetPlayer
-  L0_2 = nil ~= L0_2
-  return L0_2
+  local var0, temp1
+  var0 = targetPlayer
+  var0 = nil ~= var0
+  return var0
 end
 IsDragged = L17_1
 L17_1 = exports

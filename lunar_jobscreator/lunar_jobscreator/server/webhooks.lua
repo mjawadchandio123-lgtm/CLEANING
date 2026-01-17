@@ -20,20 +20,20 @@ data = data.ready
 
 -- ─── FUNCTION ─────────────
 function config()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
-  L0_2 = Wait
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
+  var0 = Wait
   temp1 = 1000
-  L0_2(temp1)
-  L0_2 = MySQL
-  L0_2 = L0_2.query
-  L0_2 = L0_2.await
+  var0(temp1)
+  var0 = MySQL
+  var0 = var0.query
+  var0 = var0.await
   temp1 = "SELECT * FROM lunar_jobscreator_webhooks"
-  L0_2 = L0_2(temp1)
+  var0 = var0(temp1)
   temp1 = 1
-  temp2 = #L0_2
+  temp2 = #var0
   temp3 = 1
   for temp4 = temp1, temp2, temp3 do
-    temp5 = L0_2[temp4]
+    temp5 = var0[temp4]
     temp6 = Webhooks
     temp6 = temp6.jobs
     temp7 = temp5.name

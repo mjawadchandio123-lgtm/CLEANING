@@ -8,17 +8,17 @@
 -- ════════════════════════════════════════════════════════════
 
 function carryData()
-  local L0_2, temp1
-  L0_2 = isCarrying
-  if L0_2 then
-    L0_2 = TriggerServerEvent
+  local var0, temp1
+  var0 = isCarrying
+  if var0 then
+    var0 = TriggerServerEvent
     temp1 = "lunar_unijob:stopCarry"
-    L0_2(temp1)
-    L0_2 = Binds
-    L0_2 = L0_2.interact
-    L0_2 = L0_2.removeListener
+    var0(temp1)
+    var0 = Binds
+    var0 = var0.interact
+    var0 = var0.removeListener
     temp1 = "stop_carry"
-    L0_2(temp1)
+    var0(temp1)
   end
 end
 
@@ -30,15 +30,15 @@ end
 
 -- ─── FUNCTION ─────────────
 function animDict()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
-  L0_2 = Binds
-  L0_2 = L0_2.interact
-  L0_2 = L0_2.addListener
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  var0 = Binds
+  var0 = var0.interact
+  var0 = var0.addListener
   temp1 = "stop_carry"
   temp2 = carryData
-  L0_2(temp1, temp2)
-  L0_2 = LR
-  L0_2 = L0_2.showUI
+  var0(temp1, temp2)
+  var0 = LR
+  var0 = var0.showUI
   temp1 = locale
   temp2 = "stop_carrying"
   temp3 = Binds
@@ -47,25 +47,25 @@ function animDict()
   temp3 = temp3.getCurrentKey
   temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11 = temp3(temp4)
   temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11 = temp1(temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
-  L0_2(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
+  var0(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
   while true do
-    L0_2 = isCarrying
-    if not L0_2 then
+    var0 = isCarrying
+    if not var0 then
       break
     end
-    L0_2 = IsEntityPlayingAnim
+    var0 = IsEntityPlayingAnim
     temp1 = cache
     temp1 = temp1.ped
     temp2 = "missfinale_c2mcs_1"
     temp3 = "fin_c2_mcs_1_camman"
     temp4 = 3
-    L0_2 = L0_2(temp1, temp2, temp3, temp4)
-    if not L0_2 then
-      L0_2 = lib
-      L0_2 = L0_2.requestAnimDict
+    var0 = var0(temp1, temp2, temp3, temp4)
+    if not var0 then
+      var0 = lib
+      var0 = var0.requestAnimDict
       temp1 = "missfinale_c2mcs_1"
-      L0_2(temp1)
-      L0_2 = TaskPlayAnim
+      var0(temp1)
+      var0 = TaskPlayAnim
       temp1 = cache
       temp1 = temp1.ped
       temp2 = "missfinale_c2mcs_1"
@@ -78,18 +78,18 @@ function animDict()
       temp9 = false
       temp10 = false
       temp11 = false
-      L0_2(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
-      L0_2 = RemoveAnimDict
+      var0(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
+      var0 = RemoveAnimDict
       temp1 = "missfinale_c2mcs_1"
-      L0_2(temp1)
+      var0(temp1)
     end
-    L0_2 = Wait
+    var0 = Wait
     temp1 = 200
-    L0_2(temp1)
+    var0(temp1)
   end
-  L0_2 = LR
-  L0_2 = L0_2.hideUI
-  L0_2()
+  var0 = LR
+  var0 = var0.hideUI
+  var0()
 end
 
 -- Local function handler
@@ -100,15 +100,15 @@ end
 
 -- ─── FUNCTION ─────────────
 function animName()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
-  L0_2 = Binds
-  L0_2 = L0_2.interact
-  L0_2 = L0_2.addListener
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  var0 = Binds
+  var0 = var0.interact
+  var0 = var0.addListener
   temp1 = "stop_carry"
   temp2 = carryData
-  L0_2(temp1, temp2)
-  L0_2 = LR
-  L0_2 = L0_2.showUI
+  var0(temp1, temp2)
+  var0 = LR
+  var0 = var0.showUI
   temp1 = locale
   temp2 = "stop_carried"
   temp3 = Binds
@@ -117,25 +117,25 @@ function animName()
   temp3 = temp3.getCurrentKey
   temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11 = temp3(temp4)
   temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11 = temp1(temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
-  L0_2(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
+  var0(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
   while true do
-    L0_2 = isCarrying
-    if not L0_2 then
+    var0 = isCarrying
+    if not var0 then
       break
     end
-    L0_2 = IsEntityPlayingAnim
+    var0 = IsEntityPlayingAnim
     temp1 = cache
     temp1 = temp1.ped
     temp2 = "nm"
     temp3 = "firemans_carry"
     temp4 = 3
-    L0_2 = L0_2(temp1, temp2, temp3, temp4)
-    if not L0_2 then
-      L0_2 = lib
-      L0_2 = L0_2.requestAnimDict
+    var0 = var0(temp1, temp2, temp3, temp4)
+    if not var0 then
+      var0 = lib
+      var0 = var0.requestAnimDict
       temp1 = "nm"
-      L0_2(temp1)
-      L0_2 = TaskPlayAnim
+      var0(temp1)
+      var0 = TaskPlayAnim
       temp1 = cache
       temp1 = temp1.ped
       temp2 = "nm"
@@ -148,27 +148,27 @@ function animName()
       temp9 = false
       temp10 = false
       temp11 = false
-      L0_2(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
-      L0_2 = RemoveAnimDict
+      var0(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
+      var0 = RemoveAnimDict
       temp1 = "nm"
-      L0_2(temp1)
+      var0(temp1)
     end
-    L0_2 = IsPlayerDead
+    var0 = IsPlayerDead
     temp1 = cache
     temp1 = temp1.playerId
-    L0_2 = L0_2(temp1)
-    if L0_2 then
-      L0_2 = carryData
-      L0_2()
+    var0 = var0(temp1)
+    if var0 then
+      var0 = carryData
+      var0()
       break
     end
-    L0_2 = Wait
+    var0 = Wait
     temp1 = 200
-    L0_2(temp1)
+    var0(temp1)
   end
-  L0_2 = LR
-  L0_2 = L0_2.hideUI
-  L0_2()
+  var0 = LR
+  var0 = var0.hideUI
+  var0()
 end
 bone = Actions
 bone = bone.createPlayer
@@ -213,7 +213,7 @@ callback = "lunar_unijob:syncCarry"
 
 -- ─── FUNCTION ─────────────
 function index(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17
   isCarrying = param1
   temp1 = targetPlayer
   temp2 = param1
@@ -233,12 +233,12 @@ function index(param1)
   temp10 = 0.5
   temp11 = 180
   temp12 = false
-  L13_2 = false
-  L14_2 = false
-  L15_2 = false
-  L16_2 = 2
-  L17_2 = false
-  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2)
+  var13 = false
+  var14 = false
+  var15 = false
+  var16 = 2
+  var17 = false
+  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17)
   temp2 = CreateThread
   temp3 = animName
   temp2(temp3)
@@ -283,9 +283,9 @@ bone(callback, index)
 
 -- ─── FUNCTION ─────────────
 function bone()
-  local L0_2, temp1
-  L0_2 = isCarrying
-  L0_2 = nil ~= L0_2
-  return L0_2
+  local var0, temp1
+  var0 = isCarrying
+  var0 = nil ~= var0
+  return var0
 end
 IsCarryActive = bone

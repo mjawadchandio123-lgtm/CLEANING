@@ -319,7 +319,7 @@ end
 
 -- ─── FUNCTION ─────────────
 function value(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18, var19
   temp1 = param1.musicPlayers
   if not temp1 then
     return
@@ -332,49 +332,49 @@ function value(param1)
     temp8 = temp6.locations
     temp7, temp8, temp9, temp10 = temp7(temp8)
     for temp11, temp12 in temp7, temp8, temp9, temp10 do
-      L13_2 = "%s_%s_%s"
-      L14_2 = L13_2
-      L13_2 = L13_2.format
-      L15_2 = param1.name
-      L16_2 = temp5
-      L17_2 = temp11
-      L13_2 = L13_2(L14_2, L15_2, L16_2, L17_2)
-      L14_2 = Utils
-      L14_2 = L14_2.createInteractionPoint
-      L15_2 = {}
-      L15_2.coords = temp12
-      L16_2 = temp6.radius
-      if not L16_2 then
-        L16_2 = Config
-        L16_2 = L16_2.defaultRadius
+      var13 = "%s_%s_%s"
+      var14 = var13
+      var13 = var13.format
+      var15 = param1.name
+      var16 = temp5
+      var17 = temp11
+      var13 = var13(var14, var15, var16, var17)
+      var14 = Utils
+      var14 = var14.createInteractionPoint
+      var15 = {}
+      var15.coords = temp12
+      var16 = temp6.radius
+      if not var16 then
+        var16 = Config
+        var16 = var16.defaultRadius
       end
-      L15_2.radius = L16_2
-      L16_2 = {}
-      L17_2 = {}
-      L18_2 = temp6.label
-      if not L18_2 then
-        L18_2 = locale
-        L19_2 = "play_music"
-        L18_2 = L18_2(L19_2)
+      var15.radius = var16
+      var16 = {}
+      var17 = {}
+      var18 = temp6.label
+      if not var18 then
+        var18 = locale
+        var19 = "play_music"
+        var18 = var18(var19)
       end
-      L17_2.label = L18_2
-      L18_2 = temp6.icon
-      if not L18_2 then
-        L18_2 = "music"
+      var17.label = var18
+      var18 = temp6.icon
+      if not var18 then
+        var18 = "music"
       end
-      L17_2.icon = L18_2
-      L18_2 = index
-      L17_2.onSelect = L18_2
-      L17_2.args = L13_2
-      L16_2[1] = L17_2
-      L15_2.options = L16_2
-      L16_2 = temp6.target
-      L14_2 = L14_2(L15_2, L16_2)
-      L15_2 = table
-      L15_2 = L15_2.insert
-      L16_2 = isActive
-      L17_2 = L14_2
-      L15_2(L16_2, L17_2)
+      var17.icon = var18
+      var18 = index
+      var17.onSelect = var18
+      var17.args = var13
+      var16[1] = var17
+      var15.options = var16
+      var16 = temp6.target
+      var14 = var14(var15, var16)
+      var15 = table
+      var15 = var15.insert
+      var16 = isActive
+      var17 = var14
+      var15(var16, var17)
     end
   end
 end
@@ -385,18 +385,18 @@ end
 
 -- ─── FUNCTION ─────────────
 function status()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6
+  var0 = ipairs
   temp1 = isActive
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = isActive
-  L0_2(temp1)
+  var0(temp1)
 end
 state = {}
 state.create = value

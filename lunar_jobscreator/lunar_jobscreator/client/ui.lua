@@ -417,14 +417,14 @@ end
 
 -- ─── FUNCTION ─────────────
 function result()
-  local L0_2, temp1, temp2, temp3, temp4
-  L0_2 = lib
-  L0_2 = L0_2.callback
-  L0_2 = L0_2.await
+  local var0, temp1, temp2, temp3, temp4
+  var0 = lib
+  var0 = var0.callback
+  var0 = var0.await
   temp1 = "lunar_unijob:getWebhookData"
   temp2 = false
-  L0_2 = L0_2(temp1, temp2)
-  if not L0_2 then
+  var0 = var0(temp1, temp2)
+  if not var0 then
     return
   end
   temp1 = config
@@ -438,21 +438,21 @@ function result()
 
 -- Local function handler
     function temp4(A0_3)
-      local L1_3, L2_3, L3_3, L4_3, L5_3
-      L1_3 = UI
-      L1_3 = L1_3.sendMessage
-      L2_3 = "updateProfile"
-      L3_3 = {}
-      L4_3 = cache
-      L4_3 = L4_3.serverId
-      L3_3.serverId = L4_3
-      L4_3 = GetPlayerName
-      L5_3 = cache
-      L5_3 = L5_3.playerId
-      L4_3 = L4_3(L5_3)
-      L3_3.username = L4_3
-      L3_3.avatarUrl = A0_3
-      L1_3(L2_3, L3_3)
+      local inner1, inner2, inner3, inner4, inner5
+      inner1 = UI
+      inner1 = inner1.sendMessage
+      inner2 = "updateProfile"
+      inner3 = {}
+      inner4 = cache
+      inner4 = inner4.serverId
+      inner3.serverId = inner4
+      inner4 = GetPlayerName
+      inner5 = cache
+      inner5 = inner5.playerId
+      inner4 = inner4(inner5)
+      inner3.username = inner4
+      inner3.avatarUrl = A0_3
+      inner1(inner2, inner3)
     end
     temp1(temp2, temp3, temp4)
     temp1 = true
@@ -461,7 +461,7 @@ function result()
   temp1 = UI
   temp1 = temp1.sendMessage
   temp2 = "updateWebhookData"
-  temp3 = L0_2
+  temp3 = var0
   temp1(temp2, temp3)
   temp1 = UI
   temp1 = temp1.sendMessage

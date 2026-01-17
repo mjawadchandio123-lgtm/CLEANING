@@ -7,9 +7,9 @@
 -- Code Quality: Fully Rewritten with Readable Variables
 -- ════════════════════════════════════════════════════════════
 
-      L15_2 = isActive
-      L16_2 = L13_2
-      L14_2(L15_2, L16_2)
+      var15 = isActive
+      var16 = var13
+      var14(var15, var16)
     end
   end
 end
@@ -20,18 +20,18 @@ end
 
 -- ─── FUNCTION ─────────────
 function config()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6
+  var0 = ipairs
   temp1 = isActive
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = isActive
-  L0_2(temp1)
+  var0(temp1)
 end
 item = {}
 item.create = data

@@ -67,7 +67,7 @@ config(item, player)
 
 -- ─── FUNCTION ─────────────
 function config(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16
   temp1 = param1.animationZones
   if not temp1 then
     return
@@ -81,17 +81,17 @@ function config(param1)
     temp7, temp8, temp9, temp10 = temp7(temp8)
     for temp11 in temp7, temp8, temp9, temp10 do
       temp12 = "%s_%s_%s"
-      L13_2 = temp12
+      var13 = temp12
       temp12 = temp12.format
-      L14_2 = param1.name
-      L15_2 = temp5
-      L16_2 = temp11
-      temp12 = temp12(L13_2, L14_2, L15_2, L16_2)
-      L13_2 = data
-      L14_2 = {}
-      L14_2.job = param1
-      L14_2.zone = temp6
-      L13_2[temp12] = L14_2
+      var14 = param1.name
+      var15 = temp5
+      var16 = temp11
+      temp12 = temp12(var13, var14, var15, var16)
+      var13 = data
+      var14 = {}
+      var14.job = param1
+      var14.zone = temp6
+      var13[temp12] = var14
     end
   end
 end

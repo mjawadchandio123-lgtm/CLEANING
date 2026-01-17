@@ -14,8 +14,8 @@
     end
     temp12 = isActive
     ::lbl_69::
-    L13_2 = temp10
-    temp11(temp12, L13_2)
+    var13 = temp10
+    temp11(temp12, var13)
   end
 end
 
@@ -50,18 +50,18 @@ end
 
 -- ─── FUNCTION ─────────────
 function player()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6
+  var0 = ipairs
   temp1 = isActive
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = isActive
-  L0_2(temp1)
+  var0(temp1)
 end
 
 -- Local function handler
@@ -70,22 +70,22 @@ end
 
 -- ─── FUNCTION ─────────────
 function result()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15
+  var0 = ipairs
   temp1 = data
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = data
-  L0_2(temp1)
-  L0_2 = GetJobs
-  L0_2 = L0_2()
+  var0(temp1)
+  var0 = GetJobs
+  var0 = var0()
   temp1 = pairs
-  temp2 = L0_2
+  temp2 = var0
   temp1, temp2, temp3, temp4 = temp1(temp2)
   for temp5, temp6 in temp1, temp2, temp3, temp4 do
     temp7 = temp6.stashes
@@ -94,12 +94,12 @@ function result()
       temp8 = temp6.stashes
       temp7, temp8, temp9, temp10 = temp7(temp8)
       for temp11, temp12 in temp7, temp8, temp9, temp10 do
-        L13_2 = temp12.global
-        if L13_2 then
-          L13_2 = config
-          L14_2 = temp6
-          L15_2 = temp11
-          L13_2(L14_2, L15_2)
+        var13 = temp12.global
+        if var13 then
+          var13 = config
+          var14 = temp6
+          var15 = temp11
+          var13(var14, var15)
         end
       end
     end

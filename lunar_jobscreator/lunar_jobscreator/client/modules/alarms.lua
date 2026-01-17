@@ -8,7 +8,7 @@
 -- ════════════════════════════════════════════════════════════
 
 function config(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18
   temp1 = param1.alarms
   if not temp1 then
     return
@@ -23,43 +23,43 @@ function config(param1)
       temp8 = temp6.locations
       temp7, temp8, temp9, temp10 = temp7(temp8)
       for temp11, temp12 in temp7, temp8, temp9, temp10 do
-        L13_2 = Utils
-        L13_2 = L13_2.createInteractionPoint
-        L14_2 = {}
-        L14_2.coords = temp12
-        L15_2 = temp6.radius
-        if not L15_2 then
-          L15_2 = Config
-          L15_2 = L15_2.defaultRadius
+        var13 = Utils
+        var13 = var13.createInteractionPoint
+        var14 = {}
+        var14.coords = temp12
+        var15 = temp6.radius
+        if not var15 then
+          var15 = Config
+          var15 = var15.defaultRadius
         end
-        L14_2.radius = L15_2
-        L15_2 = {}
-        L16_2 = {}
-        L17_2 = label
-        if not L17_2 then
-          L17_2 = locale
-          L18_2 = "trigger_alarm"
-          L17_2 = L17_2(L18_2)
+        var14.radius = var15
+        var15 = {}
+        var16 = {}
+        var17 = label
+        if not var17 then
+          var17 = locale
+          var18 = "trigger_alarm"
+          var17 = var17(var18)
         end
-        L16_2.label = L17_2
-        L16_2.icon = "bell"
-        L17_2 = data
-        L16_2.onSelect = L17_2
-        L17_2 = {}
-        L18_2 = param1.name
-        L17_2.job = L18_2
-        L17_2.index = temp5
-        L17_2.locationIndex = temp11
-        L16_2.args = L17_2
-        L15_2[1] = L16_2
-        L14_2.options = L15_2
-        L15_2 = temp6.target
-        L13_2 = L13_2(L14_2, L15_2)
-        L14_2 = table
-        L14_2 = L14_2.insert
-        L15_2 = isActive
-        L16_2 = L13_2
-        L14_2(L15_2, L16_2)
+        var16.label = var17
+        var16.icon = "bell"
+        var17 = data
+        var16.onSelect = var17
+        var17 = {}
+        var18 = param1.name
+        var17.job = var18
+        var17.index = temp5
+        var17.locationIndex = temp11
+        var16.args = var17
+        var15[1] = var16
+        var14.options = var15
+        var15 = temp6.target
+        var13 = var13(var14, var15)
+        var14 = table
+        var14 = var14.insert
+        var15 = isActive
+        var16 = var13
+        var14(var15, var16)
       end
     end
   end
@@ -71,18 +71,18 @@ end
 
 -- ─── FUNCTION ─────────────
 function item()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6
+  var0 = ipairs
   temp1 = isActive
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = isActive
-  L0_2(temp1)
+  var0(temp1)
 end
 player = {}
 
@@ -92,22 +92,22 @@ player = {}
 
 -- ─── FUNCTION ─────────────
 function result()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2, L23_2, L24_2
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18, var19, var20, L21_2, L22_2, L23_2, L24_2
+  var0 = ipairs
   temp1 = player
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = player
-  L0_2(temp1)
-  L0_2 = GetJobs
-  L0_2 = L0_2()
+  var0(temp1)
+  var0 = GetJobs
+  var0 = var0()
   temp1 = pairs
-  temp2 = L0_2
+  temp2 = var0
   temp1, temp2, temp3, temp4 = temp1(temp2)
   for temp5, temp6 in temp1, temp2, temp3, temp4 do
     temp7 = temp6.alarms
@@ -116,22 +116,22 @@ function result()
       temp8 = temp6.alarms
       temp7, temp8, temp9, temp10 = temp7(temp8)
       for temp11, temp12 in temp7, temp8, temp9, temp10 do
-        L13_2 = temp12.global
-        if L13_2 then
-          L13_2 = ipairs
-          L14_2 = temp12.locations
-          L13_2, L14_2, L15_2, L16_2 = L13_2(L14_2)
-          for L17_2, L18_2 in L13_2, L14_2, L15_2, L16_2 do
-            L19_2 = Utils
-            L19_2 = L19_2.createInteractionPoint
-            L20_2 = {}
-            L20_2.coords = L18_2
+        var13 = temp12.global
+        if var13 then
+          var13 = ipairs
+          var14 = temp12.locations
+          var13, var14, var15, var16 = var13(var14)
+          for var17, var18 in var13, var14, var15, var16 do
+            var19 = Utils
+            var19 = var19.createInteractionPoint
+            var20 = {}
+            var20.coords = var18
             L21_2 = temp12.radius
             if not L21_2 then
               L21_2 = Config
               L21_2 = L21_2.defaultRadius
             end
-            L20_2.radius = L21_2
+            var20.radius = L21_2
             L21_2 = {}
             L22_2 = {}
             L23_2 = temp12.label
@@ -148,16 +148,16 @@ function result()
             L24_2 = temp6.name
             L23_2.job = L24_2
             L23_2.index = temp11
-            L23_2.locationIndex = L17_2
+            L23_2.locationIndex = var17
             L22_2.args = L23_2
             L21_2[1] = L22_2
-            L20_2.options = L21_2
-            L19_2 = L19_2(L20_2)
-            L20_2 = table
-            L20_2 = L20_2.insert
+            var20.options = L21_2
+            var19 = var19(var20)
+            var20 = table
+            var20 = var20.insert
             L21_2 = player
-            L22_2 = L19_2
-            L20_2(L21_2, L22_2)
+            L22_2 = var19
+            var20(L21_2, L22_2)
           end
         end
       end

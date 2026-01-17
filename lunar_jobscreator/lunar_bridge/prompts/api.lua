@@ -21,11 +21,11 @@ function data(param1)
 
 -- Local function handler
   function temp3()
-    local L0_3, L1_3
+    local inner0, inner1
     temp1.valid = false
-    L0_3 = temp2
-    L1_3 = temp1
-    L0_3(L1_3)
+    inner0 = temp2
+    inner1 = temp1
+    inner0(inner1)
   end
   temp1.remove = temp3
   return temp1
@@ -71,11 +71,11 @@ function item(param1)
 
 -- Local function handler
     function temp2()
-      local L0_3, L1_3, L2_3
-      L0_3 = GetWorldPositionOfEntityBone
-      L1_3 = param1.entity
-      L2_3 = temp1
-      return L0_3(L1_3, L2_3)
+      local inner0, inner1, inner2
+      inner0 = GetWorldPositionOfEntityBone
+      inner1 = param1.entity
+      inner2 = temp1
+      return inner0(inner1, inner2)
     end
     param1.getCoords = temp2
   else
@@ -87,13 +87,13 @@ function item(param1)
 
 -- Local function handler
       function temp2()
-        local L0_3, L1_3, L2_3, L3_3, L4_3
-        L0_3 = GetOffsetFromEntityInWorldCoords
-        L1_3 = param1.entity
-        L2_3 = temp1.x
-        L3_3 = temp1.y
-        L4_3 = temp1.z
-        return L0_3(L1_3, L2_3, L3_3, L4_3)
+        local inner0, inner1, inner2, inner3, inner4
+        inner0 = GetOffsetFromEntityInWorldCoords
+        inner1 = param1.entity
+        inner2 = temp1.x
+        inner3 = temp1.y
+        inner4 = temp1.z
+        return inner0(inner1, inner2, inner3, inner4)
       end
       param1.getCoords = temp2
     else
@@ -102,10 +102,10 @@ function item(param1)
 
 -- Local function handler
       function temp1()
-        local L0_3, L1_3
-        L0_3 = GetEntityCoords
-        L1_3 = param1.entity
-        return L0_3(L1_3)
+        local inner0, inner1
+        inner0 = GetEntityCoords
+        inner1 = param1.entity
+        return inner0(inner1)
       end
       param1.getCoords = temp1
     end
@@ -119,11 +119,11 @@ function item(param1)
 
 -- Local function handler
   function temp3()
-    local L0_3, L1_3
+    local inner0, inner1
     param1.valid = false
-    L0_3 = RemoveEntity
-    L1_3 = temp1
-    L0_3(L1_3)
+    inner0 = RemoveEntity
+    inner1 = temp1
+    inner0(inner1)
   end
   temp2.remove = temp3
   return temp2

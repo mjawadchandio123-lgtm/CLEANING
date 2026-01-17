@@ -8,40 +8,40 @@
 -- ════════════════════════════════════════════════════════════
 
 function player()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
-  L0_2 = isDragging
-  if not L0_2 then
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  var0 = isDragging
+  if not var0 then
     return
   end
-  L0_2 = DoesEntityExist
+  var0 = DoesEntityExist
   temp1 = isDragging
-  L0_2 = L0_2(temp1)
-  if L0_2 then
-    L0_2 = IsEntityDead
+  var0 = var0(temp1)
+  if var0 then
+    var0 = IsEntityDead
     temp1 = isDragging
-    L0_2 = L0_2(temp1)
-    if not L0_2 then
+    var0 = var0(temp1)
+    if not var0 then
       goto lbl_19
     end
   end
-  L0_2 = StopDrag
-  L0_2()
-  L0_2 = nil
-  isDragging = L0_2
+  var0 = StopDrag
+  var0()
+  var0 = nil
+  isDragging = var0
   ::lbl_19::
-  L0_2 = IsEntityPlayingAnim
+  var0 = IsEntityPlayingAnim
   temp1 = cache
   temp1 = temp1.ped
   temp2 = targetPlayer
   temp3 = dragData
   temp4 = 3
-  L0_2 = L0_2(temp1, temp2, temp3, temp4)
-  if not L0_2 then
-    L0_2 = lib
-    L0_2 = L0_2.requestAnimDict
+  var0 = var0(temp1, temp2, temp3, temp4)
+  if not var0 then
+    var0 = lib
+    var0 = var0.requestAnimDict
     temp1 = targetPlayer
-    L0_2(temp1)
-    L0_2 = TaskPlayAnim
+    var0(temp1)
+    var0 = TaskPlayAnim
     temp1 = cache
     temp1 = temp1.ped
     temp2 = targetPlayer
@@ -54,10 +54,10 @@ function player()
     temp9 = false
     temp10 = false
     temp11 = false
-    L0_2(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
-    L0_2 = RemoveAnimDict
+    var0(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
+    var0 = RemoveAnimDict
     temp1 = targetPlayer
-    L0_2(temp1)
+    var0(temp1)
   end
 end
 result = 200
@@ -71,26 +71,26 @@ if not item then
 
 -- Local function handler
   function player()
-    local L0_2, temp1, temp2
+    local var0, temp1, temp2
     while true do
-      L0_2 = isDragging
-      if L0_2 then
-        L0_2 = DisableControlAction
+      var0 = isDragging
+      if var0 then
+        var0 = DisableControlAction
         temp1 = 0
         temp2 = 21
-        L0_2(temp1, temp2)
-        L0_2 = SetPlayerSprint
+        var0(temp1, temp2)
+        var0 = SetPlayerSprint
         temp1 = cache
         temp1 = temp1.playerId
         temp2 = false
-        L0_2(temp1, temp2)
-        L0_2 = Wait
+        var0(temp1, temp2)
+        var0 = Wait
         temp1 = 0
-        L0_2(temp1)
+        var0(temp1)
       else
-        L0_2 = Wait
+        var0 = Wait
         temp1 = 500
-        L0_2(temp1)
+        var0(temp1)
       end
     end
   end
@@ -167,8 +167,8 @@ item(player, result, callback, index)
 
 -- ─── FUNCTION ─────────────
 function item()
-  local L0_2, temp1
-  L0_2 = isDragging
-  return L0_2
+  local var0, temp1
+  var0 = isDragging
+  return var0
 end
 GetDraggedPed = item

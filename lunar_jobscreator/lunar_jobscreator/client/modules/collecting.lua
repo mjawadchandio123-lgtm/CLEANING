@@ -14,89 +14,89 @@
 
 -- Local function handler
   function temp7()
-    local L0_3, L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3
-    L0_3 = temp1.animation
-    L1_3 = temp1.animationProp
-    if L0_3 then
-      L2_3 = Utils
-      L2_3 = L2_3.playAnim
-      L3_3 = L0_3
-      L4_3 = L1_3
-      L2_3(L3_3, L4_3)
+    local inner0, inner1, inner2, inner3, inner4, inner5, inner6, inner7, inner8
+    inner0 = temp1.animation
+    inner1 = temp1.animationProp
+    if inner0 then
+      inner2 = Utils
+      inner2 = inner2.playAnim
+      inner3 = inner0
+      inner4 = inner1
+      inner2(inner3, inner4)
     end
     while true do
-      L2_3 = isActive
-      if not L2_3 then
+      inner2 = isActive
+      if not inner2 then
         break
       end
-      L2_3 = LR
-      L2_3 = L2_3.progressBar
-      L3_3 = temp1.progress
-      L4_3 = temp1.duration
-      L5_3 = true
-      L2_3 = L2_3(L3_3, L4_3, L5_3)
-      if not L2_3 then
-        L2_3 = TriggerServerEvent
-        L3_3 = "lunar_unijob:stopCollecting"
-        L2_3(L3_3)
-        L2_3 = false
-        isActive = L2_3
+      inner2 = LR
+      inner2 = inner2.progressBar
+      inner3 = temp1.progress
+      inner4 = temp1.duration
+      inner5 = true
+      inner2 = inner2(inner3, inner4, inner5)
+      if not inner2 then
+        inner2 = TriggerServerEvent
+        inner3 = "lunar_unijob:stopCollecting"
+        inner2(inner3)
+        inner2 = false
+        isActive = inner2
       end
-      L2_3 = Wait
-      L3_3 = 0
-      L2_3(L3_3)
+      inner2 = Wait
+      inner3 = 0
+      inner2(inner3)
     end
     while true do
-      L2_3 = IsPedRagdoll
-      L3_3 = cache
-      L3_3 = L3_3.ped
-      L2_3 = L2_3(L3_3)
-      if not L2_3 then
-        L2_3 = IsPedFalling
-        L3_3 = cache
-        L3_3 = L3_3.ped
-        L2_3 = L2_3(L3_3)
-        if not L2_3 then
-          L2_3 = IsPedVaulting
-          L3_3 = cache
-          L3_3 = L3_3.ped
-          L2_3 = L2_3(L3_3)
-          if not L2_3 then
-            L2_3 = IsPedInMeleeCombat
-            L3_3 = cache
-            L3_3 = L3_3.ped
-            L2_3 = L2_3(L3_3)
-            if not L2_3 then
-              L2_3 = IsPedClimbing
-              L3_3 = cache
-              L3_3 = L3_3.ped
-              L2_3 = L2_3(L3_3)
-              if not L2_3 then
-                L2_3 = IsPedInCover
-                L3_3 = cache
-                L3_3 = L3_3.ped
-                L2_3 = L2_3(L3_3)
-                if not L2_3 then
-                  L2_3 = IsPedReloading
-                  L3_3 = cache
-                  L3_3 = L3_3.ped
-                  L2_3 = L2_3(L3_3)
-                  if not L2_3 then
-                    L2_3 = IsPedGettingIntoAVehicle
-                    L3_3 = cache
-                    L3_3 = L3_3.ped
-                    L2_3 = L2_3(L3_3)
-                    if not L2_3 then
-                      L2_3 = IsPedDiving
-                      L3_3 = cache
-                      L3_3 = L3_3.ped
-                      L2_3 = L2_3(L3_3)
-                      if not L2_3 then
-                        L2_3 = IsPedBeingStunned
-                        L3_3 = cache
-                        L3_3 = L3_3.ped
-                        L2_3 = L2_3(L3_3)
-                        if not L2_3 then
+      inner2 = IsPedRagdoll
+      inner3 = cache
+      inner3 = inner3.ped
+      inner2 = inner2(inner3)
+      if not inner2 then
+        inner2 = IsPedFalling
+        inner3 = cache
+        inner3 = inner3.ped
+        inner2 = inner2(inner3)
+        if not inner2 then
+          inner2 = IsPedVaulting
+          inner3 = cache
+          inner3 = inner3.ped
+          inner2 = inner2(inner3)
+          if not inner2 then
+            inner2 = IsPedInMeleeCombat
+            inner3 = cache
+            inner3 = inner3.ped
+            inner2 = inner2(inner3)
+            if not inner2 then
+              inner2 = IsPedClimbing
+              inner3 = cache
+              inner3 = inner3.ped
+              inner2 = inner2(inner3)
+              if not inner2 then
+                inner2 = IsPedInCover
+                inner3 = cache
+                inner3 = inner3.ped
+                inner2 = inner2(inner3)
+                if not inner2 then
+                  inner2 = IsPedReloading
+                  inner3 = cache
+                  inner3 = inner3.ped
+                  inner2 = inner2(inner3)
+                  if not inner2 then
+                    inner2 = IsPedGettingIntoAVehicle
+                    inner3 = cache
+                    inner3 = inner3.ped
+                    inner2 = inner2(inner3)
+                    if not inner2 then
+                      inner2 = IsPedDiving
+                      inner3 = cache
+                      inner3 = inner3.ped
+                      inner2 = inner2(inner3)
+                      if not inner2 then
+                        inner2 = IsPedBeingStunned
+                        inner3 = cache
+                        inner3 = inner3.ped
+                        inner2 = inner2(inner3)
+                        if not inner2 then
                           break
                         end
                       end
@@ -108,42 +108,42 @@
           end
         end
       end
-      L2_3 = Wait
-      L3_3 = 100
-      L2_3(L3_3)
+      inner2 = Wait
+      inner3 = 100
+      inner2(inner3)
     end
-    L2_3 = ClearPedTasks
-    L3_3 = cache
-    L3_3 = L3_3.ped
-    L2_3(L3_3)
-    if L0_3 then
-      L2_3 = L0_3
-      if L2_3 then
-        L2_3 = L2_3.scenario
+    inner2 = ClearPedTasks
+    inner3 = cache
+    inner3 = inner3.ped
+    inner2(inner3)
+    if inner0 then
+      inner2 = inner0
+      if inner2 then
+        inner2 = inner2.scenario
       end
-      if L2_3 then
+      if inner2 then
         while true do
-          L2_3 = Utils
-          L2_3 = L2_3.isPlayingAnim
-          L3_3 = L0_3
-          L2_3 = L2_3(L3_3)
-          if not L2_3 then
-            L2_3 = GetEntityCoords
-            L3_3 = cache
-            L3_3 = L3_3.ped
-            L2_3 = L2_3(L3_3)
-            L3_3 = ClearAreaOfObjects
-            L4_3 = L2_3.x
-            L5_3 = L2_3.y
-            L6_3 = L2_3.z
-            L7_3 = 2.0
-            L8_3 = 0
-            L3_3(L4_3, L5_3, L6_3, L7_3, L8_3)
+          inner2 = Utils
+          inner2 = inner2.isPlayingAnim
+          inner3 = inner0
+          inner2 = inner2(inner3)
+          if not inner2 then
+            inner2 = GetEntityCoords
+            inner3 = cache
+            inner3 = inner3.ped
+            inner2 = inner2(inner3)
+            inner3 = ClearAreaOfObjects
+            inner4 = inner2.x
+            inner5 = inner2.y
+            inner6 = inner2.z
+            inner7 = 2.0
+            inner8 = 0
+            inner3(inner4, inner5, inner6, inner7, inner8)
             break
           end
-          L2_3 = Wait
-          L3_3 = 100
-          L2_3(L3_3)
+          inner2 = Wait
+          inner3 = 100
+          inner2(inner3)
         end
       end
     end
@@ -157,19 +157,19 @@ end
 
 -- ─── FUNCTION ─────────────
 function config()
-  local L0_2, temp1
-  L0_2 = TriggerServerEvent
+  local var0, temp1
+  var0 = TriggerServerEvent
   temp1 = "lunar_unijob:stopCollecting"
-  L0_2(temp1)
-  L0_2 = false
-  isActive = L0_2
-  L0_2 = LR
-  L0_2 = L0_2.progressActive
-  L0_2 = L0_2()
-  if L0_2 then
-    L0_2 = LR
-    L0_2 = L0_2.cancelProgress
-    L0_2()
+  var0(temp1)
+  var0 = false
+  isActive = var0
+  var0 = LR
+  var0 = var0.progressActive
+  var0 = var0()
+  if var0 then
+    var0 = LR
+    var0 = var0.cancelProgress
+    var0()
   end
 end
 
@@ -213,7 +213,7 @@ item = {}
 
 -- ─── FUNCTION ─────────────
 function player(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18, var19
   temp1 = param1.collecting
   if not temp1 then
     return
@@ -226,80 +226,80 @@ function player(param1)
     temp8 = temp6.locations
     temp7, temp8, temp9, temp10 = temp7(temp8)
     for temp11, temp12 in temp7, temp8, temp9, temp10 do
-      L13_2 = Utils
-      L13_2 = L13_2.createInteractionPoint
-      L14_2 = {}
-      L14_2.coords = temp12
-      L15_2 = temp6.radius
-      if not L15_2 then
-        L15_2 = Config
-        L15_2 = L15_2.defaultRadius
+      var13 = Utils
+      var13 = var13.createInteractionPoint
+      var14 = {}
+      var14.coords = temp12
+      var15 = temp6.radius
+      if not var15 then
+        var15 = Config
+        var15 = var15.defaultRadius
       end
-      L14_2.radius = L15_2
-      L15_2 = {}
-      L16_2 = {}
-      L17_2 = temp6.label
-      if not L17_2 then
-        L17_2 = locale
-        L18_2 = "start_collecting"
-        L17_2 = L17_2(L18_2)
+      var14.radius = var15
+      var15 = {}
+      var16 = {}
+      var17 = temp6.label
+      if not var17 then
+        var17 = locale
+        var18 = "start_collecting"
+        var17 = var17(var18)
       end
-      L16_2.label = L17_2
-      L17_2 = temp6.icon
-      if not L17_2 then
-        L17_2 = "hand"
+      var16.label = var17
+      var17 = temp6.icon
+      if not var17 then
+        var17 = "hand"
       end
-      L16_2.icon = L17_2
-      L17_2 = {}
-      L17_2.data = temp6
-      L17_2.index = temp5
-      L17_2.locationIndex = temp11
-      L16_2.args = L17_2
+      var16.icon = var17
+      var17 = {}
+      var17.data = temp6
+      var17.index = temp5
+      var17.locationIndex = temp11
+      var16.args = var17
 
 -- Local function handler
 
 -- Local function handler
-      function L17_2()
-        local L0_3, L1_3
-        L0_3 = isActive
-        L0_3 = IsPedInMeleeCombat
-        L1_3 = cache
-        L1_3 = L1_3.ped
-        L0_3 = L0_3(L1_3)
-        L0_3 = not L0_3 and L0_3
-        return L0_3
+      function var17()
+        local inner0, inner1
+        inner0 = isActive
+        inner0 = IsPedInMeleeCombat
+        inner1 = cache
+        inner1 = inner1.ped
+        inner0 = inner0(inner1)
+        inner0 = not inner0 and inner0
+        return inner0
       end
-      L16_2.canInteract = L17_2
-      L17_2 = data
-      L16_2.onSelect = L17_2
-      L17_2 = {}
-      L18_2 = locale
-      L19_2 = "cancel"
-      L18_2 = L18_2(L19_2)
-      L17_2.label = L18_2
-      L17_2.icon = "circle-xmark"
+      var16.canInteract = var17
+      var17 = data
+      var16.onSelect = var17
+      var17 = {}
+      var18 = locale
+      var19 = "cancel"
+      var18 = var18(var19)
+      var17.label = var18
+      var17.icon = "circle-xmark"
 
 -- Local function handler
 
 -- Local function handler
-      function L18_2()
-        local L0_3, L1_3
-        L0_3 = isActive
-        return L0_3
+      function var18()
+        local inner0, inner1
+        inner0 = isActive
+        return inner0
       end
-      L17_2.canInteract = L18_2
-      L18_2 = config
-      L17_2.onSelect = L18_2
-      L15_2[1] = L16_2
-      L15_2[2] = L17_2
-      L14_2.options = L15_2
-      L15_2 = temp6.target
-      L13_2 = L13_2(L14_2, L15_2)
-      L14_2 = table
-      L14_2 = L14_2.insert
-      L15_2 = item
-      L16_2 = L13_2
-      L14_2(L15_2, L16_2)
+      var17.canInteract = var18
+      var18 = config
+      var17.onSelect = var18
+      var15[1] = var16
+      var15[2] = var17
+      var14.options = var15
+      var15 = temp6.target
+      var13 = var13(var14, var15)
+      var14 = table
+      var14 = var14.insert
+      var15 = item
+      var16 = var13
+      var14(var15, var16)
     end
   end
 end
@@ -310,18 +310,18 @@ end
 
 -- ─── FUNCTION ─────────────
 function result()
-  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6
-  L0_2 = ipairs
+  local var0, temp1, temp2, temp3, temp4, temp5, temp6
+  var0 = ipairs
   temp1 = item
-  L0_2, temp1, temp2, temp3 = L0_2(temp1)
-  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+  var0, temp1, temp2, temp3 = var0(temp1)
+  for temp4, temp5 in var0, temp1, temp2, temp3 do
     temp6 = temp5.remove
     temp6()
   end
-  L0_2 = table
-  L0_2 = L0_2.wipe
+  var0 = table
+  var0 = var0.wipe
   temp1 = item
-  L0_2(temp1)
+  var0(temp1)
 end
 callback = {}
 callback.create = player

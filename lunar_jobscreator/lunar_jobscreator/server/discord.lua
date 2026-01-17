@@ -52,15 +52,15 @@ function player(param1)
 
 -- Local function handler
     function temp6(A0_3, A1_3, A2_3)
-      local L3_3, L4_3, L5_3
-      L3_3 = temp3
-      L4_3 = L3_3
-      L3_3 = L3_3.resolve
-      L5_3 = {}
-      L5_3.data = A1_3
-      L5_3.code = A0_3
-      L5_3.headers = A2_3
-      L3_3(L4_3, L5_3)
+      local inner3, inner4, inner5
+      inner3 = temp3
+      inner4 = inner3
+      inner3 = inner3.resolve
+      inner5 = {}
+      inner5.data = A1_3
+      inner5.code = A0_3
+      inner5.headers = A2_3
+      inner3(inner4, inner5)
     end
     temp7 = "GET"
     temp8 = ""

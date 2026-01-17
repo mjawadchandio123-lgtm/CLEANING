@@ -47,15 +47,15 @@ config = "lunar_unijob:exitTeleport"
 
 -- ─── FUNCTION ─────────────
 function item()
-  local L0_2, temp1, temp2, temp3
-  L0_2 = source
+  local var0, temp1, temp2, temp3
+  var0 = source
   temp1 = isActive
-  temp1 = temp1[L0_2]
+  temp1 = temp1[var0]
   if temp1 then
     temp1 = isActive
-    temp1[L0_2] = nil
+    temp1[var0] = nil
     temp1 = SetPlayerRoutingBucket
-    temp2 = L0_2
+    temp2 = var0
     temp3 = 0
     temp1(temp2, temp3)
   end

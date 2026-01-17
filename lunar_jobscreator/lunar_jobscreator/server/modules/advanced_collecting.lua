@@ -123,70 +123,70 @@ function callback(param1, param2, param3)
 
 -- Local function handler
   function temp8()
-    local L0_3, L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3
-    L1_3 = param2
-    L0_3 = data
-    L0_3 = L0_3[L1_3]
-    L0_3 = L0_3.spawned
-    L1_3 = param3
-    L0_3 = L0_3[L1_3]
-    if L0_3 then
-      L0_3 = item
-      L1_3 = temp4
-      L2_3 = temp3.data
-      L2_3 = L2_3.items
-      L0_3 = L0_3(L1_3, L2_3)
-      if L0_3 then
+    local inner0, inner1, inner2, inner3, inner4, inner5, inner6, inner7, inner8, inner9
+    inner1 = param2
+    inner0 = data
+    inner0 = inner0[inner1]
+    inner0 = inner0.spawned
+    inner1 = param3
+    inner0 = inner0[inner1]
+    if inner0 then
+      inner0 = item
+      inner1 = temp4
+      inner2 = temp3.data
+      inner2 = inner2.items
+      inner0 = inner0(inner1, inner2)
+      if inner0 then
         goto lbl_17
       end
     end
     do return end
     ::lbl_17::
-    L1_3 = param2
-    L0_3 = data
-    L0_3 = L0_3[L1_3]
-    L0_3 = L0_3.spawned
-    L1_3 = param3
-    L0_3[L1_3] = nil
-    L0_3 = 1
-    L1_3 = temp3.data
-    L1_3 = L1_3.items
-    L1_3 = #L1_3
-    L2_3 = 1
-    for L3_3 = L0_3, L1_3, L2_3 do
-      L4_3 = temp3.data
-      L4_3 = L4_3.items
-      L4_3 = L4_3[L3_3]
-      L5_3 = type
-      L6_3 = L4_3.count
-      L5_3 = L5_3(L6_3)
-      if "number" == L5_3 then
-        L5_3 = L4_3.count
-        if L5_3 then
+    inner1 = param2
+    inner0 = data
+    inner0 = inner0[inner1]
+    inner0 = inner0.spawned
+    inner1 = param3
+    inner0[inner1] = nil
+    inner0 = 1
+    inner1 = temp3.data
+    inner1 = inner1.items
+    inner1 = #inner1
+    inner2 = 1
+    for inner3 = inner0, inner1, inner2 do
+      inner4 = temp3.data
+      inner4 = inner4.items
+      inner4 = inner4[inner3]
+      inner5 = type
+      inner6 = inner4.count
+      inner5 = inner5(inner6)
+      if "number" == inner5 then
+        inner5 = inner4.count
+        if inner5 then
           goto lbl_47
         end
       end
-      L5_3 = math
-      L5_3 = L5_3.random
-      L6_3 = L4_3.count
-      L6_3 = L6_3.min
-      L7_3 = L4_3.count
-      L7_3 = L7_3.max
-      L5_3 = L5_3(L6_3, L7_3)
+      inner5 = math
+      inner5 = inner5.random
+      inner6 = inner4.count
+      inner6 = inner6.min
+      inner7 = inner4.count
+      inner7 = inner7.max
+      inner5 = inner5(inner6, inner7)
       ::lbl_47::
-      L6_3 = temp4
-      L7_3 = L6_3
-      L6_3 = L6_3.addItem
-      L8_3 = L4_3.name
-      L9_3 = L5_3
-      L6_3(L7_3, L8_3, L9_3)
+      inner6 = temp4
+      inner7 = inner6
+      inner6 = inner6.addItem
+      inner8 = inner4.name
+      inner9 = inner5
+      inner6(inner7, inner8, inner9)
     end
-    L0_3 = TriggerClientEvent
-    L1_3 = "lunar_unijob:removeCollectable"
-    L2_3 = -1
-    L3_3 = param2
-    L4_3 = param3
-    L0_3(L1_3, L2_3, L3_3, L4_3)
+    inner0 = TriggerClientEvent
+    inner1 = "lunar_unijob:removeCollectable"
+    inner2 = -1
+    inner3 = param2
+    inner4 = param3
+    inner0(inner1, inner2, inner3, inner4)
   end
   temp6(temp7, temp8)
   temp6 = true
@@ -200,7 +200,7 @@ player(result, callback)
 
 -- ─── FUNCTION ─────────────
 function player(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18
   temp1 = {}
   temp2 = pairs
   temp3 = data
@@ -240,116 +240,116 @@ function player(param1)
     temp8 = ipairs
     temp9 = temp7.locations
     temp8, temp9, temp10, temp11 = temp8(temp9)
-    for temp12, L13_2 in temp8, temp9, temp10, temp11 do
-      L14_2 = "%s_%s_%s"
-      L15_2 = L14_2
-      L14_2 = L14_2.format
-      L16_2 = param1.name
-      L17_2 = temp6
-      L18_2 = temp12
-      L14_2 = L14_2(L15_2, L16_2, L17_2, L18_2)
-      L15_2 = data
-      L16_2 = {}
-      L17_2 = {}
-      L16_2.spawned = L17_2
-      L16_2.data = temp7
-      L16_2.index = temp6
-      L16_2.locationIndex = temp12
-      L16_2.job = param1
-      L15_2[L14_2] = L16_2
-      L15_2 = data
-      L15_2 = L15_2[L14_2]
-      L16_2 = SetInterval
+    for temp12, var13 in temp8, temp9, temp10, temp11 do
+      var14 = "%s_%s_%s"
+      var15 = var14
+      var14 = var14.format
+      var16 = param1.name
+      var17 = temp6
+      var18 = temp12
+      var14 = var14(var15, var16, var17, var18)
+      var15 = data
+      var16 = {}
+      var17 = {}
+      var16.spawned = var17
+      var16.data = temp7
+      var16.index = temp6
+      var16.locationIndex = temp12
+      var16.job = param1
+      var15[var14] = var16
+      var15 = data
+      var15 = var15[var14]
+      var16 = SetInterval
 
 -- Local function handler
 
 -- Local function handler
-      function L17_2()
-        local L0_3, L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3, L12_3, L13_3
-        L1_3 = L14_2
-        L0_3 = data
-        L0_3 = L0_3[L1_3]
-        L0_3 = L0_3.spawned
-        L1_3 = L13_2.maxSpawned
-        if L1_3 then
-          L1_3 = Utils
-          L1_3 = L1_3.getTableSize
-          L2_3 = L0_3
-          L1_3 = L1_3(L2_3)
-          L2_3 = L13_2.maxSpawned
-          if L1_3 == L2_3 then
+      function var17()
+        local inner0, inner1, inner2, inner3, inner4, inner5, inner6, inner7, inner8, inner9, inner10, inner11, inner12, L13_3
+        inner1 = var14
+        inner0 = data
+        inner0 = inner0[inner1]
+        inner0 = inner0.spawned
+        inner1 = var13.maxSpawned
+        if inner1 then
+          inner1 = Utils
+          inner1 = inner1.getTableSize
+          inner2 = inner0
+          inner1 = inner1(inner2)
+          inner2 = var13.maxSpawned
+          if inner1 == inner2 then
             goto lbl_18
           end
         end
-        L1_3 = L13_2.coords
+        inner1 = var13.coords
         ::lbl_18::
-        if not L1_3 then
+        if not inner1 then
           return
         end
-        L1_3 = nil
-        L2_3 = false
-        L3_3 = 0
-        L4_3 = 20
-        while not L2_3 and L3_3 < L4_3 do
-          L3_3 = L3_3 + 1
-          L5_3 = L13_2.radius
-          L6_3 = vector3
-          L7_3 = L13_2.coords
-          L7_3 = L7_3.x
-          L8_3 = math
-          L8_3 = L8_3.random
-          L8_3 = L8_3()
-          L9_3 = L5_3 * 2
-          L8_3 = L8_3 * L9_3
-          L8_3 = L8_3 - L5_3
-          L7_3 = L7_3 + L8_3
-          L8_3 = L13_2.coords
-          L8_3 = L8_3.y
-          L9_3 = math
-          L9_3 = L9_3.random
-          L9_3 = L9_3()
-          L10_3 = L5_3 * 2
-          L9_3 = L9_3 * L10_3
-          L9_3 = L9_3 - L5_3
-          L8_3 = L8_3 + L9_3
-          L9_3 = L13_2.coords
-          L9_3 = L9_3.z
-          L6_3 = L6_3(L7_3, L8_3, L9_3)
-          L1_3 = L6_3
-          L2_3 = true
-          L6_3 = pairs
-          L7_3 = L0_3
-          L6_3, L7_3, L8_3, L9_3 = L6_3(L7_3)
-          for L10_3, L11_3 in L6_3, L7_3, L8_3, L9_3 do
-            L12_3 = L1_3.xy
-            L13_3 = L11_3.xy
-            L12_3 = L12_3 - L13_3
-            L12_3 = #L12_3
-            if L12_3 < 1.0 then
-              L2_3 = false
+        inner1 = nil
+        inner2 = false
+        inner3 = 0
+        inner4 = 20
+        while not inner2 and inner3 < inner4 do
+          inner3 = inner3 + 1
+          inner5 = var13.radius
+          inner6 = vector3
+          inner7 = var13.coords
+          inner7 = inner7.x
+          inner8 = math
+          inner8 = inner8.random
+          inner8 = inner8()
+          inner9 = inner5 * 2
+          inner8 = inner8 * inner9
+          inner8 = inner8 - inner5
+          inner7 = inner7 + inner8
+          inner8 = var13.coords
+          inner8 = inner8.y
+          inner9 = math
+          inner9 = inner9.random
+          inner9 = inner9()
+          inner10 = inner5 * 2
+          inner9 = inner9 * inner10
+          inner9 = inner9 - inner5
+          inner8 = inner8 + inner9
+          inner9 = var13.coords
+          inner9 = inner9.z
+          inner6 = inner6(inner7, inner8, inner9)
+          inner1 = inner6
+          inner2 = true
+          inner6 = pairs
+          inner7 = inner0
+          inner6, inner7, inner8, inner9 = inner6(inner7)
+          for inner10, inner11 in inner6, inner7, inner8, inner9 do
+            inner12 = inner1.xy
+            L13_3 = inner11.xy
+            inner12 = inner12 - L13_3
+            inner12 = #inner12
+            if inner12 < 1.0 then
+              inner2 = false
               break
             end
           end
         end
-        if not L2_3 then
+        if not inner2 then
           return
         end
-        L5_3 = #L0_3
-        L5_3 = L5_3 + 1
-        L6_3 = TriggerClientEvent
-        L7_3 = "lunar_unijob:spawnCollectable"
-        L8_3 = -1
-        L9_3 = param1.name
-        L10_3 = temp6
-        L11_3 = temp12
-        L12_3 = L1_3
-        L13_3 = L5_3
-        L6_3(L7_3, L8_3, L9_3, L10_3, L11_3, L12_3, L13_3)
-        L0_3[L5_3] = L1_3
+        inner5 = #inner0
+        inner5 = inner5 + 1
+        inner6 = TriggerClientEvent
+        inner7 = "lunar_unijob:spawnCollectable"
+        inner8 = -1
+        inner9 = param1.name
+        inner10 = temp6
+        inner11 = temp12
+        inner12 = inner1
+        L13_3 = inner5
+        inner6(inner7, inner8, inner9, inner10, inner11, inner12, L13_3)
+        inner0[inner5] = inner1
       end
-      L18_2 = L13_2.interval
-      L16_2 = L16_2(L17_2, L18_2)
-      L15_2.interval = L16_2
+      var18 = var13.interval
+      var16 = var16(var17, var18)
+      var15.interval = var16
     end
   end
 end

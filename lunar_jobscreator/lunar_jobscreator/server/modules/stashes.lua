@@ -8,7 +8,7 @@
 -- ════════════════════════════════════════════════════════════
 
 function item(param1)
-  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, var13, var14, var15, var16, var17, var18
   temp1 = param1.stashes
   if not temp1 then
     return
@@ -21,29 +21,29 @@ function item(param1)
     temp8 = temp6.locations
     temp7, temp8, temp9, temp10 = temp7(temp8)
     for temp11, temp12 in temp7, temp8, temp9, temp10 do
-      L13_2 = temp6.name
-      if not L13_2 then
-        L13_2 = "%s_stash_%s_%s"
-        L14_2 = L13_2
-        L13_2 = L13_2.format
-        L15_2 = param1.name
-        L16_2 = temp5
-        L17_2 = temp11
-        L13_2 = L13_2(L14_2, L15_2, L16_2, L17_2)
+      var13 = temp6.name
+      if not var13 then
+        var13 = "%s_stash_%s_%s"
+        var14 = var13
+        var13 = var13.format
+        var15 = param1.name
+        var16 = temp5
+        var17 = temp11
+        var13 = var13(var14, var15, var16, var17)
       end
-      L14_2 = Editable
-      L14_2 = L14_2.registerStash
-      L15_2 = param1
-      L16_2 = L13_2
-      L17_2 = temp6
-      L18_2 = temp12
-      L14_2(L15_2, L16_2, L17_2, L18_2)
-      L14_2 = config
-      L15_2 = {}
-      L16_2 = param1.name
-      L15_2.name = L16_2
-      L15_2.stash = temp6
-      L14_2[L13_2] = L15_2
+      var14 = Editable
+      var14 = var14.registerStash
+      var15 = param1
+      var16 = var13
+      var17 = temp6
+      var18 = temp12
+      var14(var15, var16, var17, var18)
+      var14 = config
+      var15 = {}
+      var16 = param1.name
+      var15.name = var16
+      var15.stash = temp6
+      var14[var13] = var15
     end
   end
 end
