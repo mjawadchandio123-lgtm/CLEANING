@@ -1,423 +1,443 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- ui.lua
--- Client UI system and notifications
+-- UI/HUD system - display overlays
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1
-L0_1 = {}
-UI = L0_1
-L0_1 = UI
-
--- Local function handler
-
--- Local function handler
-function L1_1(A0_2, A1_2)
-  local L2_2, L3_2
-  L2_2 = SendNUIMessage
-  L3_2 = {}
-  L3_2.action = A0_2
-  L3_2.data = A1_2
-  L2_2(L3_2)
+function data(param1)
+  local temp1, temp2, temp3
+  temp1 = UI
+  temp1 = temp1.sendMessage
+  temp2 = "updateJob"
+  temp3 = param1
+  temp1(temp2, temp3)
 end
-L0_1.sendMessage = L1_1
-L0_1 = UI
+isActive.updateJob = data
+isActive = UI
 
 -- Local function handler
 
 -- Local function handler
-function L1_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L1_2 = UI
-  L1_2 = L1_2.sendMessage
-  L2_2 = "updateJob"
-  L3_2 = A0_2
-  L1_2(L2_2, L3_2)
+
+-- ─── FUNCTION ─────────────
+function data(param1)
+  local temp1, temp2, temp3
+  temp1 = UI
+  temp1 = temp1.sendMessage
+  temp2 = "removeJob"
+  temp3 = param1
+  temp1(temp2, temp3)
 end
-L0_1.updateJob = L1_1
-L0_1 = UI
+isActive.removeJob = data
+isActive = UI
 
 -- Local function handler
 
 -- Local function handler
-function L1_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L1_2 = UI
-  L1_2 = L1_2.sendMessage
-  L2_2 = "removeJob"
-  L3_2 = A0_2
-  L1_2(L2_2, L3_2)
-end
-L0_1.removeJob = L1_1
-L0_1 = UI
 
--- Local function handler
-
--- Local function handler
-function L1_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
-  L1_2 = {}
-  L2_2 = pairs
-  L3_2 = A0_2
-  L2_2, L3_2, L4_2, L5_2 = L2_2(L3_2)
-  for L6_2, L7_2 in L2_2, L3_2, L4_2, L5_2 do
-    L8_2 = #L1_2
-    L8_2 = L8_2 + 1
-    L1_2[L8_2] = L7_2
+-- ─── FUNCTION ─────────────
+function data(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
+  temp1 = {}
+  temp2 = pairs
+  temp3 = param1
+  temp2, temp3, temp4, temp5 = temp2(temp3)
+  for temp6, temp7 in temp2, temp3, temp4, temp5 do
+    temp8 = #temp1
+    temp8 = temp8 + 1
+    temp1[temp8] = temp7
   end
-  L2_2 = UI
-  L2_2 = L2_2.sendMessage
-  L3_2 = "updateJobs"
-  L4_2 = L1_2
-  L2_2(L3_2, L4_2)
+  temp2 = UI
+  temp2 = temp2.sendMessage
+  temp3 = "updateJobs"
+  temp4 = temp1
+  temp2(temp3, temp4)
 end
-L0_1.updateJobs = L1_1
-L0_1 = RegisterNUICallback
-L1_1 = "getJobs"
+isActive.updateJobs = data
+isActive = RegisterNUICallback
+data = "getJobs"
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
-  L2_2 = GetJobs
-  L2_2 = L2_2()
-  L3_2 = {}
-  L4_2 = pairs
-  L5_2 = L2_2
-  L4_2, L5_2, L6_2, L7_2 = L4_2(L5_2)
-  for L8_2, L9_2 in L4_2, L5_2, L6_2, L7_2 do
-    L10_2 = #L3_2
-    L10_2 = L10_2 + 1
-    L3_2[L10_2] = L9_2
+
+-- ─── FUNCTION ─────────────
+function config(param1, param2)
+  local temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
+  temp2 = GetJobs
+  temp2 = temp2()
+  temp3 = {}
+  temp4 = pairs
+  temp5 = temp2
+  temp4, temp5, temp6, temp7 = temp4(temp5)
+  for temp8, temp9 in temp4, temp5, temp6, temp7 do
+    temp10 = #temp3
+    temp10 = temp10 + 1
+    temp3[temp10] = temp9
   end
-  L4_2 = A1_2
-  L5_2 = L3_2
-  L4_2(L5_2)
+  temp4 = param2
+  temp5 = temp3
+  temp4(temp5)
 end
-L0_1(L1_1, L2_1)
-L0_1 = RegisterNUICallback
-L1_1 = "createJob"
+isActive(data, config)
+isActive = RegisterNUICallback
+data = "createJob"
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = TriggerServerEvent
-  L3_2 = "lunar_unijob:createJob"
-  L4_2 = A0_2
-  L2_2(L3_2, L4_2)
-  L2_2 = A1_2
-  L3_2 = {}
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function config(param1, param2)
+  local temp2, temp3, temp4
+  temp2 = TriggerServerEvent
+  temp3 = "lunar_unijob:createJob"
+  temp4 = param1
+  temp2(temp3, temp4)
+  temp2 = param2
+  temp3 = {}
+  temp2(temp3)
 end
-L0_1(L1_1, L2_1)
-L0_1 = RegisterNUICallback
-L1_1 = "updateJobField"
+isActive(data, config)
+isActive = RegisterNUICallback
+data = "updateJobField"
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
-  L5_2 = A0_2
-  L2_2 = L5_2.name
-  L3_2 = L5_2.field
-  L4_2 = L5_2.data
-  L5_2 = TriggerServerEvent
-  L6_2 = "lunar_unijob:updateJobField"
-  L7_2 = L2_2
-  L8_2 = L3_2
-  L9_2 = L4_2
-  L5_2(L6_2, L7_2, L8_2, L9_2)
-  L5_2 = A1_2
-  L6_2 = {}
-  L5_2(L6_2)
+
+-- ─── FUNCTION ─────────────
+function config(param1, param2)
+  local temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9
+  temp5 = param1
+  temp2 = temp5.name
+  temp3 = temp5.field
+  temp4 = temp5.data
+  temp5 = TriggerServerEvent
+  temp6 = "lunar_unijob:updateJobField"
+  temp7 = temp2
+  temp8 = temp3
+  temp9 = temp4
+  temp5(temp6, temp7, temp8, temp9)
+  temp5 = param2
+  temp6 = {}
+  temp5(temp6)
 end
-L0_1(L1_1, L2_1)
-L0_1 = RegisterNUICallback
-L1_1 = "updateJob"
+isActive(data, config)
+isActive = RegisterNUICallback
+data = "updateJob"
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = TriggerServerEvent
-  L3_2 = "lunar_unijob:updateJob"
-  L4_2 = A0_2
-  L2_2(L3_2, L4_2)
-  L2_2 = A1_2
-  L3_2 = {}
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function config(param1, param2)
+  local temp2, temp3, temp4
+  temp2 = TriggerServerEvent
+  temp3 = "lunar_unijob:updateJob"
+  temp4 = param1
+  temp2(temp3, temp4)
+  temp2 = param2
+  temp3 = {}
+  temp2(temp3)
 end
-L0_1(L1_1, L2_1)
-L0_1 = RegisterNUICallback
-L1_1 = "removeJob"
+isActive(data, config)
+isActive = RegisterNUICallback
+data = "removeJob"
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = TriggerServerEvent
-  L3_2 = "lunar_unijob:removeJob"
-  L4_2 = A0_2
-  L2_2(L3_2, L4_2)
-  L2_2 = A1_2
-  L3_2 = {}
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function config(param1, param2)
+  local temp2, temp3, temp4
+  temp2 = TriggerServerEvent
+  temp3 = "lunar_unijob:removeJob"
+  temp4 = param1
+  temp2(temp3, temp4)
+  temp2 = param2
+  temp3 = {}
+  temp2(temp3)
 end
-L0_1(L1_1, L2_1)
-L0_1 = RegisterNUICallback
-L1_1 = "hideFrame"
+isActive(data, config)
+isActive = RegisterNUICallback
+data = "hideFrame"
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = SetNuiFocus
-  L3_2 = false
-  L4_2 = false
-  L2_2(L3_2, L4_2)
-  L2_2 = A1_2
-  L3_2 = {}
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function config(param1, param2)
+  local temp2, temp3, temp4
+  temp2 = SetNuiFocus
+  temp3 = false
+  temp4 = false
+  temp2(temp3, temp4)
+  temp2 = param2
+  temp3 = {}
+  temp2(temp3)
 end
-L0_1(L1_1, L2_1)
-L0_1 = RegisterNUICallback
-L1_1 = "updateWebhookData"
+isActive(data, config)
+isActive = RegisterNUICallback
+data = "updateWebhookData"
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = TriggerServerEvent
-  L3_2 = "lunar_unijob:updateWebhookData"
-  L4_2 = A0_2
-  L2_2(L3_2, L4_2)
-  L2_2 = A1_2
-  L3_2 = {}
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function config(param1, param2)
+  local temp2, temp3, temp4
+  temp2 = TriggerServerEvent
+  temp3 = "lunar_unijob:updateWebhookData"
+  temp4 = param1
+  temp2(temp3, temp4)
+  temp2 = param2
+  temp3 = {}
+  temp2(temp3)
 end
-L0_1(L1_1, L2_1)
-L0_1 = RegisterNUICallback
-L1_1 = "updateJobWebhook"
+isActive(data, config)
+isActive = RegisterNUICallback
+data = "updateJobWebhook"
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2
-  L2_2 = TriggerServerEvent
-  L3_2 = "lunar_unijob:updateJobWebhook"
-  L4_2 = A0_2.name
-  L5_2 = A0_2.url
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = A1_2
-  L3_2 = {}
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function config(param1, param2)
+  local temp2, temp3, temp4, temp5
+  temp2 = TriggerServerEvent
+  temp3 = "lunar_unijob:updateJobWebhook"
+  temp4 = param1.name
+  temp5 = param1.url
+  temp2(temp3, temp4, temp5)
+  temp2 = param2
+  temp3 = {}
+  temp2(temp3)
 end
-L0_1(L1_1, L2_1)
-L0_1 = nil
-L1_1 = lib
-L1_1 = L1_1.callback
-L2_1 = "lunar_unijob:getHistory"
-L3_1 = false
+isActive(data, config)
+isActive = nil
+data = lib
+data = data.callback
+config = "lunar_unijob:getHistory"
+item = false
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2
-  L0_1 = A0_2
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1
+  isActive = param1
 end
-L1_1(L2_1, L3_1, L4_1)
+data(config, item, player)
 
 -- Event handler registration
 
 -- Event handler registration
-L1_1 = RegisterNetEvent
-L2_1 = "lunar_unijob:updateHistory"
+data = RegisterNetEvent
+config = "lunar_unijob:updateHistory"
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L0_1 = A0_2
-  L1_2 = UI
-  L1_2 = L1_2.sendMessage
-  L2_2 = "updateHistory"
-  L3_2 = A0_2
-  L1_2(L2_2, L3_2)
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3
+  isActive = param1
+  temp1 = UI
+  temp1 = temp1.sendMessage
+  temp2 = "updateHistory"
+  temp3 = param1
+  temp1(temp2, temp3)
 end
-L1_1(L2_1, L3_1)
-L1_1 = RegisterNUICallback
-L2_1 = "getHistory"
+data(config, item)
+data = RegisterNUICallback
+config = "getHistory"
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2, A1_2)
-  local L2_2, L3_2
+
+-- ─── FUNCTION ─────────────
+function item(param1, param2)
+  local temp2, temp3
   while true do
-    L2_2 = L0_1
-    if L2_2 then
+    temp2 = isActive
+    if temp2 then
       break
     end
-    L2_2 = Wait
-    L3_2 = 0
-    L2_2(L3_2)
+    temp2 = Wait
+    temp3 = 0
+    temp2(temp3)
   end
-  L2_2 = A1_2
-  L3_2 = L0_1
-  L2_2(L3_2)
+  temp2 = param2
+  temp3 = isActive
+  temp2(temp3)
 end
-L1_1(L2_1, L3_1)
-L1_1 = nil
-L2_1 = lib
-L2_1 = L2_1.callback
-L3_1 = "lunar_unijob:getStats"
-L4_1 = false
+data(config, item)
+data = nil
+config = lib
+config = config.callback
+item = "lunar_unijob:getStats"
+player = false
 
 -- Local function handler
 
 -- Local function handler
-function L5_1(A0_2)
-  local L1_2
-  L1_1 = A0_2
+
+-- ─── FUNCTION ─────────────
+function result(param1)
+  local temp1
+  data = param1
 end
-L2_1(L3_1, L4_1, L5_1)
-L2_1 = RegisterNUICallback
-L3_1 = "getStats"
+config(item, player, result)
+config = RegisterNUICallback
+item = "getStats"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2, A1_2)
-  local L2_2, L3_2
+
+-- ─── FUNCTION ─────────────
+function player(param1, param2)
+  local temp2, temp3
   while true do
-    L2_2 = L1_1
-    if L2_2 then
+    temp2 = data
+    if temp2 then
       break
     end
-    L2_2 = Wait
-    L3_2 = 0
-    L2_2(L3_2)
+    temp2 = Wait
+    temp3 = 0
+    temp2(temp3)
   end
-  L2_2 = A1_2
-  L3_2 = L1_1
-  L2_2(L3_2)
+  temp2 = param2
+  temp3 = data
+  temp2(temp3)
 end
-L2_1(L3_1, L4_1)
+config(item, player)
 
 -- Event handler registration
 
 -- Event handler registration
-L2_1 = RegisterNetEvent
-L3_1 = "lunar_unijob:updateStats"
+config = RegisterNetEvent
+item = "lunar_unijob:updateStats"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L1_1 = A0_2
-  L1_2 = UI
-  L1_2 = L1_2.sendMessage
-  L2_2 = "updateStats"
-  L3_2 = A0_2
-  L1_2(L2_2, L3_2)
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2, temp3
+  data = param1
+  temp1 = UI
+  temp1 = temp1.sendMessage
+  temp2 = "updateStats"
+  temp3 = param1
+  temp1(temp2, temp3)
 end
-L2_1(L3_1, L4_1)
-L2_1 = RegisterNUICallback
-L3_1 = "getFramework"
+config(item, player)
+config = RegisterNUICallback
+item = "getFramework"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2, A1_2)
-  local L2_2, L3_2
-  L2_2 = A1_2
-  L3_2 = Framework
-  L3_2 = L3_2.name
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function player(param1, param2)
+  local temp2, temp3
+  temp2 = param2
+  temp3 = Framework
+  temp3 = temp3.name
+  temp2(temp3)
 end
-L2_1(L3_1, L4_1)
-L2_1 = RegisterNUICallback
-L3_1 = "getLanguage"
+config(item, player)
+config = RegisterNUICallback
+item = "getLanguage"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2, A1_2)
-  local L2_2, L3_2
-  L2_2 = A1_2
-  L3_2 = Config
-  L3_2 = L3_2.uiLanguage
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function player(param1, param2)
+  local temp2, temp3
+  temp2 = param2
+  temp3 = Config
+  temp3 = temp3.uiLanguage
+  temp2(temp3)
 end
-L2_1(L3_1, L4_1)
-L2_1 = RegisterNUICallback
-L3_1 = "getProfile"
+config(item, player)
+config = RegisterNUICallback
+item = "getProfile"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2
-  L2_2 = A1_2
-  L3_2 = {}
-  L4_2 = cache
-  L4_2 = L4_2.serverId
-  L3_2.serverId = L4_2
-  L4_2 = GetPlayerName
-  L5_2 = cache
-  L5_2 = L5_2.playerId
-  L4_2 = L4_2(L5_2)
-  L3_2.username = L4_2
-  L3_2.avatarUrl = nil
-  L2_2(L3_2)
+
+-- ─── FUNCTION ─────────────
+function player(param1, param2)
+  local temp2, temp3, temp4, temp5
+  temp2 = param2
+  temp3 = {}
+  temp4 = cache
+  temp4 = temp4.serverId
+  temp3.serverId = temp4
+  temp4 = GetPlayerName
+  temp5 = cache
+  temp5 = temp5.playerId
+  temp4 = temp4(temp5)
+  temp3.username = temp4
+  temp3.avatarUrl = nil
+  temp2(temp3)
 end
-L2_1(L3_1, L4_1)
-L2_1 = false
-L3_1 = RegisterCommand
-L4_1 = Config
-L4_1 = L4_1.command
-if not L4_1 then
-  L4_1 = "jobscreator"
+config(item, player)
+config = false
+item = RegisterCommand
+player = Config
+player = player.command
+if not player then
+  player = "jobscreator"
 end
 
 -- Local function handler
 
 -- Local function handler
-function L5_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2
+
+-- ─── FUNCTION ─────────────
+function result()
+  local L0_2, temp1, temp2, temp3, temp4
   L0_2 = lib
   L0_2 = L0_2.callback
   L0_2 = L0_2.await
-  L1_2 = "lunar_unijob:getWebhookData"
-  L2_2 = false
-  L0_2 = L0_2(L1_2, L2_2)
+  temp1 = "lunar_unijob:getWebhookData"
+  temp2 = false
+  L0_2 = L0_2(temp1, temp2)
   if not L0_2 then
     return
   end
-  L1_2 = L2_1
-  if not L1_2 then
-    L1_2 = lib
-    L1_2 = L1_2.callback
-    L2_2 = "lunar_unijob:getDiscordIcon"
-    L3_2 = false
+  temp1 = config
+  if not temp1 then
+    temp1 = lib
+    temp1 = temp1.callback
+    temp2 = "lunar_unijob:getDiscordIcon"
+    temp3 = false
 
 -- Local function handler
 
 -- Local function handler
-    function L4_2(A0_3)
+    function temp4(A0_3)
       local L1_3, L2_3, L3_3, L4_3, L5_3
       L1_3 = UI
       L1_3 = L1_3.sendMessage
@@ -434,111 +454,115 @@ function L5_1()
       L3_3.avatarUrl = A0_3
       L1_3(L2_3, L3_3)
     end
-    L1_2(L2_2, L3_2, L4_2)
-    L1_2 = true
-    L2_1 = L1_2
+    temp1(temp2, temp3, temp4)
+    temp1 = true
+    config = temp1
   end
-  L1_2 = UI
-  L1_2 = L1_2.sendMessage
-  L2_2 = "updateWebhookData"
-  L3_2 = L0_2
-  L1_2(L2_2, L3_2)
-  L1_2 = UI
-  L1_2 = L1_2.sendMessage
-  L2_2 = "open"
-  L1_2(L2_2)
-  L1_2 = SetNuiFocus
-  L2_2 = true
-  L3_2 = true
-  L1_2(L2_2, L3_2)
+  temp1 = UI
+  temp1 = temp1.sendMessage
+  temp2 = "updateWebhookData"
+  temp3 = L0_2
+  temp1(temp2, temp3)
+  temp1 = UI
+  temp1 = temp1.sendMessage
+  temp2 = "open"
+  temp1(temp2)
+  temp1 = SetNuiFocus
+  temp2 = true
+  temp3 = true
+  temp1(temp2, temp3)
 end
-L3_1(L4_1, L5_1)
-L3_1 = RegisterCommand
-L4_1 = "edit"
+item(player, result)
+item = RegisterCommand
+player = "edit"
 
 -- Local function handler
 
 -- Local function handler
-function L5_1(A0_2, A1_2, A2_2)
-  local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
-  L3_2 = lib
-  L3_2 = L3_2.callback
-  L3_2 = L3_2.await
-  L4_2 = "lunar_unijob:getWebhookData"
-  L5_2 = false
-  L3_2 = L3_2(L4_2, L5_2)
-  if not L3_2 then
+
+-- ─── FUNCTION ─────────────
+function result(param1, param2, param3)
+  local temp3, temp4, temp5, temp6, temp7, temp8
+  temp3 = lib
+  temp3 = temp3.callback
+  temp3 = temp3.await
+  temp4 = "lunar_unijob:getWebhookData"
+  temp5 = false
+  temp3 = temp3(temp4, temp5)
+  if not temp3 then
     return
   end
-  L4_2 = A1_2[1]
-  L5_2 = GetJobs
-  L5_2 = L5_2()
-  L6_2 = L5_2[L4_2]
-  if not L6_2 then
-    L6_2 = LR
-    L6_2 = L6_2.notify
-    L7_2 = locale
-    L8_2 = "invalid_job_name"
-    L7_2 = L7_2(L8_2)
-    L8_2 = "error"
-    L6_2(L7_2, L8_2)
+  temp4 = param2[1]
+  temp5 = GetJobs
+  temp5 = temp5()
+  temp6 = temp5[temp4]
+  if not temp6 then
+    temp6 = LR
+    temp6 = temp6.notify
+    temp7 = locale
+    temp8 = "invalid_job_name"
+    temp7 = temp7(temp8)
+    temp8 = "error"
+    temp6(temp7, temp8)
     return
   end
-  L6_2 = UI
-  L6_2 = L6_2.sendMessage
-  L7_2 = "updateWebhookData"
-  L8_2 = L3_2
-  L6_2(L7_2, L8_2)
-  L6_2 = UI
-  L6_2 = L6_2.sendMessage
-  L7_2 = "openEditJob"
-  L8_2 = L4_2
-  L6_2(L7_2, L8_2)
-  L6_2 = UI
-  L6_2 = L6_2.sendMessage
-  L7_2 = "open"
-  L6_2(L7_2)
-  L6_2 = SetNuiFocus
-  L7_2 = true
-  L8_2 = true
-  L6_2(L7_2, L8_2)
+  temp6 = UI
+  temp6 = temp6.sendMessage
+  temp7 = "updateWebhookData"
+  temp8 = temp3
+  temp6(temp7, temp8)
+  temp6 = UI
+  temp6 = temp6.sendMessage
+  temp7 = "openEditJob"
+  temp8 = temp4
+  temp6(temp7, temp8)
+  temp6 = UI
+  temp6 = temp6.sendMessage
+  temp7 = "open"
+  temp6(temp7)
+  temp6 = SetNuiFocus
+  temp7 = true
+  temp8 = true
+  temp6(temp7, temp8)
 end
-L3_1(L4_1, L5_1)
-L3_1 = RegisterNUICallback
-L4_1 = "teleport"
+item(player, result)
+item = RegisterNUICallback
+player = "teleport"
 
 -- Local function handler
 
 -- Local function handler
-function L5_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
-  L2_2 = A0_2
-  L3_2 = RequestCollisionAtCoord
-  L4_2 = L2_2.x
-  L5_2 = L2_2.y
-  L6_2 = L2_2.z
-  L3_2(L4_2, L5_2, L6_2)
-  L3_2 = Wait
-  L4_2 = 500
-  L3_2(L4_2)
-  L3_2 = SetEntityCoords
-  L4_2 = cache
-  L4_2 = L4_2.ped
-  L5_2 = L2_2.x
-  L6_2 = L2_2.y
-  L7_2 = L2_2.z
-  L7_2 = L7_2 + 1.0
-  L3_2(L4_2, L5_2, L6_2, L7_2)
-  L3_2 = L2_2.w
-  if L3_2 then
-    L3_2 = SetEntityHeading
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = L2_2.w
-    L3_2(L4_2, L5_2)
+
+-- ─── FUNCTION ─────────────
+function result(param1, param2)
+  local temp2, temp3, temp4, temp5, temp6, temp7
+  temp2 = param1
+  temp3 = RequestCollisionAtCoord
+  temp4 = temp2.x
+  temp5 = temp2.y
+  temp6 = temp2.z
+  temp3(temp4, temp5, temp6)
+  temp3 = Wait
+  temp4 = 500
+  temp3(temp4)
+  temp3 = SetEntityCoords
+  temp4 = cache
+  temp4 = temp4.ped
+  temp5 = temp2.x
+  temp6 = temp2.y
+  temp7 = temp2.z
+  temp7 = temp7 + 1.0
+  temp3(temp4, temp5, temp6, temp7)
+  temp3 = temp2.w
+  if temp3 then
+    temp3 = SetEntityHeading
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = temp2.w
+    temp3(temp4, temp5)
   end
-  L3_2 = A1_2
-  L4_2 = {}
-  L3_2(L4_2)
+  temp3 = param2
+  temp4 = {}
+  temp3(temp4)
 end
-L3_1(L4_1, L5_1)
+item(player, result)

@@ -1,242 +1,176 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- teleport.lua
--- Client teleport module
+-- Teleport system - fast travel
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1
-L0_1 = {}
-
--- Local function handler
-
--- Local function handler
-function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
-  if not A1_2 then
-    L2_2 = lib
-    L2_2 = L2_2.requestAnimDict
-    L3_2 = "anim@heists@keycard@"
-    L2_2(L3_2)
-    L2_2 = TaskPlayAnim
-    L3_2 = cache
-    L3_2 = L3_2.ped
-    L4_2 = "anim@heists@keycard@"
-    L5_2 = "exit"
-    L6_2 = 5.0
-    L7_2 = 1.0
-    L8_2 = -1
-    L9_2 = 16
-    L10_2 = 0
-    L11_2 = false
-    L12_2 = false
-    L13_2 = false
-    L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
+function config(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
+  temp3 = param1
+  temp1 = temp3.job
+  temp2 = temp3.index
+  temp3 = temp1.teleports
+  temp3 = temp3[temp2]
+  temp4 = nil
+  temp5 = data
+  temp6 = temp3.to
+  temp6 = temp6.coords
+  temp7 = temp3.disableAnim
+  temp5(temp6, temp7)
+  temp5 = TriggerServerEvent
+  temp6 = "lunar_unijob:teleport"
+  temp7 = temp2
+  temp5(temp6, temp7)
+  temp5 = Utils
+  temp5 = temp5.createInteractionPoint
+  temp6 = {}
+  temp7 = temp3.to
+  temp7 = temp7.target
+  temp6.coords = temp7
+  temp7 = temp3.radius
+  if not temp7 then
+    temp7 = Config
+    temp7 = temp7.defaultRadius
   end
-  L2_2 = DoScreenFadeOut
-  L3_2 = 750
-  L2_2(L3_2)
-  L2_2 = RequestCollisionAtCoord
-  L3_2 = A0_2.x
-  L4_2 = A0_2.y
-  L5_2 = A0_2.z
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = Wait
-  L3_2 = 1000
-  L2_2(L3_2)
-  L2_2 = SetArtificialLightsState
-  L3_2 = false
-  L2_2(L3_2)
-  L2_2 = SetEntityCoords
-  L3_2 = cache
-  L3_2 = L3_2.ped
-  L4_2 = A0_2.x
-  L5_2 = A0_2.y
-  L6_2 = A0_2.z
-  L2_2(L3_2, L4_2, L5_2, L6_2)
-  L2_2 = SetEntityHeading
-  L3_2 = cache
-  L3_2 = L3_2.ped
-  L4_2 = A0_2.w
-  L2_2(L3_2, L4_2)
-  L2_2 = SetGameplayCamRelativeHeading
-  L3_2 = 0.0
-  L2_2(L3_2)
-  L2_2 = PlaceObjectOnGroundProperly
-  L3_2 = cache
-  L3_2 = L3_2.ped
-  L2_2(L3_2)
-  L2_2 = Wait
-  L3_2 = 1750
-  L2_2(L3_2)
-  L2_2 = DoScreenFadeIn
-  L3_2 = 500
-  L2_2(L3_2)
-end
-
--- Local function handler
-
--- Local function handler
-function L2_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
-  L3_2 = A0_2
-  L1_2 = L3_2.job
-  L2_2 = L3_2.index
-  L3_2 = L1_2.teleports
-  L3_2 = L3_2[L2_2]
-  L4_2 = nil
-  L5_2 = L1_1
-  L6_2 = L3_2.to
-  L6_2 = L6_2.coords
-  L7_2 = L3_2.disableAnim
-  L5_2(L6_2, L7_2)
-  L5_2 = TriggerServerEvent
-  L6_2 = "lunar_unijob:teleport"
-  L7_2 = L2_2
-  L5_2(L6_2, L7_2)
-  L5_2 = Utils
-  L5_2 = L5_2.createInteractionPoint
-  L6_2 = {}
-  L7_2 = L3_2.to
-  L7_2 = L7_2.target
-  L6_2.coords = L7_2
-  L7_2 = L3_2.radius
-  if not L7_2 then
-    L7_2 = Config
-    L7_2 = L7_2.defaultRadius
+  temp6.radius = temp7
+  temp7 = {}
+  temp8 = {}
+  temp9 = temp3.to
+  temp9 = temp9.label
+  if not temp9 then
+    temp9 = locale
+    temp10 = "go_outside"
+    temp9 = temp9(temp10)
   end
-  L6_2.radius = L7_2
-  L7_2 = {}
-  L8_2 = {}
-  L9_2 = L3_2.to
-  L9_2 = L9_2.label
-  if not L9_2 then
-    L9_2 = locale
-    L10_2 = "go_outside"
-    L9_2 = L9_2(L10_2)
+  temp8.label = temp9
+  temp9 = temp3.to
+  temp9 = temp9.icon
+  if not temp9 then
+    temp9 = "door-open"
   end
-  L8_2.label = L9_2
-  L9_2 = L3_2.to
-  L9_2 = L9_2.icon
-  if not L9_2 then
-    L9_2 = "door-open"
-  end
-  L8_2.icon = L9_2
+  temp8.icon = temp9
 
 -- Local function handler
 
 -- Local function handler
-  function L9_2()
+  function temp9()
     local L0_3, L1_3, L2_3
-    L0_3 = L1_1
-    L1_3 = L3_2.from
+    L0_3 = data
+    L1_3 = temp3.from
     L1_3 = L1_3.coords
-    L2_3 = L3_2.disableAnim
+    L2_3 = temp3.disableAnim
     L0_3(L1_3, L2_3)
     L0_3 = TriggerServerEvent
     L1_3 = "lunar_unijob:exitTeleport"
     L0_3(L1_3)
-    L0_3 = L4_2
+    L0_3 = temp4
     if L0_3 then
-      L0_3 = L4_2.remove
+      L0_3 = temp4.remove
       L0_3()
     end
   end
-  L8_2.onSelect = L9_2
-  L7_2[1] = L8_2
-  L6_2.options = L7_2
-  L5_2 = L5_2(L6_2)
-  L4_2 = L5_2
+  temp8.onSelect = temp9
+  temp7[1] = temp8
+  temp6.options = temp7
+  temp5 = temp5(temp6)
+  temp4 = temp5
 end
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
-  L1_2 = A0_2.teleports
-  if not L1_2 then
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12
+  temp1 = param1.teleports
+  if not temp1 then
     return
   end
-  L1_2 = ipairs
-  L2_2 = A0_2.teleports
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L7_2 = Utils
-    L7_2 = L7_2.createInteractionPoint
-    L8_2 = {}
-    L9_2 = L6_2.from
-    L9_2 = L9_2.target
-    L8_2.coords = L9_2
-    L9_2 = L6_2.radius
-    if not L9_2 then
-      L9_2 = Config
-      L9_2 = L9_2.defaultRadius
+  temp1 = ipairs
+  temp2 = param1.teleports
+  temp1, temp2, temp3, temp4 = temp1(temp2)
+  for temp5, temp6 in temp1, temp2, temp3, temp4 do
+    temp7 = Utils
+    temp7 = temp7.createInteractionPoint
+    temp8 = {}
+    temp9 = temp6.from
+    temp9 = temp9.target
+    temp8.coords = temp9
+    temp9 = temp6.radius
+    if not temp9 then
+      temp9 = Config
+      temp9 = temp9.defaultRadius
     end
-    L8_2.radius = L9_2
-    L9_2 = {}
-    L10_2 = {}
-    L11_2 = L6_2.from
-    L11_2 = L11_2.label
-    if not L11_2 then
-      L11_2 = locale
-      L12_2 = "go_inside"
-      L11_2 = L11_2(L12_2)
+    temp8.radius = temp9
+    temp9 = {}
+    temp10 = {}
+    temp11 = temp6.from
+    temp11 = temp11.label
+    if not temp11 then
+      temp11 = locale
+      temp12 = "go_inside"
+      temp11 = temp11(temp12)
     end
-    L10_2.label = L11_2
-    L11_2 = L6_2.from
-    L11_2 = L11_2.icon
-    if not L11_2 then
-      L11_2 = "door-open"
+    temp10.label = temp11
+    temp11 = temp6.from
+    temp11 = temp11.icon
+    if not temp11 then
+      temp11 = "door-open"
     end
-    L10_2.icon = L11_2
-    L11_2 = L2_1
-    L10_2.onSelect = L11_2
-    L11_2 = {}
-    L11_2.job = A0_2
-    L11_2.index = L5_2
-    L10_2.args = L11_2
+    temp10.icon = temp11
+    temp11 = config
+    temp10.onSelect = temp11
+    temp11 = {}
+    temp11.job = param1
+    temp11.index = temp5
+    temp10.args = temp11
 
 -- Local function handler
 
 -- Local function handler
-    function L11_2()
+    function temp11()
       local L0_3, L1_3
       L0_3 = HasGrade
-      L1_3 = L6_2.grade
+      L1_3 = temp6.grade
       return L0_3(L1_3)
     end
-    L10_2.canInteract = L11_2
-    L9_2[1] = L10_2
-    L8_2.options = L9_2
-    L9_2 = L6_2.target
-    L7_2 = L7_2(L8_2, L9_2)
-    L8_2 = table
-    L8_2 = L8_2.insert
-    L9_2 = L0_1
-    L10_2 = L7_2
-    L8_2(L9_2, L10_2)
+    temp10.canInteract = temp11
+    temp9[1] = temp10
+    temp8.options = temp9
+    temp9 = temp6.target
+    temp7 = temp7(temp8, temp9)
+    temp8 = table
+    temp8 = temp8.insert
+    temp9 = isActive
+    temp10 = temp7
+    temp8(temp9, temp10)
   end
 end
 
 -- Local function handler
 
 -- Local function handler
-function L4_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
+
+-- ─── FUNCTION ─────────────
+function player()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6
   L0_2 = ipairs
-  L1_2 = L0_1
-  L0_2, L1_2, L2_2, L3_2 = L0_2(L1_2)
-  for L4_2, L5_2 in L0_2, L1_2, L2_2, L3_2 do
-    L6_2 = L5_2.remove
-    L6_2()
+  temp1 = isActive
+  L0_2, temp1, temp2, temp3 = L0_2(temp1)
+  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+    temp6 = temp5.remove
+    temp6()
   end
   L0_2 = table
   L0_2 = L0_2.wipe
-  L1_2 = L0_1
-  L0_2(L1_2)
+  temp1 = isActive
+  L0_2(temp1)
 end
-L5_1 = {}
-L5_1.create = L3_1
-L5_1.clear = L4_1
-Teleports = L5_1
+result = {}
+result.create = item
+result.clear = player
+Teleports = result

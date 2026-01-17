@@ -1,123 +1,103 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- other.lua
--- Lunar Job Creator Module
+-- Other miscellaneous actions
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1
-L0_1 = Actions
-L0_1 = L0_1.createPlayer
-L1_1 = "bill"
-L2_1 = "file-invoice"
-L3_1 = Editable
-L3_1 = L3_1.giveInvoice
-L0_1(L1_1, L2_1, L3_1)
-L0_1 = Actions
-L0_1 = L0_1.createPlayer
-L1_1 = "revive"
-L2_1 = "suitcase-medical"
-L3_1 = Editable
-L3_1 = L3_1.revivePlayer
-L0_1(L1_1, L2_1, L3_1)
-L0_1 = Actions
-L0_1 = L0_1.createPlayer
-L1_1 = "heal"
-L2_1 = "bandage"
-L3_1 = Editable
-L3_1 = L3_1.healPlayer
-L0_1(L1_1, L2_1, L3_1)
-L0_1 = Actions
-L0_1 = L0_1.createVehicle
-L1_1 = "putInsideVehicle"
-L2_1 = "user-plus"
-
--- Local function handler
-
--- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
-  L1_2 = GetDraggedPed
-  L1_2 = L1_2()
-  if not L1_2 then
+function item(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7
+  temp1 = GetDraggedPed
+  temp1 = temp1()
+  if not temp1 then
     return
   end
-  L2_2 = GetPlayerServerId
-  L3_2 = NetworkGetPlayerIndexFromPed
-  L4_2 = L1_2
-  L3_2, L4_2, L5_2, L6_2, L7_2 = L3_2(L4_2)
-  L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2, L7_2)
-  if 0 == L2_2 then
+  temp2 = GetPlayerServerId
+  temp3 = NetworkGetPlayerIndexFromPed
+  temp4 = temp1
+  temp3, temp4, temp5, temp6, temp7 = temp3(temp4)
+  temp2 = temp2(temp3, temp4, temp5, temp6, temp7)
+  if 0 == temp2 then
     return
   end
-  L3_2 = TriggerServerEvent
-  L4_2 = "lunar_unijob:putInVehicle"
-  L5_2 = L2_2
-  L6_2 = NetworkGetNetworkIdFromEntity
-  L7_2 = A0_2
-  L6_2, L7_2 = L6_2(L7_2)
-  L3_2(L4_2, L5_2, L6_2, L7_2)
-  L3_2 = StopDrag
-  L3_2()
-  L3_2 = Editable
-  L3_2 = L3_2.actionPerformed
-  L4_2 = "putInVehicle"
-  L3_2(L4_2)
+  temp3 = TriggerServerEvent
+  temp4 = "lunar_unijob:putInVehicle"
+  temp5 = temp2
+  temp6 = NetworkGetNetworkIdFromEntity
+  temp7 = param1
+  temp6, temp7 = temp6(temp7)
+  temp3(temp4, temp5, temp6, temp7)
+  temp3 = StopDrag
+  temp3()
+  temp3 = Editable
+  temp3 = temp3.actionPerformed
+  temp4 = "putInVehicle"
+  temp3(temp4)
 end
 
 -- Local function handler
 
 -- Local function handler
-function L4_1()
-  local L0_2, L1_2
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function player()
+  local L0_2, temp1
   L0_2 = GetDraggedPed
   L0_2 = L0_2()
   L0_2 = nil ~= L0_2
   return L0_2
 end
-L0_1(L1_1, L2_1, L3_1, L4_1)
-L0_1 = Actions
-L0_1 = L0_1.createVehicle
-L1_1 = "takeOutOfVehicle"
-L2_1 = "user-minus"
+actionData(actionType, config, item, player)
+actionData = Actions
+actionData = actionData.createVehicle
+actionType = "takeOutOfVehicle"
+config = "user-minus"
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
-  L1_2 = GetVehicleMaxNumberOfPassengers
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L2_2 = L1_2 - 1
-  L3_2 = L1_2 - 3
-  L4_2 = -1
-  for L5_2 = L2_2, L3_2, L4_2 do
-    L6_2 = GetPedInVehicleSeat
-    L7_2 = A0_2
-    L8_2 = L5_2
-    L6_2 = L6_2(L7_2, L8_2)
-    if 0 ~= L6_2 then
-      L7_2 = IsPedAPlayer
-      L8_2 = L6_2
-      L7_2 = L7_2(L8_2)
-      if L7_2 then
-        L7_2 = GetPlayerServerId
-        L8_2 = NetworkGetPlayerIndexFromPed
-        L9_2 = L6_2
-        L8_2, L9_2, L10_2 = L8_2(L9_2)
-        L7_2 = L7_2(L8_2, L9_2, L10_2)
-        if 0 == L7_2 then
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
+  temp1 = GetVehicleMaxNumberOfPassengers
+  temp2 = param1
+  temp1 = temp1(temp2)
+  temp2 = temp1 - 1
+  temp3 = temp1 - 3
+  temp4 = -1
+  for temp5 = temp2, temp3, temp4 do
+    temp6 = GetPedInVehicleSeat
+    temp7 = param1
+    temp8 = temp5
+    temp6 = temp6(temp7, temp8)
+    if 0 ~= temp6 then
+      temp7 = IsPedAPlayer
+      temp8 = temp6
+      temp7 = temp7(temp8)
+      if temp7 then
+        temp7 = GetPlayerServerId
+        temp8 = NetworkGetPlayerIndexFromPed
+        temp9 = temp6
+        temp8, temp9, temp10 = temp8(temp9)
+        temp7 = temp7(temp8, temp9, temp10)
+        if 0 == temp7 then
           return
         end
-        L8_2 = TriggerServerEvent
-        L9_2 = "lunar_unijob:outTheVehicle"
-        L10_2 = L7_2
-        L8_2(L9_2, L10_2)
-        L8_2 = Editable
-        L8_2 = L8_2.actionPerformed
-        L9_2 = "takeOutOfVehicle"
-        L8_2(L9_2)
+        temp8 = TriggerServerEvent
+        temp9 = "lunar_unijob:outTheVehicle"
+        temp10 = temp7
+        temp8(temp9, temp10)
+        temp8 = Editable
+        temp8 = temp8.actionPerformed
+        temp9 = "takeOutOfVehicle"
+        temp8(temp9)
         break
       end
     end
@@ -127,30 +107,34 @@ end
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
-  L1_2 = GetVehicleMaxNumberOfPassengers
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L2_2 = L1_2 - 1
-  L3_2 = L1_2 - 3
-  L4_2 = -1
-  for L5_2 = L2_2, L3_2, L4_2 do
-    L6_2 = GetPedInVehicleSeat
-    L7_2 = A0_2
-    L8_2 = L5_2
-    L6_2 = L6_2(L7_2, L8_2)
-    if 0 ~= L6_2 then
-      L7_2 = IsPedCuffed
-      L8_2 = L6_2
-      L7_2 = L7_2(L8_2)
-      if L7_2 then
-        L7_2 = true
-        return L7_2
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
+  temp1 = GetVehicleMaxNumberOfPassengers
+  temp2 = param1
+  temp1 = temp1(temp2)
+  temp2 = temp1 - 1
+  temp3 = temp1 - 3
+  temp4 = -1
+  for temp5 = temp2, temp3, temp4 do
+    temp6 = GetPedInVehicleSeat
+    temp7 = param1
+    temp8 = temp5
+    temp6 = temp6(temp7, temp8)
+    if 0 ~= temp6 then
+      temp7 = IsPedCuffed
+      temp8 = temp6
+      temp7 = temp7(temp8)
+      if temp7 then
+        temp7 = true
+        return temp7
       end
     end
   end
-  L2_2 = false
-  return L2_2
+  temp2 = false
+  return temp2
 end
-L0_1(L1_1, L2_1, L3_1, L4_1)
+actionData(actionType, config, item, player)

@@ -1,89 +1,63 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- teleport.lua
--- Server teleport module
+-- Teleport validation
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1
-L0_1 = {}
-
--- Event handler registration
-
--- Event handler registration
-L1_1 = RegisterNetEvent
-L2_1 = "lunar_unijob:teleport"
-
--- Local function handler
-
--- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
-  L1_2 = source
-  L2_2 = Framework
-  L2_2 = L2_2.getPlayerFromId
-  L3_2 = L1_2
-  L2_2 = L2_2(L3_2)
-  if not L2_2 then
-    return
-  end
-  L3_2 = GetJobs
-  L3_2 = L3_2()
-  L5_2 = L2_2
-  L4_2 = L2_2.getJob
-  L4_2 = L4_2(L5_2)
-  L3_2 = L3_2[L4_2]
-  L3_2 = L3_2.teleports
-  L3_2 = L3_2[A0_2]
-  L4_2 = L0_1
-  L4_2 = L4_2[L1_2]
-  if not L4_2 then
-    L4_2 = Utils
-    L4_2 = L4_2.distanceCheck
-    L5_2 = L1_2
-    L6_2 = L3_2.from
-    L6_2 = L6_2.coords
-    L7_2 = 10.0
-    L4_2 = L4_2(L5_2, L6_2, L7_2)
-    if L4_2 then
+  temp4 = isActive
+  temp4 = temp4[temp1]
+  if not temp4 then
+    temp4 = Utils
+    temp4 = temp4.distanceCheck
+    temp5 = temp1
+    temp6 = temp3.from
+    temp6 = temp6.coords
+    temp7 = 10.0
+    temp4 = temp4(temp5, temp6, temp7)
+    if temp4 then
       goto lbl_30
     end
   end
   do return end
   ::lbl_30::
-  L4_2 = L0_1
-  L4_2[L1_2] = true
-  L4_2 = L3_2.routingBucket
-  if L4_2 then
-    L4_2 = SetPlayerRoutingBucket
-    L5_2 = L1_2
-    L6_2 = L3_2.routingBucket
-    L4_2(L5_2, L6_2)
+  temp4 = isActive
+  temp4[temp1] = true
+  temp4 = temp3.routingBucket
+  if temp4 then
+    temp4 = SetPlayerRoutingBucket
+    temp5 = temp1
+    temp6 = temp3.routingBucket
+    temp4(temp5, temp6)
   end
 end
-L1_1(L2_1, L3_1)
+data(config, item)
 
 -- Event handler registration
 
 -- Event handler registration
-L1_1 = RegisterNetEvent
-L2_1 = "lunar_unijob:exitTeleport"
+data = RegisterNetEvent
+config = "lunar_unijob:exitTeleport"
 
 -- Local function handler
 
 -- Local function handler
-function L3_1()
-  local L0_2, L1_2, L2_2, L3_2
+
+-- ─── FUNCTION ─────────────
+function item()
+  local L0_2, temp1, temp2, temp3
   L0_2 = source
-  L1_2 = L0_1
-  L1_2 = L1_2[L0_2]
-  if L1_2 then
-    L1_2 = L0_1
-    L1_2[L0_2] = nil
-    L1_2 = SetPlayerRoutingBucket
-    L2_2 = L0_2
-    L3_2 = 0
-    L1_2(L2_2, L3_2)
+  temp1 = isActive
+  temp1 = temp1[L0_2]
+  if temp1 then
+    temp1 = isActive
+    temp1[L0_2] = nil
+    temp1 = SetPlayerRoutingBucket
+    temp2 = L0_2
+    temp3 = 0
+    temp1(temp2, temp3)
   end
 end
-L1_1(L2_1, L3_1)
+data(config, item)

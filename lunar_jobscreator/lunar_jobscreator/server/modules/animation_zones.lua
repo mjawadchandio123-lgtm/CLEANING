@@ -1,112 +1,97 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- animation_zones.lua
--- Server animation zones module
+-- Animation zone definitions
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1
-L0_1 = nil
-L1_1 = {}
-L2_1 = lib
-L2_1 = L2_1.callback
-L2_1 = L2_1.register
-L3_1 = "lunar_unijob:startAnimation"
-
--- Local function handler
-
--- Local function handler
-function L4_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2
-  L2_2 = Framework
-  L2_2 = L2_2.getPlayerFromId
-  L3_2 = A0_2
-  L2_2 = L2_2(L3_2)
-  if not L2_2 then
-    L3_2 = false
-    return L3_2
-  end
-  L3_2 = L1_1
-  L3_2 = L3_2[A1_2]
-  if L3_2 then
-    L4_2 = L3_2.occupant
-    if not L4_2 then
-      L4_2 = L3_2.zone
-      L4_2 = L4_2.global
-      if L4_2 then
+  temp3 = data
+  temp3 = temp3[param2]
+  if temp3 then
+    temp4 = temp3.occupant
+    if not temp4 then
+      temp4 = temp3.zone
+      temp4 = temp4.global
+      if temp4 then
         goto lbl_28
       end
-      L5_2 = L2_2
-      L4_2 = L2_2.getJob
-      L4_2 = L4_2(L5_2)
-      L5_2 = L3_2.job
-      L5_2 = L5_2.name
-      if L4_2 == L5_2 then
+      temp5 = temp2
+      temp4 = temp2.getJob
+      temp4 = temp4(temp5)
+      temp5 = temp3.job
+      temp5 = temp5.name
+      if temp4 == temp5 then
         goto lbl_28
       end
     end
   end
-  L4_2 = false
-  do return L4_2 end
+  temp4 = false
+  do return temp4 end
   ::lbl_28::
-  L3_2.occupant = A0_2
-  L4_2 = true
-  return L4_2
+  temp3.occupant = param1
+  temp4 = true
+  return temp4
 end
-L2_1(L3_1, L4_1)
+config(item, player)
 
 -- Event handler registration
 
 -- Event handler registration
-L2_1 = RegisterNetEvent
-L3_1 = "lunar_unijob:stopAnimation"
+config = RegisterNetEvent
+item = "lunar_unijob:stopAnimation"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2
-  L1_2 = source
-  L2_2 = L1_1
-  L2_2 = L2_2[A0_2]
-  L2_2 = L2_2.occupant
-  if L2_2 == L1_2 then
-    L2_2 = L1_1
-    L2_2 = L2_2[A0_2]
-    L2_2.occupant = nil
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2
+  temp1 = source
+  temp2 = data
+  temp2 = temp2[param1]
+  temp2 = temp2.occupant
+  if temp2 == temp1 then
+    temp2 = data
+    temp2 = temp2[param1]
+    temp2.occupant = nil
   end
 end
-L2_1(L3_1, L4_1)
+config(item, player)
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2
-  L1_2 = A0_2.animationZones
-  if not L1_2 then
+
+-- ─── FUNCTION ─────────────
+function config(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2
+  temp1 = param1.animationZones
+  if not temp1 then
     return
   end
-  L1_2 = ipairs
-  L2_2 = A0_2.animationZones
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L7_2 = ipairs
-    L8_2 = L6_2.locations
-    L7_2, L8_2, L9_2, L10_2 = L7_2(L8_2)
-    for L11_2 in L7_2, L8_2, L9_2, L10_2 do
-      L12_2 = "%s_%s_%s"
-      L13_2 = L12_2
-      L12_2 = L12_2.format
-      L14_2 = A0_2.name
-      L15_2 = L5_2
-      L16_2 = L11_2
-      L12_2 = L12_2(L13_2, L14_2, L15_2, L16_2)
-      L13_2 = L1_1
+  temp1 = ipairs
+  temp2 = param1.animationZones
+  temp1, temp2, temp3, temp4 = temp1(temp2)
+  for temp5, temp6 in temp1, temp2, temp3, temp4 do
+    temp7 = ipairs
+    temp8 = temp6.locations
+    temp7, temp8, temp9, temp10 = temp7(temp8)
+    for temp11 in temp7, temp8, temp9, temp10 do
+      temp12 = "%s_%s_%s"
+      L13_2 = temp12
+      temp12 = temp12.format
+      L14_2 = param1.name
+      L15_2 = temp5
+      L16_2 = temp11
+      temp12 = temp12(L13_2, L14_2, L15_2, L16_2)
+      L13_2 = data
       L14_2 = {}
-      L14_2.job = A0_2
-      L14_2.zone = L6_2
-      L13_2[L12_2] = L14_2
+      L14_2.job = param1
+      L14_2.zone = temp6
+      L13_2[temp12] = L14_2
     end
   end
 end
@@ -114,19 +99,21 @@ end
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
-  L0_1 = A0_2
-  L1_2 = pairs
-  L2_2 = L0_1
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L7_2 = L2_1
-    L8_2 = L6_2
-    L7_2(L8_2)
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
+  isActive = param1
+  temp1 = pairs
+  temp2 = isActive
+  temp1, temp2, temp3, temp4 = temp1(temp2)
+  for temp5, temp6 in temp1, temp2, temp3, temp4 do
+    temp7 = config
+    temp8 = temp6
+    temp7(temp8)
   end
 end
-L4_1 = {}
-L4_1.init = L3_1
-L4_1.update = L2_1
-AnimationZones = L4_1
+player = {}
+player.init = item
+player.update = config
+AnimationZones = player

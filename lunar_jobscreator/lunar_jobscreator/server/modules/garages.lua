@@ -1,104 +1,88 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- garages.lua
--- Server garage management module
+-- Vehicle garage system
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1
-L0_1 = nil
-L1_1 = lib
-L1_1 = L1_1.callback
-L1_1 = L1_1.register
-L2_1 = "lunar_unijob:getVehicles"
-L3_1 = Editable
-L3_1 = L3_1.getVehicles
-L1_1(L2_1, L3_1)
-L1_1 = lib
-L1_1 = L1_1.callback
-L1_1 = L1_1.register
-L2_1 = "lunar_unijob:saveVehicle"
-L3_1 = Editable
-L3_1 = L3_1.saveVehicle
-L1_1(L2_1, L3_1)
-L1_1 = lib
-L1_1 = L1_1.callback
-L1_1 = L1_1.register
-L2_1 = "lunar_unijob:buyVehicle"
-L3_1 = Editable
-L3_1 = L3_1.buyVehicle
-L1_1(L2_1, L3_1)
+data(config, item)
 
 -- Event handler registration
 
 -- Event handler registration
-L1_1 = RegisterNetEvent
-L2_1 = "lunar_unijob:saveTemporaryVehicle"
+data = RegisterNetEvent
+config = "lunar_unijob:saveTemporaryVehicle"
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2, A1_2, A2_2)
-  local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
-  L3_2 = source
-  L4_2 = Framework
-  L4_2 = L4_2.getPlayerFromId
-  L5_2 = L3_2
-  L4_2 = L4_2(L5_2)
-  if not L4_2 then
+
+-- ─── FUNCTION ─────────────
+function item(param1, param2, param3)
+  local temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
+  temp3 = source
+  temp4 = Framework
+  temp4 = temp4.getPlayerFromId
+  temp5 = temp3
+  temp4 = temp4(temp5)
+  if not temp4 then
     return
   end
-  L6_2 = L4_2
-  L5_2 = L4_2.getJob
-  L5_2 = L5_2(L6_2)
-  L6_2 = L0_1
-  L5_2 = L6_2[L5_2]
-  L6_2 = L5_2.garages
-  L6_2 = L6_2[A1_2]
-  L7_2 = L6_2
-  if L7_2 then
-    L7_2 = L7_2.locations
+  temp6 = temp4
+  temp5 = temp4.getJob
+  temp5 = temp5(temp6)
+  temp6 = isActive
+  temp5 = temp6[temp5]
+  temp6 = temp5.garages
+  temp6 = temp6[param2]
+  temp7 = temp6
+  if temp7 then
+    temp7 = temp7.locations
   end
-  if L7_2 then
-    L7_2 = L7_2[A2_2]
+  if temp7 then
+    temp7 = temp7[param3]
   end
-  if not L7_2 then
+  if not temp7 then
     return
   end
-  L8_2 = NetworkGetEntityFromNetworkId
-  L9_2 = A0_2
-  L8_2 = L8_2(L9_2)
-  L9_2 = Wait
-  L10_2 = 500
-  L9_2(L10_2)
-  L9_2 = DoesEntityExist
-  L10_2 = L8_2
-  L9_2 = L9_2(L10_2)
-  if not L9_2 then
+  temp8 = NetworkGetEntityFromNetworkId
+  temp9 = param1
+  temp8 = temp8(temp9)
+  temp9 = Wait
+  temp10 = 500
+  temp9(temp10)
+  temp9 = DoesEntityExist
+  temp10 = temp8
+  temp9 = temp9(temp10)
+  if not temp9 then
     return
   end
-  L9_2 = GetEntityCoords
-  L10_2 = L8_2
-  L9_2 = L9_2(L10_2)
-  L10_2 = L7_2.coords
-  L10_2 = L10_2.xyz
-  L9_2 = L9_2 - L10_2
-  L9_2 = #L9_2
-  if L9_2 < 10.0 then
-    L9_2 = DeleteEntity
-    L10_2 = L8_2
-    L9_2(L10_2)
+  temp9 = GetEntityCoords
+  temp10 = temp8
+  temp9 = temp9(temp10)
+  temp10 = temp7.coords
+  temp10 = temp10.xyz
+  temp9 = temp9 - temp10
+  temp9 = #temp9
+  if temp9 < 10.0 then
+    temp9 = DeleteEntity
+    temp10 = temp8
+    temp9(temp10)
   end
 end
-L1_1(L2_1, L3_1)
-L1_1 = {}
+data(config, item)
+data = {}
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2)
-  local L1_2
-  L0_1 = A0_2
+
+-- ─── FUNCTION ─────────────
+function config(param1)
+  local temp1
+  isActive = param1
 end
-L1_1.init = L2_1
-Garages = L1_1
+data.init = config
+Garages = data

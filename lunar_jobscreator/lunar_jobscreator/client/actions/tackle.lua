@@ -1,173 +1,68 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- tackle.lua
--- Client-side tackle action handler
+-- Tackle action - knock down players
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1
-L0_1 = "missmic2ig_11"
-L1_1 = "mic_2_ig_11_intro_goon"
-L2_1 = "mic_2_ig_11_intro_p_one"
-L3_1 = false
-
--- Local function handler
-
--- Local function handler
-function L4_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2
-  L0_2 = HasAccess
-  L1_2 = "tackle"
-  L0_2 = L0_2(L1_2)
-  if L0_2 then
-    L0_2 = L3_1
-    if not L0_2 then
-      L0_2 = IsPedInAnyVehicle
-      L1_2 = cache
-      L1_2 = L1_2.ped
-      L2_2 = true
-      L0_2 = L0_2(L1_2, L2_2)
-      if not L0_2 then
-        L0_2 = IsPedSprinting
-        L1_2 = cache
-        L1_2 = L1_2.ped
-        L0_2 = L0_2(L1_2)
-        if L0_2 then
-          goto lbl_23
-        end
-      end
-    end
-  end
-  do return end
-  ::lbl_23::
-  L0_2 = GetEntityForwardVector
-  L1_2 = cache
-  L1_2 = L1_2.ped
-  L0_2 = L0_2(L1_2)
-  L1_2 = GetEntityCoords
-  L2_2 = cache
-  L2_2 = L2_2.ped
-  L1_2 = L1_2(L2_2)
-  L2_2 = L0_2 * 2
-  L1_2 = L1_2 + L2_2
-  L2_2 = lib
-  L2_2 = L2_2.getClosestPlayer
-  L3_2 = L1_2
-  L4_2 = Settings
-  L4_2 = L4_2.tackleRadius
-  L2_2 = L2_2(L3_2, L4_2)
-  if not L2_2 then
-    return
-  end
-  L3_2 = true
-  L3_1 = L3_2
-  L3_2 = SetTimeout
-  L4_2 = Settings
-  L4_2 = L4_2.tackleCooldown
-
--- Local function handler
-
--- Local function handler
-  function L5_2()
-    local L0_3, L1_3
-    L0_3 = false
-    L3_1 = L0_3
-  end
-  L3_2(L4_2, L5_2)
-  L3_2 = TriggerServerEvent
-  L4_2 = "lunar_unijob:tacklePlayer"
-  L5_2 = GetPlayerServerId
-  L6_2 = L2_2
-  L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2 = L5_2(L6_2)
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2)
-  L3_2 = lib
-  L3_2 = L3_2.requestAnimDict
-  L4_2 = L0_1
-  L3_2(L4_2)
-  L3_2 = TaskPlayAnim
-  L4_2 = cache
-  L4_2 = L4_2.ped
-  L5_2 = L0_1
-  L6_2 = L1_1
-  L7_2 = 8.0
-  L8_2 = -8.0
-  L9_2 = 3000
-  L10_2 = 0
-  L11_2 = 0
-  L12_2 = false
-  L13_2 = false
-  L14_2 = false
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2)
-  L3_2 = RemoveAnimDict
-  L4_2 = L0_1
-  L3_2(L4_2)
-end
-
--- Event handler registration
-
--- Event handler registration
-L5_1 = RegisterNetEvent
-L6_1 = "lunar_unijob:playTackledAnim"
-
--- Local function handler
-
--- Local function handler
-function L7_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2
-  L1_2 = lib
-  L1_2 = L1_2.requestAnimDict
-  L2_2 = L0_1
-  L1_2(L2_2)
-  L1_2 = GetPlayerPed
-  L2_2 = GetPlayerFromServerId
-  L3_2 = A0_2
-  L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2 = L2_2(L3_2)
-  L1_2 = L1_2(L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2)
-  L2_2 = AttachEntityToEntity
-  L3_2 = cache
-  L3_2 = L3_2.ped
-  L4_2 = L1_2
-  L5_2 = 11816
-  L6_2 = 0.25
-  L7_2 = 0.5
-  L8_2 = 0.0
-  L9_2 = 0.5
-  L10_2 = 0.5
-  L11_2 = 180.0
-  L12_2 = false
+function index(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2
+  temp1 = lib
+  temp1 = temp1.requestAnimDict
+  temp2 = isTackling
+  temp1(temp2)
+  temp1 = GetPlayerPed
+  temp2 = GetPlayerFromServerId
+  temp3 = param1
+  temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2 = temp2(temp3)
+  temp1 = temp1(temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2)
+  temp2 = AttachEntityToEntity
+  temp3 = cache
+  temp3 = temp3.ped
+  temp4 = temp1
+  temp5 = 11816
+  temp6 = 0.25
+  temp7 = 0.5
+  temp8 = 0.0
+  temp9 = 0.5
+  temp10 = 0.5
+  temp11 = 180.0
+  temp12 = false
   L13_2 = false
   L14_2 = false
   L15_2 = false
   L16_2 = 2
   L17_2 = false
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2)
-  L2_2 = TaskPlayAnim
-  L3_2 = cache
-  L3_2 = L3_2.ped
-  L4_2 = L0_1
-  L5_2 = L2_1
-  L6_2 = 8.0
-  L7_2 = -8.0
-  L8_2 = 3000
-  L9_2 = 0
-  L10_2 = 0
-  L11_2 = false
-  L12_2 = false
+  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2)
+  temp2 = TaskPlayAnim
+  temp3 = cache
+  temp3 = temp3.ped
+  temp4 = isTackling
+  temp5 = tackleData
+  temp6 = 8.0
+  temp7 = -8.0
+  temp8 = 3000
+  temp9 = 0
+  temp10 = 0
+  temp11 = false
+  temp12 = false
   L13_2 = false
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
-  L2_2 = Wait
-  L3_2 = 3000
-  L2_2(L3_2)
-  L2_2 = DetachEntity
-  L3_2 = cache
-  L3_2 = L3_2.ped
-  L2_2(L3_2)
-  L2_2 = CreateThread
+  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2)
+  temp2 = Wait
+  temp3 = 3000
+  temp2(temp3)
+  temp2 = DetachEntity
+  temp3 = cache
+  temp3 = temp3.ped
+  temp2(temp3)
+  temp2 = CreateThread
 
 -- Local function handler
 
 -- Local function handler
-  function L3_2()
+  function temp3()
     local L0_3, L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3
     L0_3 = 1
     L1_3 = 30
@@ -188,20 +83,20 @@ function L7_1(A0_2)
       L4_3(L5_3)
     end
   end
-  L2_2(L3_2)
-  L2_2 = RemoveAnimDict
-  L3_2 = L0_1
-  L2_2(L3_2)
+  temp2(temp3)
+  temp2 = RemoveAnimDict
+  temp3 = isTackling
+  temp2(temp3)
 end
-L5_1(L6_1, L7_1)
-L5_1 = lib
-L5_1 = L5_1.addKeybind
-L6_1 = {}
-L6_1.defaultMapper = "keyboard"
-L7_1 = Config
-L7_1 = L7_1.tackleKeybind
-L6_1.defaultKey = L7_1
-L6_1.name = "tackle"
-L6_1.description = "Player tackling"
-L6_1.onReleased = L4_1
-L5_1(L6_1)
+result(callback, index)
+result = lib
+result = result.addKeybind
+callback = {}
+callback.defaultMapper = "keyboard"
+index = Config
+index = index.tackleKeybind
+callback.defaultKey = index
+callback.name = "tackle"
+callback.description = "Player tackling"
+callback.onReleased = player
+result(callback)

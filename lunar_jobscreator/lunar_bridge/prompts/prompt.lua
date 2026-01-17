@@ -1,315 +1,316 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- prompt.lua
--- Lunar Job Creator Module
+-- Prompt renderer - UI display
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-L5_1 = cache
-L5_1 = L5_1.resource
-L3_1 = L3_1(L4_1, L5_1)
-L4_1 = L1_1
-L5_1 = 700
-L2_1 = L2_1(L3_1, L4_1, L5_1)
-L3_1 = GetDuiHandle
-L4_1 = L2_1
-L3_1 = L3_1(L4_1)
-L4_1 = CreateRuntimeTxd
-L5_1 = "lunar_prompt"
-L4_1 = L4_1(L5_1)
-L5_1 = CreateRuntimeTextureFromDuiHandle
-L6_1 = L4_1
-L7_1 = "main"
-L8_1 = L3_1
-L5_1(L6_1, L7_1, L8_1)
-L5_1 = Framework
-L5_1 = L5_1.onPlayerLoaded
-
--- Local function handler
-
--- Local function handler
-function L6_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2
+function callback()
+  local L0_2, temp1, temp2, temp3, temp4
   L0_2 = SetDuiUrl
-  L1_2 = L2_1
-  L2_2 = "https://cfx-nui-%s/web/index.html"
-  L3_2 = L2_2
-  L2_2 = L2_2.format
-  L4_2 = cache
-  L4_2 = L4_2.resource
-  L2_2, L3_2, L4_2 = L2_2(L3_2, L4_2)
-  L0_2(L1_2, L2_2, L3_2, L4_2)
+  temp1 = config
+  temp2 = "https://cfx-nui-%s/web/index.html"
+  temp3 = temp2
+  temp2 = temp2.format
+  temp4 = cache
+  temp4 = temp4.resource
+  temp2, temp3, temp4 = temp2(temp3, temp4)
+  L0_2(temp1, temp2, temp3, temp4)
 end
-L5_1(L6_1)
-L3_1 = {}
-L4_1 = 1
-L5_1 = 1
-L6_1 = {}
+result(callback)
+item = {}
+player = 1
+result = 1
+callback = {}
 
 -- Local function handler
 
 -- Local function handler
-function L7_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
-  L1_2 = SendDuiMessage
-  L2_2 = L2_1
-  L3_2 = json
-  L3_2 = L3_2.encode
-  L4_2 = A0_2
-  L3_2, L4_2 = L3_2(L4_2)
-  L1_2(L2_2, L3_2, L4_2)
+
+-- ─── FUNCTION ─────────────
+function index(param1)
+  local temp1, temp2, temp3, temp4
+  temp1 = SendDuiMessage
+  temp2 = config
+  temp3 = json
+  temp3 = temp3.encode
+  temp4 = param1
+  temp3, temp4 = temp3(temp4)
+  temp1(temp2, temp3, temp4)
 end
 
 -- Local function handler
 
 -- Local function handler
-function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
-  L1_2 = {}
-  L2_2 = ipairs
-  L3_2 = A0_2
-  L2_2, L3_2, L4_2, L5_2 = L2_2(L3_2)
-  for L6_2, L7_2 in L2_2, L3_2, L4_2, L5_2 do
-    L8_2 = table
-    L8_2 = L8_2.insert
-    L9_2 = L1_2
-    L10_2 = {}
-    L11_2 = L7_2.label
-    L10_2.label = L11_2
-    L11_2 = L7_2.icon
-    L11_2 = "" ~= L11_2 and L11_2
-    L10_2.icon = L11_2
-    L8_2(L9_2, L10_2)
+
+-- ─── FUNCTION ─────────────
+function value(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  temp1 = {}
+  temp2 = ipairs
+  temp3 = param1
+  temp2, temp3, temp4, temp5 = temp2(temp3)
+  for temp6, temp7 in temp2, temp3, temp4, temp5 do
+    temp8 = table
+    temp8 = temp8.insert
+    temp9 = temp1
+    temp10 = {}
+    temp11 = temp7.label
+    temp10.label = temp11
+    temp11 = temp7.icon
+    temp11 = "" ~= temp11 and temp11
+    temp10.icon = temp11
+    temp8(temp9, temp10)
   end
-  L2_2 = L7_1
-  L3_2 = {}
-  L3_2.action = "set_options"
-  L3_2.options = L1_2
-  L2_2(L3_2)
-  L3_1 = A0_2
-  L2_2 = 1
-  L5_1 = L2_2
+  temp2 = index
+  temp3 = {}
+  temp3.action = "set_options"
+  temp3.options = temp1
+  temp2(temp3)
+  item = param1
+  temp2 = 1
+  result = temp2
 end
-L0_1.setOptions = L8_1
+isActive.setOptions = value
 
 -- Local function handler
 
 -- Local function handler
-function L8_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
+
+-- ─── FUNCTION ─────────────
+function value()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
   L0_2 = table
   L0_2 = L0_2.wipe
-  L1_2 = L6_1
-  L0_2(L1_2)
+  temp1 = callback
+  L0_2(temp1)
   L0_2 = 0
-  L1_2 = ipairs
-  L2_2 = L3_1
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L7_2 = L6_2.canInteract
-    L7_2 = L6_2.canInteract
-    L7_2 = L7_2()
-    L7_2 = not L7_2
-    L7_2 = not L7_2 or L7_2
-    L8_2 = table
-    L8_2 = L8_2.insert
-    L9_2 = L6_1
-    L10_2 = L7_2
-    L8_2(L9_2, L10_2)
-    if L7_2 then
+  temp1 = ipairs
+  temp2 = item
+  temp1, temp2, temp3, temp4 = temp1(temp2)
+  for temp5, temp6 in temp1, temp2, temp3, temp4 do
+    temp7 = temp6.canInteract
+    temp7 = temp6.canInteract
+    temp7 = temp7()
+    temp7 = not temp7
+    temp7 = not temp7 or temp7
+    temp8 = table
+    temp8 = temp8.insert
+    temp9 = callback
+    temp10 = temp7
+    temp8(temp9, temp10)
+    if temp7 then
       L0_2 = L0_2 + 1
     end
   end
-  L1_2 = L7_1
-  L2_2 = {}
-  L2_2.action = "update_options"
-  L3_2 = L6_1
-  L2_2.canInteract = L3_2
-  L1_2(L2_2)
-  L1_2 = L5_1
-  if L0_2 < L1_2 then
-    L1_2 = L0_1.setIndex
-    L2_2 = L0_2
-    L1_2(L2_2)
+  temp1 = index
+  temp2 = {}
+  temp2.action = "update_options"
+  temp3 = callback
+  temp2.canInteract = temp3
+  temp1(temp2)
+  temp1 = result
+  if L0_2 < temp1 then
+    temp1 = isActive.setIndex
+    temp2 = L0_2
+    temp1(temp2)
   else
-    L1_2 = L0_1.setIndex
-    L2_2 = L4_1
-    L1_2(L2_2)
+    temp1 = isActive.setIndex
+    temp2 = player
+    temp1(temp2)
   end
-  L5_1 = L0_2
+  result = L0_2
 end
-L0_1.updateOptions = L8_1
+isActive.updateOptions = value
 
 -- Local function handler
 
 -- Local function handler
-function L8_1(A0_2)
-  local L1_2, L2_2, L3_2
-  if not (A0_2 <= 0) then
-    L1_2 = L5_1
-    if not (A0_2 > L1_2) then
+
+-- ─── FUNCTION ─────────────
+function value(param1)
+  local temp1, temp2, temp3
+  if not (param1 <= 0) then
+    temp1 = result
+    if not (param1 > temp1) then
       goto lbl_7
     end
   end
   do return end
   ::lbl_7::
-  L4_1 = A0_2
-  L1_2 = L7_1
-  L2_2 = {}
-  L2_2.action = "set_index"
-  L3_2 = L4_1
-  L3_2 = L3_2 - 1
-  L2_2.index = L3_2
-  L1_2(L2_2)
+  player = param1
+  temp1 = index
+  temp2 = {}
+  temp2.action = "set_index"
+  temp3 = player
+  temp3 = temp3 - 1
+  temp2.index = temp3
+  temp1(temp2)
 end
-L0_1.setIndex = L8_1
+isActive.setIndex = value
 
 -- Local function handler
 
 -- Local function handler
-function L8_1()
-  local L0_2, L1_2
-  L0_2 = L7_1
-  L1_2 = {}
-  L1_2.action = "show"
-  L0_2(L1_2)
+
+-- ─── FUNCTION ─────────────
+function value()
+  local L0_2, temp1
+  L0_2 = index
+  temp1 = {}
+  temp1.action = "show"
+  L0_2(temp1)
 end
-L0_1.show = L8_1
+isActive.show = value
 
 -- Local function handler
 
 -- Local function handler
-function L8_1()
-  local L0_2, L1_2
-  L0_2 = L7_1
-  L1_2 = {}
-  L1_2.action = "hide"
-  L0_2(L1_2)
+
+-- ─── FUNCTION ─────────────
+function value()
+  local L0_2, temp1
+  L0_2 = index
+  temp1 = {}
+  temp1.action = "hide"
+  L0_2(temp1)
   L0_2 = {}
-  L3_1 = L0_2
+  item = L0_2
   L0_2 = 1
-  L4_1 = L0_2
+  player = L0_2
 end
-L0_1.hide = L8_1
+isActive.hide = value
 
 -- Local function handler
 
 -- Local function handler
-function L8_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
+
+-- ─── FUNCTION ─────────────
+function value()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2
   L0_2 = 0.27999999999999997
-  L1_2 = GetAspectRatio
-  L2_2 = false
-  L1_2 = L1_2(L2_2)
-  L1_2 = 0.27999999999999997 * L1_2
-  L2_2 = DrawSprite
-  L3_2 = "lunar_prompt"
-  L4_2 = "main"
-  L5_2 = 0.0
-  L6_2 = 0.0
-  L7_2 = L0_2
-  L8_2 = L1_2
-  L9_2 = 0.0
-  L10_2 = 255
-  L11_2 = 255
-  L12_2 = 255
+  temp1 = GetAspectRatio
+  temp2 = false
+  temp1 = temp1(temp2)
+  temp1 = 0.27999999999999997 * temp1
+  temp2 = DrawSprite
+  temp3 = "lunar_prompt"
+  temp4 = "main"
+  temp5 = 0.0
+  temp6 = 0.0
+  temp7 = L0_2
+  temp8 = temp1
+  temp9 = 0.0
+  temp10 = 255
+  temp11 = 255
+  temp12 = 255
   L13_2 = 255
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
+  temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2)
 end
-L0_1.draw = L8_1
-L8_1 = lib
-L8_1 = L8_1.addKeybind
-L9_1 = {}
-L9_1.name = "interact_prompt"
-L9_1.description = "Main interaction keybind"
-L9_1.defaultMapper = "keyboard"
-L9_1.defaultKey = "E"
+isActive.draw = value
+value = lib
+value = value.addKeybind
+status = {}
+status.name = "interact_prompt"
+status.description = "Main interaction keybind"
+status.defaultMapper = "keyboard"
+status.defaultKey = "E"
 
 -- Local function handler
 
 -- Local function handler
-function L10_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
-  L0_2 = L3_1
+
+-- ─── FUNCTION ─────────────
+function state()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
+  L0_2 = item
   if not L0_2 then
     return
   end
   L0_2 = 1
-  L1_2 = ipairs
-  L2_2 = L3_1
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L7_2 = L6_1
-    L7_2 = L7_2[L5_2]
-    if L7_2 then
-      L7_2 = L4_1
-      if L0_2 == L7_2 then
-        L7_2 = L6_2.onSelect
-        L8_2 = L6_2.args
-        L7_2(L8_2)
+  temp1 = ipairs
+  temp2 = item
+  temp1, temp2, temp3, temp4 = temp1(temp2)
+  for temp5, temp6 in temp1, temp2, temp3, temp4 do
+    temp7 = callback
+    temp7 = temp7[temp5]
+    if temp7 then
+      temp7 = player
+      if L0_2 == temp7 then
+        temp7 = temp6.onSelect
+        temp8 = temp6.args
+        temp7(temp8)
         return
       end
       L0_2 = L0_2 + 1
     end
   end
 end
-L9_1.onReleased = L10_1
-L8_1(L9_1)
-L8_1 = RegisterCommand
-L9_1 = "interact_scroll_up"
+status.onReleased = state
+value(status)
+value = RegisterCommand
+status = "interact_scroll_up"
 
 -- Local function handler
 
 -- Local function handler
-function L10_1()
-  local L0_2, L1_2
-  L0_2 = L3_1
+
+-- ─── FUNCTION ─────────────
+function state()
+  local L0_2, temp1
+  L0_2 = item
   if not L0_2 then
     return
   end
-  L0_2 = L0_1.setIndex
-  L1_2 = L4_1
-  L1_2 = L1_2 - 1
-  L0_2(L1_2)
+  L0_2 = isActive.setIndex
+  temp1 = player
+  temp1 = temp1 - 1
+  L0_2(temp1)
 end
-L8_1(L9_1, L10_1)
-L8_1 = RegisterCommand
-L9_1 = "interact_scroll_down"
+value(status, state)
+value = RegisterCommand
+status = "interact_scroll_down"
 
 -- Local function handler
 
 -- Local function handler
-function L10_1()
-  local L0_2, L1_2
-  L0_2 = L3_1
+
+-- ─── FUNCTION ─────────────
+function state()
+  local L0_2, temp1
+  L0_2 = item
   if not L0_2 then
     return
   end
-  L0_2 = L0_1.setIndex
-  L1_2 = L4_1
-  L1_2 = L1_2 + 1
-  L0_2(L1_2)
+  L0_2 = isActive.setIndex
+  temp1 = player
+  temp1 = temp1 + 1
+  L0_2(temp1)
 end
-L8_1(L9_1, L10_1)
-L8_1 = RegisterKeyMapping
-L9_1 = "interact_scroll_up"
-L10_1 = "Interaction scroll up"
-L11_1 = "MOUSE_WHEEL"
+value(status, state)
+value = RegisterKeyMapping
+status = "interact_scroll_up"
+state = "Interaction scroll up"
+handler = "MOUSE_WHEEL"
 L12_1 = "IOM_WHEEL_UP"
-L8_1(L9_1, L10_1, L11_1, L12_1)
-L8_1 = RegisterKeyMapping
-L9_1 = "interact_scroll_down"
-L10_1 = "Interaction scroll down"
-L11_1 = "MOUSE_WHEEL"
+value(status, state, handler, L12_1)
+value = RegisterKeyMapping
+status = "interact_scroll_down"
+state = "Interaction scroll down"
+handler = "MOUSE_WHEEL"
 L12_1 = "IOM_WHEEL_DOWN"
-L8_1(L9_1, L10_1, L11_1, L12_1)
+value(status, state, handler, L12_1)
 
 -- Local function handler
 
 -- Local function handler
-function L8_1()
-  local L0_2, L1_2
-  L0_2 = L0_1
+
+-- ─── FUNCTION ─────────────
+function value()
+  local L0_2, temp1
+  L0_2 = isActive
   return L0_2
 end
-GetPrompt = L8_1
+GetPrompt = value

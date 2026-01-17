@@ -1,192 +1,179 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- settings.lua
--- Server settings and configuration
+-- Server settings
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1
-L0_1 = {}
-Settings = L0_1
-L0_1 = false
-L1_1 = {}
-L1_1.interactDistance = 3.0
-L1_1.impoundPrice = 500
-L1_1.handcuffItems = true
-L1_1.handcuffsItemName = "handcuffs"
-L1_1.ziptiesItemName = "zipties"
-L1_1.handcuffsSkillCheck = true
-L1_1.sprintWhileDrag = false
-L1_1.disableTargetInteractions = false
-L1_1.tackleCooldown = 10000
-L1_1.tackleRadius = 2.0
-L2_1 = {}
-L2_1.steal = false
-L2_1.handcuff = false
-L2_1.drag = false
-L2_1.carry = false
-L2_1.bill = false
-L2_1.revive = false
-L2_1.heal = false
-L1_1.playerActions = L2_1
-L2_1 = {}
-L2_1.putInsideVehicle = false
-L2_1.takeOutOfVehicle = false
-L2_1.hijack = false
-L2_1.repair = false
-L2_1.clean = false
-L2_1.impound = false
-L1_1.vehicleActions = L2_1
-L2_1 = {}
-L2_1.steal = 3000
-L2_1.revive = 10000
-L2_1.heal = 5000
-L2_1.hijack = 1000
-L2_1.repair = 10000
-L2_1.clean = 10000
-L2_1.impound = 10000
-L1_1.durations = L2_1
+data.playerActions = config
+config = {}
+config.putInsideVehicle = false
+config.takeOutOfVehicle = false
+config.hijack = false
+config.repair = false
+config.clean = false
+config.impound = false
+data.vehicleActions = config
+config = {}
+config.steal = 3000
+config.revive = 10000
+config.heal = 5000
+config.hijack = 1000
+config.repair = 10000
+config.clean = 10000
+config.impound = 10000
+data.durations = config
 
 -- Local function handler
 
 -- Local function handler
-function L2_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
+
+-- ─── FUNCTION ─────────────
+function config()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
   L0_2 = {}
-  L1_2 = pairs
-  L2_2 = Settings
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L7_2 = #L0_2
-    L7_2 = L7_2 + 1
-    L8_2 = {}
-    L9_2 = json
-    L9_2 = L9_2.encode
-    L10_2 = L6_2
-    L9_2 = L9_2(L10_2)
-    L10_2 = L5_2
-    L8_2[1] = L9_2
-    L8_2[2] = L10_2
-    L0_2[L7_2] = L8_2
+  temp1 = pairs
+  temp2 = Settings
+  temp1, temp2, temp3, temp4 = temp1(temp2)
+  for temp5, temp6 in temp1, temp2, temp3, temp4 do
+    temp7 = #L0_2
+    temp7 = temp7 + 1
+    temp8 = {}
+    temp9 = json
+    temp9 = temp9.encode
+    temp10 = temp6
+    temp9 = temp9(temp10)
+    temp10 = temp5
+    temp8[1] = temp9
+    temp8[2] = temp10
+    L0_2[temp7] = temp8
   end
-  L1_2 = MySQL
-  L1_2 = L1_2.prepare
-  L1_2 = L1_2.await
-  L2_2 = "UPDATE lunar_jobscreator_settings SET `value` = ? WHERE `key` = ?"
-  L3_2 = L0_2
-  L1_2(L2_2, L3_2)
+  temp1 = MySQL
+  temp1 = temp1.prepare
+  temp1 = temp1.await
+  temp2 = "UPDATE lunar_jobscreator_settings SET `value` = ? WHERE `key` = ?"
+  temp3 = L0_2
+  temp1(temp2, temp3)
 end
-L3_1 = MySQL
-L3_1 = L3_1.ready
+item = MySQL
+item = item.ready
 
 -- Local function handler
 
 -- Local function handler
-function L4_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
+
+-- ─── FUNCTION ─────────────
+function player()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
   L0_2 = Wait
-  L1_2 = 1000
-  L0_2(L1_2)
+  temp1 = 1000
+  L0_2(temp1)
   L0_2 = pairs
-  L1_2 = L1_1
-  L0_2, L1_2, L2_2, L3_2 = L0_2(L1_2)
-  for L4_2, L5_2 in L0_2, L1_2, L2_2, L3_2 do
-    L6_2 = Settings
-    L6_2[L4_2] = L5_2
-    L6_2 = MySQL
-    L6_2 = L6_2.insert
-    L6_2 = L6_2.await
-    L7_2 = "INSERT IGNORE INTO lunar_jobscreator_settings (`key`, `value`) VALUES (?, ?)"
-    L8_2 = {}
-    L9_2 = L4_2
-    L10_2 = json
-    L10_2 = L10_2.encode
-    L11_2 = L5_2
-    L10_2, L11_2 = L10_2(L11_2)
-    L8_2[1] = L9_2
-    L8_2[2] = L10_2
-    L8_2[3] = L11_2
-    L6_2(L7_2, L8_2)
+  temp1 = data
+  L0_2, temp1, temp2, temp3 = L0_2(temp1)
+  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+    temp6 = Settings
+    temp6[temp4] = temp5
+    temp6 = MySQL
+    temp6 = temp6.insert
+    temp6 = temp6.await
+    temp7 = "INSERT IGNORE INTO lunar_jobscreator_settings (`key`, `value`) VALUES (?, ?)"
+    temp8 = {}
+    temp9 = temp4
+    temp10 = json
+    temp10 = temp10.encode
+    temp11 = temp5
+    temp10, temp11 = temp10(temp11)
+    temp8[1] = temp9
+    temp8[2] = temp10
+    temp8[3] = temp11
+    temp6(temp7, temp8)
   end
   L0_2 = MySQL
   L0_2 = L0_2.query
   L0_2 = L0_2.await
-  L1_2 = "SELECT * FROM lunar_jobscreator_settings"
-  L0_2 = L0_2(L1_2)
-  L1_2 = 1
-  L2_2 = #L0_2
-  L3_2 = 1
-  for L4_2 = L1_2, L2_2, L3_2 do
-    L5_2 = L0_2[L4_2]
-    L6_2 = Settings
-    L7_2 = L5_2.key
-    L8_2 = json
-    L8_2 = L8_2.decode
-    L9_2 = L5_2.value
-    L8_2 = L8_2(L9_2)
-    L6_2[L7_2] = L8_2
+  temp1 = "SELECT * FROM lunar_jobscreator_settings"
+  L0_2 = L0_2(temp1)
+  temp1 = 1
+  temp2 = #L0_2
+  temp3 = 1
+  for temp4 = temp1, temp2, temp3 do
+    temp5 = L0_2[temp4]
+    temp6 = Settings
+    temp7 = temp5.key
+    temp8 = json
+    temp8 = temp8.decode
+    temp9 = temp5.value
+    temp8 = temp8(temp9)
+    temp6[temp7] = temp8
   end
-  L1_2 = true
-  L0_1 = L1_2
+  temp1 = true
+  isActive = temp1
 end
-L3_1(L4_1)
+item(player)
 
 -- Event handler registration
 
 -- Event handler registration
-L3_1 = RegisterNetEvent
-L4_1 = "lunar_unijob:updateSettings"
+item = RegisterNetEvent
+player = "lunar_unijob:updateSettings"
 
 -- Local function handler
 
 -- Local function handler
-function L5_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L1_2 = source
-  L2_2 = Framework
-  L2_2 = L2_2.getPlayerFromId
-  L3_2 = L1_2
-  L2_2 = L2_2(L3_2)
-  if L2_2 then
-    L3_2 = IsPlayerAdmin
-    L4_2 = L2_2.source
-    L3_2 = L3_2(L4_2)
-    if L3_2 then
+
+-- ─── FUNCTION ─────────────
+function result(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6
+  temp1 = source
+  temp2 = Framework
+  temp2 = temp2.getPlayerFromId
+  temp3 = temp1
+  temp2 = temp2(temp3)
+  if temp2 then
+    temp3 = IsPlayerAdmin
+    temp4 = temp2.source
+    temp3 = temp3(temp4)
+    if temp3 then
       goto lbl_14
     end
   end
   do return end
   ::lbl_14::
-  Settings = A0_2
-  L3_2 = TriggerClientEvent
-  L4_2 = "lunar_unijob:updateSettings"
-  L5_2 = -1
-  L6_2 = A0_2
-  L3_2(L4_2, L5_2, L6_2)
-  L3_2 = L2_1
-  L3_2()
+  Settings = param1
+  temp3 = TriggerClientEvent
+  temp4 = "lunar_unijob:updateSettings"
+  temp5 = -1
+  temp6 = param1
+  temp3(temp4, temp5, temp6)
+  temp3 = config
+  temp3()
 end
-L3_1(L4_1, L5_1)
-L3_1 = lib
-L3_1 = L3_1.callback
-L3_1 = L3_1.register
-L4_1 = "lunar_unijob:getSettings"
+item(player, result)
+item = lib
+item = item.callback
+item = item.register
+player = "lunar_unijob:getSettings"
 
 -- Local function handler
 
 -- Local function handler
-function L5_1()
-  local L0_2, L1_2
+
+-- ─── FUNCTION ─────────────
+function result()
+  local L0_2, temp1
   while true do
-    L0_2 = L0_1
+    L0_2 = isActive
     if L0_2 then
       break
     end
     L0_2 = Wait
-    L1_2 = 100
-    L0_2(L1_2)
+    temp1 = 100
+    L0_2(temp1)
   end
   L0_2 = Settings
   return L0_2
 end
-L3_1(L4_1, L5_1)
+item(player, result)

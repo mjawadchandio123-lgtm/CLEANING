@@ -1,149 +1,127 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- alarms.lua
--- Server alarm system module
+-- Server alarm management
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1
-L0_1 = nil
-L1_1 = {}
-L2_1 = lib
-L2_1 = L2_1.callback
-L2_1 = L2_1.register
-L3_1 = "lunar_unijob:triggerAlarm"
-
--- Local function handler
-
--- Local function handler
-function L4_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
-  L2_2 = Framework
-  L2_2 = L2_2.getPlayerFromId
-  L3_2 = A0_2
-  L2_2 = L2_2(L3_2)
-  L4_2 = A1_2.job
-  L3_2 = L0_1
-  L3_2 = L3_2[L4_2]
-  L4_2 = L3_2
-  if L4_2 then
-    L4_2 = L4_2.alarms
-  end
-  L5_2 = A1_2.index
-  L4_2 = L4_2[L5_2]
-  if L2_2 and L4_2 then
-    L6_2 = A1_2.job
-    L5_2 = L1_1
-    L5_2 = L5_2[L6_2]
-    L6_2 = A1_2.index
-    L5_2 = L5_2[L6_2]
-    if not L5_2 then
+    temp5 = data
+    temp5 = temp5[temp6]
+    temp6 = param2.index
+    temp5 = temp5[temp6]
+    if not temp5 then
       goto lbl_26
     end
   end
   do return end
   ::lbl_26::
-  L6_2 = L2_2
-  L5_2 = L2_2.getJob
-  L5_2 = L5_2(L6_2)
-  L6_2 = A1_2.job
-  if L5_2 ~= L6_2 then
-    L5_2 = L4_2.global
-    if not L5_2 then
+  temp6 = temp2
+  temp5 = temp2.getJob
+  temp5 = temp5(temp6)
+  temp6 = param2.job
+  if temp5 ~= temp6 then
+    temp5 = temp4.global
+    if not temp5 then
       goto lbl_80
     end
   end
-  L6_2 = A1_2.job
-  L5_2 = L1_1
-  L5_2 = L5_2[L6_2]
-  L6_2 = A1_2.index
-  L5_2[L6_2] = true
-  L5_2 = SetTimeout
-  L6_2 = L4_2.cooldown
+  temp6 = param2.job
+  temp5 = data
+  temp5 = temp5[temp6]
+  temp6 = param2.index
+  temp5[temp6] = true
+  temp5 = SetTimeout
+  temp6 = temp4.cooldown
 
 -- Local function handler
 
 -- Local function handler
-  function L7_2()
+  function temp7()
     local L0_3, L1_3
-    L1_3 = A1_2.job
-    L0_3 = L1_1
+    L1_3 = param2.job
+    L0_3 = data
     L0_3 = L0_3[L1_3]
-    L1_3 = A1_2.index
+    L1_3 = param2.index
     L0_3[L1_3] = nil
   end
-  L5_2(L6_2, L7_2)
-  L5_2 = Dispatch
-  L5_2 = L5_2.call
-  L6_2 = L4_2.locations
-  L7_2 = A1_2.locationIndex
-  L6_2 = L6_2[L7_2]
-  L6_2 = L6_2.xyz
-  L7_2 = {}
-  L8_2 = Config
-  L8_2 = L8_2.alarmCode
-  L7_2.Code = L8_2
-  L8_2 = locale
-  L9_2 = "dispatch_alarm"
-  L8_2 = L8_2(L9_2)
-  L7_2.Title = L8_2
-  L8_2 = locale
-  L9_2 = "dispatch_alarm_desc"
-  L10_2 = L3_2.label
-  L8_2 = L8_2(L9_2, L10_2)
-  L7_2.Message = L8_2
-  L5_2(L6_2, L7_2)
-  L5_2 = Webhooks
-  L5_2 = L5_2.settings
-  L5_2 = L5_2.alarms
-  if L5_2 then
-    L5_2 = Logs
-    L5_2 = L5_2.send
-    L6_2 = A0_2
-    L7_2 = L3_2.name
-    L8_2 = "Triggered the alarm inside %s."
-    L9_2 = L8_2
-    L8_2 = L8_2.format
-    L10_2 = L3_2.label
-    L8_2, L9_2, L10_2 = L8_2(L9_2, L10_2)
-    L5_2(L6_2, L7_2, L8_2, L9_2, L10_2)
+  temp5(temp6, temp7)
+  temp5 = Dispatch
+  temp5 = temp5.call
+  temp6 = temp4.locations
+  temp7 = param2.locationIndex
+  temp6 = temp6[temp7]
+  temp6 = temp6.xyz
+  temp7 = {}
+  temp8 = Config
+  temp8 = temp8.alarmCode
+  temp7.Code = temp8
+  temp8 = locale
+  temp9 = "dispatch_alarm"
+  temp8 = temp8(temp9)
+  temp7.Title = temp8
+  temp8 = locale
+  temp9 = "dispatch_alarm_desc"
+  temp10 = temp3.label
+  temp8 = temp8(temp9, temp10)
+  temp7.Message = temp8
+  temp5(temp6, temp7)
+  temp5 = Webhooks
+  temp5 = temp5.settings
+  temp5 = temp5.alarms
+  if temp5 then
+    temp5 = Logs
+    temp5 = temp5.send
+    temp6 = param1
+    temp7 = temp3.name
+    temp8 = "Triggered the alarm inside %s."
+    temp9 = temp8
+    temp8 = temp8.format
+    temp10 = temp3.label
+    temp8, temp9, temp10 = temp8(temp9, temp10)
+    temp5(temp6, temp7, temp8, temp9, temp10)
   end
-  L5_2 = true
-  do return L5_2 end
+  temp5 = true
+  do return temp5 end
   ::lbl_80::
-  L5_2 = false
-  return L5_2
+  temp5 = false
+  return temp5
 end
-L2_1(L3_1, L4_1)
+config(item, player)
 
 -- Local function handler
 
 -- Local function handler
-function L2_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
-  L0_1 = A0_2
-  L1_2 = pairs
-  L2_2 = L0_1
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L8_2 = L6_2.name
-    L7_2 = L1_1
-    L9_2 = {}
-    L7_2[L8_2] = L9_2
+
+-- ─── FUNCTION ─────────────
+function config(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9
+  isActive = param1
+  temp1 = pairs
+  temp2 = isActive
+  temp1, temp2, temp3, temp4 = temp1(temp2)
+  for temp5, temp6 in temp1, temp2, temp3, temp4 do
+    temp8 = temp6.name
+    temp7 = data
+    temp9 = {}
+    temp7[temp8] = temp9
   end
 end
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L2_2 = A0_2.name
-  L1_2 = L1_1
-  L3_2 = {}
-  L1_2[L2_2] = L3_2
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3
+  temp2 = param1.name
+  temp1 = data
+  temp3 = {}
+  temp1[temp2] = temp3
 end
-L4_1 = {}
-L4_1.init = L2_1
-L4_1.update = L3_1
-Alarms = L4_1
+player = {}
+player.init = config
+player.update = item
+Alarms = player

@@ -1,278 +1,264 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- registers.lua
--- Client register/till module
+-- Cash register system
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1
-L0_1 = {}
-L1_1 = {}
-L2_1 = lib
-L2_1 = L2_1.callback
-L3_1 = "lunar_unijob:getRegisters"
-L4_1 = false
-
--- Local function handler
-
--- Local function handler
-function L5_1(A0_2)
-  local L1_2
-  L1_1 = A0_2
+function player(param1)
+  local temp1
+  data = param1
 end
-L2_1(L3_1, L4_1, L5_1)
+config(item, player)
 
 -- Event handler registration
 
 -- Event handler registration
-L2_1 = RegisterNetEvent
-L3_1 = "lunar_unijob:syncRegisters"
+config = RegisterNetEvent
+item = "lunar_unijob:syncRegister"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2
-  L1_1 = A0_2
+
+-- ─── FUNCTION ─────────────
+function player(param1, param2)
+  local temp2
+  temp2 = data
+  temp2[param1] = param2
 end
-L2_1(L3_1, L4_1)
-
--- Event handler registration
-
--- Event handler registration
-L2_1 = RegisterNetEvent
-L3_1 = "lunar_unijob:syncRegister"
+config(item, player)
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2, A1_2)
-  local L2_2
-  L2_2 = L1_1
-  L2_2[A0_2] = A1_2
-end
-L2_1(L3_1, L4_1)
 
--- Local function handler
-
--- Local function handler
-function L2_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L1_2 = lib
-  L1_2 = L1_2.inputDialog
-  L2_2 = locale
-  L3_2 = "register_header"
-  L2_2 = L2_2(L3_2)
-  L3_2 = {}
-  L4_2 = {}
-  L4_2.type = "select"
-  L5_2 = locale
-  L6_2 = "payment_method"
-  L5_2 = L5_2(L6_2)
-  L4_2.label = L5_2
-  L5_2 = Editable
-  L5_2 = L5_2.getPaymentMethods
-  L5_2 = L5_2()
-  L4_2.options = L5_2
-  L4_2.required = true
-  L3_2[1] = L4_2
-  L1_2 = L1_2(L2_2, L3_2)
-  if L1_2 then
-    L1_2 = L1_2[1]
+-- ─── FUNCTION ─────────────
+function config(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6
+  temp1 = lib
+  temp1 = temp1.inputDialog
+  temp2 = locale
+  temp3 = "register_header"
+  temp2 = temp2(temp3)
+  temp3 = {}
+  temp4 = {}
+  temp4.type = "select"
+  temp5 = locale
+  temp6 = "payment_method"
+  temp5 = temp5(temp6)
+  temp4.label = temp5
+  temp5 = Editable
+  temp5 = temp5.getPaymentMethods
+  temp5 = temp5()
+  temp4.options = temp5
+  temp4.required = true
+  temp3[1] = temp4
+  temp1 = temp1(temp2, temp3)
+  if temp1 then
+    temp1 = temp1[1]
   end
-  if not L1_2 then
+  if not temp1 then
     return
   end
-  L2_2 = lib
-  L2_2 = L2_2.callback
-  L2_2 = L2_2.await
-  L3_2 = "lunar_unijob:payRegister"
-  L4_2 = false
-  L5_2 = A0_2
-  L6_2 = L1_2
-  L2_2, L3_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
-  if L2_2 then
-    L4_2 = LR
-    L4_2 = L4_2.notify
-    L5_2 = locale
-    L6_2 = "paid_register"
-    L5_2 = L5_2(L6_2)
-    L6_2 = "success"
-    L4_2(L5_2, L6_2)
-  elseif L3_2 then
-    L4_2 = LR
-    L4_2 = L4_2.notify
-    L5_2 = L3_2
-    L6_2 = "error"
-    L4_2(L5_2, L6_2)
+  temp2 = lib
+  temp2 = temp2.callback
+  temp2 = temp2.await
+  temp3 = "lunar_unijob:payRegister"
+  temp4 = false
+  temp5 = param1
+  temp6 = temp1
+  temp2, temp3 = temp2(temp3, temp4, temp5, temp6)
+  if temp2 then
+    temp4 = LR
+    temp4 = temp4.notify
+    temp5 = locale
+    temp6 = "paid_register"
+    temp5 = temp5(temp6)
+    temp6 = "success"
+    temp4(temp5, temp6)
+  elseif temp3 then
+    temp4 = LR
+    temp4 = temp4.notify
+    temp5 = temp3
+    temp6 = "error"
+    temp4(temp5, temp6)
   end
 end
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L1_2 = lib
-  L1_2 = L1_2.inputDialog
-  L2_2 = locale
-  L3_2 = "register_header"
-  L2_2 = L2_2(L3_2)
-  L3_2 = {}
-  L4_2 = {}
-  L4_2.type = "number"
-  L5_2 = locale
-  L6_2 = "register_amount"
-  L5_2 = L5_2(L6_2)
-  L4_2.label = L5_2
-  L4_2.icon = "dollar-sign"
-  L4_2.min = 1
-  L4_2.required = true
-  L3_2[1] = L4_2
-  L1_2 = L1_2(L2_2, L3_2)
-  if L1_2 then
-    L1_2 = L1_2[1]
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6
+  temp1 = lib
+  temp1 = temp1.inputDialog
+  temp2 = locale
+  temp3 = "register_header"
+  temp2 = temp2(temp3)
+  temp3 = {}
+  temp4 = {}
+  temp4.type = "number"
+  temp5 = locale
+  temp6 = "register_amount"
+  temp5 = temp5(temp6)
+  temp4.label = temp5
+  temp4.icon = "dollar-sign"
+  temp4.min = 1
+  temp4.required = true
+  temp3[1] = temp4
+  temp1 = temp1(temp2, temp3)
+  if temp1 then
+    temp1 = temp1[1]
   end
-  if not L1_2 then
+  if not temp1 then
     return
   end
-  L2_2 = TriggerServerEvent
-  L3_2 = "lunar_unijob:setRegister"
-  L4_2 = A0_2
-  L5_2 = L1_2
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = LR
-  L2_2 = L2_2.notify
-  L3_2 = locale
-  L4_2 = "set_register_notify"
-  L3_2 = L3_2(L4_2)
-  L4_2 = "success"
-  L2_2(L3_2, L4_2)
+  temp2 = TriggerServerEvent
+  temp3 = "lunar_unijob:setRegister"
+  temp4 = param1
+  temp5 = temp1
+  temp2(temp3, temp4, temp5)
+  temp2 = LR
+  temp2 = temp2.notify
+  temp3 = locale
+  temp4 = "set_register_notify"
+  temp3 = temp3(temp4)
+  temp4 = "success"
+  temp2(temp3, temp4)
 end
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
-  L1_2 = lib
-  L1_2 = L1_2.alertDialog
-  L2_2 = {}
-  L3_2 = locale
-  L4_2 = "register_header"
-  L3_2 = L3_2(L4_2)
-  L2_2.header = L3_2
-  L3_2 = locale
-  L4_2 = "register_clear_content"
-  L3_2 = L3_2(L4_2)
-  L2_2.content = L3_2
-  L2_2.centered = true
-  L2_2.cancel = true
-  L1_2 = L1_2(L2_2)
-  L1_2 = "confirm" == L1_2
-  if not L1_2 then
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2, temp3, temp4
+  temp1 = lib
+  temp1 = temp1.alertDialog
+  temp2 = {}
+  temp3 = locale
+  temp4 = "register_header"
+  temp3 = temp3(temp4)
+  temp2.header = temp3
+  temp3 = locale
+  temp4 = "register_clear_content"
+  temp3 = temp3(temp4)
+  temp2.content = temp3
+  temp2.centered = true
+  temp2.cancel = true
+  temp1 = temp1(temp2)
+  temp1 = "confirm" == temp1
+  if not temp1 then
     return
   end
-  L2_2 = TriggerServerEvent
-  L3_2 = "lunar_unijob:clearRegister"
-  L4_2 = A0_2
-  L2_2(L3_2, L4_2)
-  L2_2 = LR
-  L2_2 = L2_2.notify
-  L3_2 = locale
-  L4_2 = "clear_register_notify"
-  L3_2 = L3_2(L4_2)
-  L4_2 = "success"
-  L2_2(L3_2, L4_2)
+  temp2 = TriggerServerEvent
+  temp3 = "lunar_unijob:clearRegister"
+  temp4 = param1
+  temp2(temp3, temp4)
+  temp2 = LR
+  temp2 = temp2.notify
+  temp3 = locale
+  temp4 = "clear_register_notify"
+  temp3 = temp3(temp4)
+  temp4 = "success"
+  temp2(temp3, temp4)
 end
 
 -- Local function handler
 
 -- Local function handler
-function L5_1(A0_2, A1_2, A2_2)
-  local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
-  L3_2 = A0_2.registers
-  L3_2 = L3_2[A1_2]
-  L4_2 = "%s_%s_%s"
-  L5_2 = L4_2
-  L4_2 = L4_2.format
-  L6_2 = A0_2.name
-  L7_2 = A1_2
-  L8_2 = A2_2
-  L4_2 = L4_2(L5_2, L6_2, L7_2, L8_2)
-  L5_2 = Utils
-  L5_2 = L5_2.createInteractionPoint
-  L6_2 = {}
-  L7_2 = L3_2.locations
-  L7_2 = L7_2[A2_2]
-  L6_2.coords = L7_2
-  L7_2 = L3_2.radius
-  if not L7_2 then
-    L7_2 = Config
-    L7_2 = L7_2.defaultRadius
+
+-- ─── FUNCTION ─────────────
+function result(param1, param2, param3)
+  local temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12
+  temp3 = param1.registers
+  temp3 = temp3[param2]
+  temp4 = "%s_%s_%s"
+  temp5 = temp4
+  temp4 = temp4.format
+  temp6 = param1.name
+  temp7 = param2
+  temp8 = param3
+  temp4 = temp4(temp5, temp6, temp7, temp8)
+  temp5 = Utils
+  temp5 = temp5.createInteractionPoint
+  temp6 = {}
+  temp7 = temp3.locations
+  temp7 = temp7[param3]
+  temp6.coords = temp7
+  temp7 = temp3.radius
+  if not temp7 then
+    temp7 = Config
+    temp7 = temp7.defaultRadius
   end
-  L6_2.radius = L7_2
-  L7_2 = {}
-  L8_2 = {}
-  L9_2 = locale
-  L10_2 = "pay_register"
-  L9_2 = L9_2(L10_2)
-  L8_2.label = L9_2
-  L8_2.icon = "cash-register"
+  temp6.radius = temp7
+  temp7 = {}
+  temp8 = {}
+  temp9 = locale
+  temp10 = "pay_register"
+  temp9 = temp9(temp10)
+  temp8.label = temp9
+  temp8.icon = "cash-register"
 
 -- Local function handler
 
 -- Local function handler
-  function L9_2()
+  function temp9()
     local L0_3, L1_3
-    L1_3 = L4_2
-    L0_3 = L1_1
+    L1_3 = temp4
+    L0_3 = data
     L0_3 = L0_3[L1_3]
     return L0_3
   end
-  L8_2.canInteract = L9_2
-  L9_2 = L2_1
-  L8_2.onSelect = L9_2
-  L8_2.args = L4_2
-  L9_2 = {}
-  L10_2 = locale
-  L11_2 = "set_register"
-  L10_2 = L10_2(L11_2)
-  L9_2.label = L10_2
-  L9_2.icon = "cash-register"
+  temp8.canInteract = temp9
+  temp9 = config
+  temp8.onSelect = temp9
+  temp8.args = temp4
+  temp9 = {}
+  temp10 = locale
+  temp11 = "set_register"
+  temp10 = temp10(temp11)
+  temp9.label = temp10
+  temp9.icon = "cash-register"
 
 -- Local function handler
 
 -- Local function handler
-  function L10_2()
+  function temp10()
     local L0_3, L1_3
-    L1_3 = L4_2
-    L0_3 = L1_1
+    L1_3 = temp4
+    L0_3 = data
     L0_3 = L0_3[L1_3]
     L0_3 = not L0_3
     return L0_3
   end
-  L9_2.canInteract = L10_2
-  L10_2 = L3_1
-  L9_2.onSelect = L10_2
-  L9_2.args = L4_2
-  L10_2 = {}
-  L11_2 = locale
-  L12_2 = "clear_register"
-  L11_2 = L11_2(L12_2)
-  L10_2.label = L11_2
-  L10_2.icon = "cash-register"
+  temp9.canInteract = temp10
+  temp10 = item
+  temp9.onSelect = temp10
+  temp9.args = temp4
+  temp10 = {}
+  temp11 = locale
+  temp12 = "clear_register"
+  temp11 = temp11(temp12)
+  temp10.label = temp11
+  temp10.icon = "cash-register"
 
 -- Local function handler
 
 -- Local function handler
-  function L11_2()
+  function temp11()
     local L0_3, L1_3
-    L1_3 = L4_2
-    L0_3 = L1_1
+    L1_3 = temp4
+    L0_3 = data
     L0_3 = L0_3[L1_3]
     if L0_3 then
-      L0_3 = A0_2.name
+      L0_3 = param1.name
       L1_3 = Framework
       L1_3 = L1_3.getJob
       L1_3 = L1_3()
@@ -280,58 +266,60 @@ function L5_1(A0_2, A1_2, A2_2)
     end
     return L0_3
   end
-  L10_2.canInteract = L11_2
-  L11_2 = L4_1
-  L10_2.onSelect = L11_2
-  L10_2.args = L4_2
-  L7_2[1] = L8_2
-  L7_2[2] = L9_2
-  L7_2[3] = L10_2
-  L6_2.options = L7_2
-  L7_2 = L3_2.target
-  L5_2 = L5_2(L6_2, L7_2)
-  L6_2 = table
-  L6_2 = L6_2.insert
-  L7_2 = L0_1
-  L8_2 = L5_2
-  L6_2(L7_2, L8_2)
+  temp10.canInteract = temp11
+  temp11 = player
+  temp10.onSelect = temp11
+  temp10.args = temp4
+  temp7[1] = temp8
+  temp7[2] = temp9
+  temp7[3] = temp10
+  temp6.options = temp7
+  temp7 = temp3.target
+  temp5 = temp5(temp6, temp7)
+  temp6 = table
+  temp6 = temp6.insert
+  temp7 = isActive
+  temp8 = temp5
+  temp6(temp7, temp8)
 end
 
 -- Local function handler
 
 -- Local function handler
-function L6_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2
+
+-- ─── FUNCTION ─────────────
+function callback()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2
   L0_2 = ipairs
-  L1_2 = L0_1
-  L0_2, L1_2, L2_2, L3_2 = L0_2(L1_2)
-  for L4_2, L5_2 in L0_2, L1_2, L2_2, L3_2 do
-    L6_2 = L5_2.remove
-    L6_2()
+  temp1 = isActive
+  L0_2, temp1, temp2, temp3 = L0_2(temp1)
+  for temp4, temp5 in L0_2, temp1, temp2, temp3 do
+    temp6 = temp5.remove
+    temp6()
   end
   L0_2 = table
   L0_2 = L0_2.wipe
-  L1_2 = L0_1
-  L0_2(L1_2)
+  temp1 = isActive
+  L0_2(temp1)
   L0_2 = GetJobs
   L0_2 = L0_2()
-  L1_2 = pairs
-  L2_2 = L0_2
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L7_2 = L6_2.registers
-    if L7_2 then
-      L7_2 = ipairs
-      L8_2 = L6_2.registers
-      L7_2, L8_2, L9_2, L10_2 = L7_2(L8_2)
-      for L11_2, L12_2 in L7_2, L8_2, L9_2, L10_2 do
+  temp1 = pairs
+  temp2 = L0_2
+  temp1, temp2, temp3, temp4 = temp1(temp2)
+  for temp5, temp6 in temp1, temp2, temp3, temp4 do
+    temp7 = temp6.registers
+    if temp7 then
+      temp7 = ipairs
+      temp8 = temp6.registers
+      temp7, temp8, temp9, temp10 = temp7(temp8)
+      for temp11, temp12 in temp7, temp8, temp9, temp10 do
         L13_2 = ipairs
-        L14_2 = L12_2.locations
+        L14_2 = temp12.locations
         L13_2, L14_2, L15_2, L16_2 = L13_2(L14_2)
         for L17_2 in L13_2, L14_2, L15_2, L16_2 do
-          L18_2 = L5_1
-          L19_2 = L6_2
-          L20_2 = L11_2
+          L18_2 = result
+          L19_2 = temp6
+          L20_2 = temp11
           L21_2 = L17_2
           L18_2(L19_2, L20_2, L21_2)
         end
@@ -339,6 +327,6 @@ function L6_1()
     end
   end
 end
-L7_1 = {}
-L7_1.update = L6_1
-Registers = L7_1
+index = {}
+index.update = callback
+Registers = index

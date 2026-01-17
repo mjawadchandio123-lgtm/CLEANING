@@ -1,440 +1,407 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- cuff.lua
--- Client-side cuff action handler
+-- Cuff action - restraint system
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1, L8_1, L9_1, L10_1, L11_1, L12_1, L13_1, L14_1, L15_1, L16_1, L17_1, L18_1, L19_1
-L0_1 = false
-L1_1 = nil
-L2_1 = nil
-L3_1 = {}
-L3_1.handcuffs = -1281059971
-L3_1.zipties = 623548567
-L4_1 = {}
-L5_1 = {}
-L6_1 = vec3
-L7_1 = 0.0
-L8_1 = 0.07
-L9_1 = 0.03
-L6_1 = L6_1(L7_1, L8_1, L9_1)
-L5_1.pos = L6_1
-L6_1 = vec3
-L7_1 = 10.0
-L8_1 = 115.0
-L9_1 = -65.0
-L6_1 = L6_1(L7_1, L8_1, L9_1)
-L5_1.rot = L6_1
-L4_1.handcuffs = L5_1
-L5_1 = {}
-L6_1 = vec3
-L7_1 = 0.05
-L8_1 = 0.04
-L9_1 = 0.055
-L6_1 = L6_1(L7_1, L8_1, L9_1)
-L5_1.pos = L6_1
-L6_1 = vec3
-L7_1 = -90.0
-L8_1 = 110.0
-L9_1 = -65.0
-L6_1 = L6_1(L7_1, L8_1, L9_1)
-L5_1.rot = L6_1
-L4_1.zipties = L5_1
-L5_1 = Actions
-L5_1 = L5_1.createPlayer
-L6_1 = "steal"
-L7_1 = "eye"
-L8_1 = Editable
-L8_1 = L8_1.searchPlayer
-L5_1(L6_1, L7_1, L8_1)
-L5_1 = Actions
-L5_1 = L5_1.createPlayer
-L6_1 = "handcuff"
-L7_1 = "handcuffs"
-
--- Local function handler
-
--- Local function handler
-function L8_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L1_2 = TriggerServerEvent
-  L2_2 = "lunar_unijob:cuffToggle"
-  L3_2 = A0_2
-  L1_2(L2_2, L3_2)
+function value(targetId)
+  local temp1, temp2, temp3
+  temp1 = TriggerServerEvent
+  temp2 = "lunar_unijob:cuffToggle"
+  temp3 = targetId
+  temp1(temp2, temp3)
 end
-L5_1(L6_1, L7_1, L8_1)
+result(callback, index, value)
 
 -- Local function handler
 
 -- Local function handler
-function L5_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L1_2 = GetPlayerFromServerId
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L2_2 = senderPed
-  if 0 == L2_2 then
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function result(targetId)
+  local temp1, temp2, temp3
+  temp1 = GetPlayerFromServerId
+  temp2 = targetId
+  temp1 = temp1(temp2)
+  temp2 = senderPed
+  if 0 == temp2 then
     return
   end
-  L2_2 = GetPlayerPed
-  L3_2 = L1_2
-  return L2_2(L3_2)
+  temp2 = GetPlayerPed
+  temp3 = temp1
+  return temp2(temp3)
 end
-L6_1 = "mp_arrest_paired"
-L7_1 = "mp_arresting"
-L8_1 = "cop_p2_back_left"
-L9_1 = "crook_p2_back_left"
-L10_1 = "a_uncuff"
+callback = "mp_arrest_paired"
+index = "mp_arresting"
+value = "cop_p2_back_left"
+status = "crook_p2_back_left"
+state = "a_uncuff"
 
 -- Event handler registration
 
 -- Event handler registration
-L11_1 = RegisterNetEvent
+handler = RegisterNetEvent
 L12_1 = "lunar_unijob:cuffReceiver"
 
 -- Local function handler
 
 -- Local function handler
-function L13_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2, L23_2
-  L1_2 = lib
-  L1_2 = L1_2.callback
-  L1_2 = L1_2.await
-  L2_2 = "lunar_unijob:getPlayerCuffState"
-  L3_2 = false
-  L4_2 = cache
-  L4_2 = L4_2.serverId
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  L2_2 = L5_1
-  L3_2 = A0_2
-  L2_2 = L2_2(L3_2)
-  if not L2_2 then
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function L13_1(targetId)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2, L23_2
+  temp1 = lib
+  temp1 = temp1.callback
+  temp1 = temp1.await
+  temp2 = "lunar_unijob:getPlayerCuffState"
+  temp3 = false
+  temp4 = cache
+  temp4 = temp4.serverId
+  temp1 = temp1(temp2, temp3, temp4)
+  temp2 = result
+  temp3 = targetId
+  temp2 = temp2(temp3)
+  if not temp2 then
     return
   end
-  if L1_2 then
-    L3_2 = SetEnableHandcuffs
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = true
-    L3_2(L4_2, L5_2)
-    L3_2 = DisablePlayerFiring
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = true
-    L3_2(L4_2, L5_2)
-    L3_2 = SetCurrentPedWeapon
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = -1569615261
-    L6_2 = true
-    L3_2(L4_2, L5_2, L6_2)
-    L3_2 = SetPedCanPlayGestureAnims
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = false
-    L3_2(L4_2, L5_2)
-    L3_2 = lib
-    L3_2 = L3_2.requestAnimDict
-    L4_2 = L6_1
-    L3_2(L4_2)
-    L3_2 = AttachEntityToEntity
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = L2_2
-    L6_2 = 11816
-    L7_2 = -0.1
-    L8_2 = 0.45
-    L9_2 = 0.0
-    L10_2 = 0.0
-    L11_2 = 0.0
-    L12_2 = 20.0
+  if temp1 then
+    temp3 = SetEnableHandcuffs
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = true
+    temp3(temp4, temp5)
+    temp3 = DisablePlayerFiring
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = true
+    temp3(temp4, temp5)
+    temp3 = SetCurrentPedWeapon
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = -1569615261
+    temp6 = true
+    temp3(temp4, temp5, temp6)
+    temp3 = SetPedCanPlayGestureAnims
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = false
+    temp3(temp4, temp5)
+    temp3 = lib
+    temp3 = temp3.requestAnimDict
+    temp4 = callback
+    temp3(temp4)
+    temp3 = AttachEntityToEntity
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = temp2
+    temp6 = 11816
+    temp7 = -0.1
+    temp8 = 0.45
+    temp9 = 0.0
+    temp10 = 0.0
+    temp11 = 0.0
+    temp12 = 20.0
     L13_2 = false
     L14_2 = false
     L15_2 = false
     L16_2 = false
     L17_2 = 20
     L18_2 = false
-    L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2)
-    L3_2 = TaskPlayAnim
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = L6_1
-    L6_2 = L9_1
-    L7_2 = 8.0
-    L8_2 = -8.0
-    L9_2 = 5500
-    L10_2 = 33
-    L11_2 = 0
-    L12_2 = false
+    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2)
+    temp3 = TaskPlayAnim
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = callback
+    temp6 = status
+    temp7 = 8.0
+    temp8 = -8.0
+    temp9 = 5500
+    temp10 = 33
+    temp11 = 0
+    temp12 = false
     L13_2 = false
     L14_2 = false
-    L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2)
-    L3_2 = Wait
-    L4_2 = 3500
-    L3_2(L4_2)
-    L3_2 = DetachEntity
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = true
-    L6_2 = false
-    L3_2(L4_2, L5_2, L6_2)
-    L3_2 = RemoveAnimDict
-    L4_2 = L6_1
-    L3_2(L4_2)
-    L3_2 = L3_1
-    L3_2 = L3_2[L1_2]
-    L4_2 = L4_1
-    L4_2 = L4_2[L1_2]
-    L7_2 = L4_2
-    L5_2 = L7_2.pos
-    L6_2 = L7_2.rot
-    L7_2 = lib
-    L7_2 = L7_2.requestModel
-    L8_2 = L3_2
-    L7_2(L8_2)
-    L7_2 = CreateObject
-    L8_2 = L3_2
-    L9_2 = 0
-    L10_2 = 0
-    L11_2 = 0
-    L12_2 = true
+    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2)
+    temp3 = Wait
+    temp4 = 3500
+    temp3(temp4)
+    temp3 = DetachEntity
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = true
+    temp6 = false
+    temp3(temp4, temp5, temp6)
+    temp3 = RemoveAnimDict
+    temp4 = callback
+    temp3(temp4)
+    temp3 = item
+    temp3 = temp3[temp1]
+    temp4 = player
+    temp4 = temp4[temp1]
+    temp7 = temp4
+    temp5 = temp7.pos
+    temp6 = temp7.rot
+    temp7 = lib
+    temp7 = temp7.requestModel
+    temp8 = temp3
+    temp7(temp8)
+    temp7 = CreateObject
+    temp8 = temp3
+    temp9 = 0
+    temp10 = 0
+    temp11 = 0
+    temp12 = true
     L13_2 = true
     L14_2 = true
-    L7_2 = L7_2(L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2)
-    L2_1 = L7_2
-    L7_2 = GetPedBoneIndex
-    L8_2 = cache
-    L8_2 = L8_2.ped
-    L9_2 = 18905
-    L7_2 = L7_2(L8_2, L9_2)
-    L8_2 = AttachEntityToEntity
-    L9_2 = L2_1
-    L10_2 = cache
-    L10_2 = L10_2.ped
-    L11_2 = L7_2
-    L12_2 = L5_2.x
-    L13_2 = L5_2.y
-    L14_2 = L5_2.z
-    L15_2 = L6_2.x
-    L16_2 = L6_2.y
-    L17_2 = L6_2.z
+    temp7 = temp7(temp8, temp9, temp10, temp11, temp12, L13_2, L14_2)
+    cuffData = temp7
+    temp7 = GetPedBoneIndex
+    temp8 = cache
+    temp8 = temp8.ped
+    temp9 = 18905
+    temp7 = temp7(temp8, temp9)
+    temp8 = AttachEntityToEntity
+    temp9 = cuffData
+    temp10 = cache
+    temp10 = temp10.ped
+    temp11 = temp7
+    temp12 = temp5.x
+    L13_2 = temp5.y
+    L14_2 = temp5.z
+    L15_2 = temp6.x
+    L16_2 = temp6.y
+    L17_2 = temp6.z
     L18_2 = true
     L19_2 = true
     L20_2 = false
     L21_2 = true
     L22_2 = 1
     L23_2 = true
-    L8_2(L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2, L23_2)
+    temp8(temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2, L23_2)
   else
-    L3_2 = L1_1
-    if L3_2 then
-      L3_2 = DetachEntity
-      L4_2 = cache
-      L4_2 = L4_2.ped
-      L3_2(L4_2)
-      L3_2 = nil
-      L1_1 = L3_2
+    temp3 = targetPlayer
+    if temp3 then
+      temp3 = DetachEntity
+      temp4 = cache
+      temp4 = temp4.ped
+      temp3(temp4)
+      temp3 = nil
+      targetPlayer = temp3
     end
-    L3_2 = AttachEntityToEntity
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = L2_2
-    L6_2 = 11816
-    L7_2 = -0.1
-    L8_2 = 0.65
-    L9_2 = 0.0
-    L10_2 = 0.0
-    L11_2 = 0.0
-    L12_2 = 20.0
+    temp3 = AttachEntityToEntity
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = temp2
+    temp6 = 11816
+    temp7 = -0.1
+    temp8 = 0.65
+    temp9 = 0.0
+    temp10 = 0.0
+    temp11 = 0.0
+    temp12 = 20.0
     L13_2 = false
     L14_2 = false
     L15_2 = false
     L16_2 = false
     L17_2 = 20
     L18_2 = false
-    L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2)
-    L3_2 = Wait
-    L4_2 = 2000
-    L3_2(L4_2)
-    L3_2 = DetachEntity
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = true
-    L6_2 = false
-    L3_2(L4_2, L5_2, L6_2)
-    L3_2 = SetEnableHandcuffs
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = false
-    L3_2(L4_2, L5_2)
-    L3_2 = DisablePlayerFiring
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = false
-    L3_2(L4_2, L5_2)
-    L3_2 = SetCurrentPedWeapon
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = -1569615261
-    L6_2 = true
-    L3_2(L4_2, L5_2, L6_2)
-    L3_2 = SetPedCanPlayGestureAnims
-    L4_2 = cache
-    L4_2 = L4_2.ped
-    L5_2 = true
-    L3_2(L4_2, L5_2)
-    L3_2 = L2_1
-    if L3_2 then
-      L3_2 = DeleteEntity
-      L4_2 = L2_1
-      L3_2(L4_2)
+    temp3(temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2)
+    temp3 = Wait
+    temp4 = 2000
+    temp3(temp4)
+    temp3 = DetachEntity
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = true
+    temp6 = false
+    temp3(temp4, temp5, temp6)
+    temp3 = SetEnableHandcuffs
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = false
+    temp3(temp4, temp5)
+    temp3 = DisablePlayerFiring
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = false
+    temp3(temp4, temp5)
+    temp3 = SetCurrentPedWeapon
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = -1569615261
+    temp6 = true
+    temp3(temp4, temp5, temp6)
+    temp3 = SetPedCanPlayGestureAnims
+    temp4 = cache
+    temp4 = temp4.ped
+    temp5 = true
+    temp3(temp4, temp5)
+    temp3 = cuffData
+    if temp3 then
+      temp3 = DeleteEntity
+      temp4 = cuffData
+      temp3(temp4)
     end
   end
-  L0_1 = L1_2
+  isCuffed = temp1
 end
-L11_1(L12_1, L13_1)
+handler(L12_1, L13_1)
 
 -- Event handler registration
 
 -- Event handler registration
-L11_1 = RegisterNetEvent
+handler = RegisterNetEvent
 L12_1 = "lunar_unijob:cuffSender"
 
 -- Local function handler
 
 -- Local function handler
-function L13_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
-  L1_2 = lib
-  L1_2 = L1_2.callback
-  L1_2 = L1_2.await
-  L2_2 = "lunar_unijob:getPlayerCuffState"
-  L3_2 = false
-  L4_2 = A0_2
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if L1_2 then
-    L2_2 = lib
-    L2_2 = L2_2.requestAnimDict
-    L3_2 = L6_1
-    L2_2(L3_2)
-    L2_2 = TaskPlayAnim
-    L3_2 = cache
-    L3_2 = L3_2.ped
-    L4_2 = L6_1
-    L5_2 = L8_1
-    L6_2 = 8.0
-    L7_2 = -8.0
-    L8_2 = 5500
-    L9_2 = 33
-    L10_2 = 0
-    L11_2 = false
-    L12_2 = false
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function L13_1(targetId)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2
+  temp1 = lib
+  temp1 = temp1.callback
+  temp1 = temp1.await
+  temp2 = "lunar_unijob:getPlayerCuffState"
+  temp3 = false
+  temp4 = targetId
+  temp1 = temp1(temp2, temp3, temp4)
+  if temp1 then
+    temp2 = lib
+    temp2 = temp2.requestAnimDict
+    temp3 = callback
+    temp2(temp3)
+    temp2 = TaskPlayAnim
+    temp3 = cache
+    temp3 = temp3.ped
+    temp4 = callback
+    temp5 = value
+    temp6 = 8.0
+    temp7 = -8.0
+    temp8 = 5500
+    temp9 = 33
+    temp10 = 0
+    temp11 = false
+    temp12 = false
     L13_2 = false
-    L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
-    L2_2 = Wait
-    L3_2 = 3500
-    L2_2(L3_2)
-    L2_2 = ClearPedTasks
-    L3_2 = cache
-    L3_2 = L3_2.ped
-    L2_2(L3_2)
-    L2_2 = RemoveAnimDict
-    L3_2 = L6_1
-    L2_2(L3_2)
-    L2_2 = Editable
-    L2_2 = L2_2.actionPerformed
-    L3_2 = "handcuff"
-    L2_2(L3_2)
+    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2)
+    temp2 = Wait
+    temp3 = 3500
+    temp2(temp3)
+    temp2 = ClearPedTasks
+    temp3 = cache
+    temp3 = temp3.ped
+    temp2(temp3)
+    temp2 = RemoveAnimDict
+    temp3 = callback
+    temp2(temp3)
+    temp2 = Editable
+    temp2 = temp2.actionPerformed
+    temp3 = "handcuff"
+    temp2(temp3)
   else
-    L2_2 = lib
-    L2_2 = L2_2.requestAnimDict
-    L3_2 = L7_1
-    L2_2(L3_2)
-    L2_2 = TaskPlayAnim
-    L3_2 = cache
-    L3_2 = L3_2.ped
-    L4_2 = L7_1
-    L5_2 = L10_1
-    L6_2 = 8.0
-    L7_2 = -8.0
-    L8_2 = -1
-    L9_2 = 2
-    L10_2 = 0
-    L11_2 = false
-    L12_2 = false
+    temp2 = lib
+    temp2 = temp2.requestAnimDict
+    temp3 = index
+    temp2(temp3)
+    temp2 = TaskPlayAnim
+    temp3 = cache
+    temp3 = temp3.ped
+    temp4 = index
+    temp5 = state
+    temp6 = 8.0
+    temp7 = -8.0
+    temp8 = -1
+    temp9 = 2
+    temp10 = 0
+    temp11 = false
+    temp12 = false
     L13_2 = false
-    L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
-    L2_2 = Wait
-    L3_2 = 2000
-    L2_2(L3_2)
-    L2_2 = ClearPedTasks
-    L3_2 = cache
-    L3_2 = L3_2.ped
-    L2_2(L3_2)
-    L2_2 = RemoveAnimDict
-    L3_2 = L7_1
-    L2_2(L3_2)
-    L2_2 = Editable
-    L2_2 = L2_2.actionPerformed
-    L3_2 = "unhandcuff"
-    L2_2(L3_2)
+    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2)
+    temp2 = Wait
+    temp3 = 2000
+    temp2(temp3)
+    temp2 = ClearPedTasks
+    temp3 = cache
+    temp3 = temp3.ped
+    temp2(temp3)
+    temp2 = RemoveAnimDict
+    temp3 = index
+    temp2(temp3)
+    temp2 = Editable
+    temp2 = temp2.actionPerformed
+    temp3 = "unhandcuff"
+    temp2(temp3)
   end
 end
-L11_1(L12_1, L13_1)
+handler(L12_1, L13_1)
 
 -- Event handler registration
 
 -- Event handler registration
-L11_1 = RegisterNetEvent
+handler = RegisterNetEvent
 L12_1 = "lunar_unijob:syncCuff"
 
 -- Local function handler
 
 -- Local function handler
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
 function L13_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2
+  local L0_2, temp1, temp2, temp3, temp4
   L0_2 = lib
   L0_2 = L0_2.callback
   L0_2 = L0_2.await
-  L1_2 = "lunar_unijob:getPlayerCuffState"
-  L2_2 = false
-  L3_2 = cache
-  L3_2 = L3_2.serverId
-  L0_2 = L0_2(L1_2, L2_2, L3_2)
+  temp1 = "lunar_unijob:getPlayerCuffState"
+  temp2 = false
+  temp3 = cache
+  temp3 = temp3.serverId
+  L0_2 = L0_2(temp1, temp2, temp3)
   if not L0_2 then
-    L1_2 = SetEnableHandcuffs
-    L2_2 = cache
-    L2_2 = L2_2.ped
-    L3_2 = false
-    L1_2(L2_2, L3_2)
-    L1_2 = DisablePlayerFiring
-    L2_2 = cache
-    L2_2 = L2_2.ped
-    L3_2 = false
-    L1_2(L2_2, L3_2)
-    L1_2 = SetCurrentPedWeapon
-    L2_2 = cache
-    L2_2 = L2_2.ped
-    L3_2 = -1569615261
-    L4_2 = true
-    L1_2(L2_2, L3_2, L4_2)
-    L1_2 = SetPedCanPlayGestureAnims
-    L2_2 = cache
-    L2_2 = L2_2.ped
-    L3_2 = true
-    L1_2(L2_2, L3_2)
-    L1_2 = L1_1
-    if L1_2 then
-      L1_2 = TriggerEvent
-      L2_2 = "lunar_unijob:drag"
-      L1_2(L2_2)
+    temp1 = SetEnableHandcuffs
+    temp2 = cache
+    temp2 = temp2.ped
+    temp3 = false
+    temp1(temp2, temp3)
+    temp1 = DisablePlayerFiring
+    temp2 = cache
+    temp2 = temp2.ped
+    temp3 = false
+    temp1(temp2, temp3)
+    temp1 = SetCurrentPedWeapon
+    temp2 = cache
+    temp2 = temp2.ped
+    temp3 = -1569615261
+    temp4 = true
+    temp1(temp2, temp3, temp4)
+    temp1 = SetPedCanPlayGestureAnims
+    temp2 = cache
+    temp2 = temp2.ped
+    temp3 = true
+    temp1(temp2, temp3)
+    temp1 = targetPlayer
+    if temp1 then
+      temp1 = TriggerEvent
+      temp2 = "lunar_unijob:drag"
+      temp1(temp2)
     end
   end
-  L0_1 = L0_2
+  isCuffed = L0_2
 end
-L11_1(L12_1, L13_1)
-L11_1 = "anim@move_m@prisoner_cuffed"
+handler(L12_1, L13_1)
+handler = "anim@move_m@prisoner_cuffed"
 L12_1 = "anim@move_m@trash"
 
 -- Event handler registration
@@ -446,59 +413,63 @@ L14_1 = "lunar_unijob:drag"
 -- Local function handler
 
 -- Local function handler
-function L15_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2
-  L1_2 = L0_1
-  if not L1_2 then
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function L15_1(targetId)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2
+  temp1 = isCuffed
+  if not temp1 then
     return
   end
-  L1_2 = L1_1
-  if not L1_2 and A0_2 then
-    L1_2 = L5_1
-    L2_2 = A0_2
-    L1_2 = L1_2(L2_2)
-    if not L1_2 then
+  temp1 = targetPlayer
+  if not temp1 and targetId then
+    temp1 = result
+    temp2 = targetId
+    temp1 = temp1(temp2)
+    if not temp1 then
       return
     end
-    L2_2 = AttachEntityToEntity
-    L3_2 = cache
-    L3_2 = L3_2.ped
-    L4_2 = L1_2
-    L5_2 = 11816
-    L6_2 = 0.2
-    L7_2 = 0.45
-    L8_2 = 0.0
-    L9_2 = 0.0
-    L10_2 = 0.0
-    L11_2 = 0.0
-    L12_2 = false
+    temp2 = AttachEntityToEntity
+    temp3 = cache
+    temp3 = temp3.ped
+    temp4 = temp1
+    temp5 = 11816
+    temp6 = 0.2
+    temp7 = 0.45
+    temp8 = 0.0
+    temp9 = 0.0
+    temp10 = 0.0
+    temp11 = 0.0
+    temp12 = false
     L13_2 = false
     L14_2 = false
     L15_2 = true
     L16_2 = 2
     L17_2 = true
-    L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2)
+    temp2(temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2, L17_2)
   else
-    L1_2 = DetachEntity
-    L2_2 = cache
-    L2_2 = L2_2.ped
-    L1_2(L2_2)
-    L1_2 = StopAnimTask
-    L2_2 = cache
-    L2_2 = L2_2.ped
-    L3_2 = L11_1
-    L4_2 = "walk"
-    L5_2 = 3.0
-    L1_2(L2_2, L3_2, L4_2, L5_2)
-    L1_2 = StopAnimTask
-    L2_2 = cache
-    L2_2 = L2_2.ped
-    L3_2 = L12_1
-    L4_2 = "run"
-    L5_2 = 3.0
-    L1_2(L2_2, L3_2, L4_2, L5_2)
+    temp1 = DetachEntity
+    temp2 = cache
+    temp2 = temp2.ped
+    temp1(temp2)
+    temp1 = StopAnimTask
+    temp2 = cache
+    temp2 = temp2.ped
+    temp3 = handler
+    temp4 = "walk"
+    temp5 = 3.0
+    temp1(temp2, temp3, temp4, temp5)
+    temp1 = StopAnimTask
+    temp2 = cache
+    temp2 = temp2.ped
+    temp3 = L12_1
+    temp4 = "run"
+    temp5 = 3.0
+    temp1(temp2, temp3, temp4, temp5)
   end
-  L1_1 = A0_2
+  targetPlayer = targetId
 end
 L13_1(L14_1, L15_1)
 
@@ -511,43 +482,47 @@ L14_1 = "lunar_unijob:putInVehicle"
 -- Local function handler
 
 -- Local function handler
-function L15_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
-  L1_2 = L0_1
-  if L1_2 then
-    L1_2 = L1_1
-    if L1_2 then
-      L1_2 = NetworkDoesEntityExistWithNetworkId
-      L2_2 = A0_2
-      L1_2 = L1_2(L2_2)
-      if L1_2 then
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function L15_1(targetId)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
+  temp1 = isCuffed
+  if temp1 then
+    temp1 = targetPlayer
+    if temp1 then
+      temp1 = NetworkDoesEntityExistWithNetworkId
+      temp2 = targetId
+      temp1 = temp1(temp2)
+      if temp1 then
         goto lbl_13
       end
     end
   end
   do return end
   ::lbl_13::
-  L1_2 = NetworkGetEntityFromNetworkId
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L2_2 = GetVehicleMaxNumberOfPassengers
-  L3_2 = L1_2
-  L2_2 = L2_2(L3_2)
-  L3_2 = L2_2 - 1
-  L4_2 = 0
-  L5_2 = -1
-  for L6_2 = L3_2, L4_2, L5_2 do
-    L7_2 = IsVehicleSeatFree
-    L8_2 = L1_2
-    L9_2 = L6_2
-    L7_2 = L7_2(L8_2, L9_2)
-    if L7_2 then
-      L7_2 = TaskWarpPedIntoVehicle
-      L8_2 = cache
-      L8_2 = L8_2.ped
-      L9_2 = L1_2
-      L10_2 = L6_2
-      L7_2(L8_2, L9_2, L10_2)
+  temp1 = NetworkGetEntityFromNetworkId
+  temp2 = targetId
+  temp1 = temp1(temp2)
+  temp2 = GetVehicleMaxNumberOfPassengers
+  temp3 = temp1
+  temp2 = temp2(temp3)
+  temp3 = temp2 - 1
+  temp4 = 0
+  temp5 = -1
+  for temp6 = temp3, temp4, temp5 do
+    temp7 = IsVehicleSeatFree
+    temp8 = temp1
+    temp9 = temp6
+    temp7 = temp7(temp8, temp9)
+    if temp7 then
+      temp7 = TaskWarpPedIntoVehicle
+      temp8 = cache
+      temp8 = temp8.ped
+      temp9 = temp1
+      temp10 = temp6
+      temp7(temp8, temp9, temp10)
       break
     end
   end
@@ -563,14 +538,18 @@ L14_1 = "lunar_unijob:outTheVehicle"
 -- Local function handler
 
 -- Local function handler
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
 function L15_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2
-  L0_2 = L0_1
+  local L0_2, temp1, temp2, temp3, temp4
+  L0_2 = isCuffed
   if L0_2 then
     L0_2 = IsPedSittingInAnyVehicle
-    L1_2 = cache
-    L1_2 = L1_2.ped
-    L0_2 = L0_2(L1_2)
+    temp1 = cache
+    temp1 = temp1.ped
+    L0_2 = L0_2(temp1)
     if L0_2 then
       goto lbl_11
     end
@@ -578,119 +557,123 @@ function L15_1()
   do return end
   ::lbl_11::
   L0_2 = GetVehiclePedIsIn
-  L1_2 = cache
-  L1_2 = L1_2.ped
-  L2_2 = false
-  L0_2 = L0_2(L1_2, L2_2)
-  L1_2 = TaskLeaveVehicle
-  L2_2 = cache
-  L2_2 = L2_2.ped
-  L3_2 = L0_2
-  L4_2 = 64
-  L1_2(L2_2, L3_2, L4_2)
+  temp1 = cache
+  temp1 = temp1.ped
+  temp2 = false
+  L0_2 = L0_2(temp1, temp2)
+  temp1 = TaskLeaveVehicle
+  temp2 = cache
+  temp2 = temp2.ped
+  temp3 = L0_2
+  temp4 = 64
+  temp1(temp2, temp3, temp4)
 end
 L13_1(L14_1, L15_1)
 
 -- Local function handler
 
 -- Local function handler
-function L13_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
-  L1_2 = IsPedWalking
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  if L1_2 then
-    L1_2 = IsEntityPlayingAnim
-    L2_2 = cache
-    L2_2 = L2_2.ped
-    L3_2 = L11_1
-    L4_2 = "walk"
-    L5_2 = 3
-    L1_2 = L1_2(L2_2, L3_2, L4_2, L5_2)
-    if not L1_2 then
-      L1_2 = lib
-      L1_2 = L1_2.requestAnimDict
-      L2_2 = L11_1
-      L1_2(L2_2)
-      L1_2 = TaskPlayAnim
-      L2_2 = cache
-      L2_2 = L2_2.ped
-      L3_2 = L11_1
-      L4_2 = "walk"
-      L5_2 = 3.0
-      L6_2 = 3.0
-      L7_2 = -1
-      L8_2 = 1
-      L9_2 = 0.0
-      L10_2 = false
-      L11_2 = false
-      L12_2 = false
-      L1_2(L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2)
-      L1_2 = RemoveAnimDict
-      L2_2 = L11_1
-      L1_2(L2_2)
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function L13_1(targetId)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12
+  temp1 = IsPedWalking
+  temp2 = targetId
+  temp1 = temp1(temp2)
+  if temp1 then
+    temp1 = IsEntityPlayingAnim
+    temp2 = cache
+    temp2 = temp2.ped
+    temp3 = handler
+    temp4 = "walk"
+    temp5 = 3
+    temp1 = temp1(temp2, temp3, temp4, temp5)
+    if not temp1 then
+      temp1 = lib
+      temp1 = temp1.requestAnimDict
+      temp2 = handler
+      temp1(temp2)
+      temp1 = TaskPlayAnim
+      temp2 = cache
+      temp2 = temp2.ped
+      temp3 = handler
+      temp4 = "walk"
+      temp5 = 3.0
+      temp6 = 3.0
+      temp7 = -1
+      temp8 = 1
+      temp9 = 0.0
+      temp10 = false
+      temp11 = false
+      temp12 = false
+      temp1(temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12)
+      temp1 = RemoveAnimDict
+      temp2 = handler
+      temp1(temp2)
     end
   else
-    L1_2 = IsPedRunning
-    L2_2 = A0_2
-    L1_2 = L1_2(L2_2)
-    if not L1_2 then
-      L1_2 = IsPedSprinting
-      L2_2 = A0_2
-      L1_2 = L1_2(L2_2)
-      if not L1_2 then
+    temp1 = IsPedRunning
+    temp2 = targetId
+    temp1 = temp1(temp2)
+    if not temp1 then
+      temp1 = IsPedSprinting
+      temp2 = targetId
+      temp1 = temp1(temp2)
+      if not temp1 then
         goto lbl_82
       end
     end
-    L1_2 = Settings
-    L1_2 = L1_2.sprintWhileDrag
-    if L1_2 then
-      L1_2 = IsEntityPlayingAnim
-      L2_2 = cache
-      L2_2 = L2_2.ped
-      L3_2 = L12_1
-      L4_2 = "run"
-      L5_2 = 3
-      L1_2 = L1_2(L2_2, L3_2, L4_2, L5_2)
-      if not L1_2 then
-        L1_2 = lib
-        L1_2 = L1_2.requestAnimDict
-        L2_2 = L12_1
-        L1_2(L2_2)
-        L1_2 = TaskPlayAnim
-        L2_2 = cache
-        L2_2 = L2_2.ped
-        L3_2 = L12_1
-        L4_2 = "run"
-        L5_2 = 3.0
-        L6_2 = 3.0
-        L7_2 = -1
-        L8_2 = 1
-        L9_2 = 0.0
-        L10_2 = false
-        L11_2 = false
-        L12_2 = false
-        L1_2(L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2)
-        L1_2 = RemoveAnimDict
-        L2_2 = L12_1
-        L1_2(L2_2)
+    temp1 = Settings
+    temp1 = temp1.sprintWhileDrag
+    if temp1 then
+      temp1 = IsEntityPlayingAnim
+      temp2 = cache
+      temp2 = temp2.ped
+      temp3 = L12_1
+      temp4 = "run"
+      temp5 = 3
+      temp1 = temp1(temp2, temp3, temp4, temp5)
+      if not temp1 then
+        temp1 = lib
+        temp1 = temp1.requestAnimDict
+        temp2 = L12_1
+        temp1(temp2)
+        temp1 = TaskPlayAnim
+        temp2 = cache
+        temp2 = temp2.ped
+        temp3 = L12_1
+        temp4 = "run"
+        temp5 = 3.0
+        temp6 = 3.0
+        temp7 = -1
+        temp8 = 1
+        temp9 = 0.0
+        temp10 = false
+        temp11 = false
+        temp12 = false
+        temp1(temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12)
+        temp1 = RemoveAnimDict
+        temp2 = L12_1
+        temp1(temp2)
       end
     ::lbl_82::
     else
-      L1_2 = StopAnimTask
-      L2_2 = cache
-      L2_2 = L2_2.ped
-      L3_2 = L11_1
-      L4_2 = "walk"
-      L5_2 = 3.0
-      L1_2(L2_2, L3_2, L4_2, L5_2)
-      L1_2 = StopAnimTask
-      L2_2 = cache
-      L2_2 = L2_2.ped
-      L3_2 = L12_1
-      L4_2 = "run"
-      L5_2 = 3.0
-      L1_2(L2_2, L3_2, L4_2, L5_2)
+      temp1 = StopAnimTask
+      temp2 = cache
+      temp2 = temp2.ped
+      temp3 = handler
+      temp4 = "walk"
+      temp5 = 3.0
+      temp1(temp2, temp3, temp4, temp5)
+      temp1 = StopAnimTask
+      temp2 = cache
+      temp2 = temp2.ped
+      temp3 = L12_1
+      temp4 = "run"
+      temp5 = 3.0
+      temp1(temp2, temp3, temp4, temp5)
     end
   end
 end
@@ -702,29 +685,33 @@ L17_1 = SetInterval
 -- Local function handler
 
 -- Local function handler
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
 function L18_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
-  L0_2 = L0_1
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  L0_2 = isCuffed
   if L0_2 then
-    L0_2 = L1_1
+    L0_2 = targetPlayer
     if L0_2 then
-      L0_2 = L5_1
-      L1_2 = L1_1
-      L0_2 = L0_2(L1_2)
+      L0_2 = result
+      temp1 = targetPlayer
+      L0_2 = L0_2(temp1)
       if not L0_2 then
         return
       end
-      L1_2 = L13_1
-      L2_2 = L0_2
-      L1_2(L2_2)
+      temp1 = L13_1
+      temp2 = L0_2
+      temp1(temp2)
     end
     L0_2 = IsEntityPlayingAnim
-    L1_2 = cache
-    L1_2 = L1_2.ped
-    L2_2 = L14_1
-    L3_2 = "idle"
-    L4_2 = 3
-    L0_2 = L0_2(L1_2, L2_2, L3_2, L4_2)
+    temp1 = cache
+    temp1 = temp1.ped
+    temp2 = L14_1
+    temp3 = "idle"
+    temp4 = 3
+    L0_2 = L0_2(temp1, temp2, temp3, temp4)
     if L0_2 then
       L0_2 = Config
       L0_2 = L0_2.forceCuffAnim
@@ -737,34 +724,34 @@ function L18_1()
     end
     L0_2 = lib
     L0_2 = L0_2.requestAnimDict
-    L1_2 = L14_1
-    L0_2(L1_2)
+    temp1 = L14_1
+    L0_2(temp1)
     L0_2 = TaskPlayAnim
-    L1_2 = cache
-    L1_2 = L1_2.ped
-    L2_2 = L14_1
-    L3_2 = "idle"
-    L4_2 = 8.0
-    L5_2 = -8
-    L6_2 = -1
-    L7_2 = 49
-    L8_2 = 0.0
-    L9_2 = false
-    L10_2 = false
-    L11_2 = false
-    L0_2(L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2)
+    temp1 = cache
+    temp1 = temp1.ped
+    temp2 = L14_1
+    temp3 = "idle"
+    temp4 = 8.0
+    temp5 = -8
+    temp6 = -1
+    temp7 = 49
+    temp8 = 0.0
+    temp9 = false
+    temp10 = false
+    temp11 = false
+    L0_2(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
     L0_2 = RemoveAnimDict
-    L1_2 = L14_1
-    L0_2(L1_2)
+    temp1 = L14_1
+    L0_2(temp1)
     L0_2 = true
     L15_1 = L0_2
     L0_2 = false
     L16_1 = L0_2
     ::lbl_57::
     L0_2 = IsPedRagdoll
-    L1_2 = cache
-    L1_2 = L1_2.ped
-    L0_2 = L0_2(L1_2)
+    temp1 = cache
+    temp1 = temp1.ped
+    L0_2 = L0_2(temp1)
     if L0_2 then
       L0_2 = true
       L16_1 = L0_2
@@ -773,17 +760,17 @@ function L18_1()
     L0_2 = L15_1
     if L0_2 then
       L0_2 = IsEntityPlayingAnim
-      L1_2 = cache
-      L1_2 = L1_2.ped
-      L2_2 = L14_1
-      L3_2 = "idle"
-      L4_2 = 3
-      L0_2 = L0_2(L1_2, L2_2, L3_2, L4_2)
+      temp1 = cache
+      temp1 = temp1.ped
+      temp2 = L14_1
+      temp3 = "idle"
+      temp4 = 3
+      L0_2 = L0_2(temp1, temp2, temp3, temp4)
       if L0_2 then
         L0_2 = ClearPedTasks
-        L1_2 = cache
-        L1_2 = L1_2.ped
-        L0_2(L1_2)
+        temp1 = cache
+        temp1 = temp1.ped
+        L0_2(temp1)
         L0_2 = false
         L15_1 = L0_2
       end
@@ -797,21 +784,25 @@ L17_1 = CreateThread
 -- Local function handler
 
 -- Local function handler
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
 function L18_1()
-  local L0_2, L1_2
+  local L0_2, temp1
   while true do
-    L0_2 = L0_1
+    L0_2 = isCuffed
     if L0_2 then
       L0_2 = Editable
       L0_2 = L0_2.handcuffControls
       L0_2()
       L0_2 = Wait
-      L1_2 = 0
-      L0_2(L1_2)
+      temp1 = 0
+      L0_2(temp1)
     else
       L0_2 = Wait
-      L1_2 = 500
-      L0_2(L1_2)
+      temp1 = 500
+      L0_2(temp1)
     end
   end
 end
@@ -820,9 +811,13 @@ L17_1(L18_1)
 -- Local function handler
 
 -- Local function handler
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
 function L17_1()
-  local L0_2, L1_2
-  L0_2 = L0_1
+  local L0_2, temp1
+  L0_2 = isCuffed
   return L0_2
 end
 IsHandcuffed = L17_1
@@ -830,9 +825,13 @@ IsHandcuffed = L17_1
 -- Local function handler
 
 -- Local function handler
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
 function L17_1()
-  local L0_2, L1_2
-  L0_2 = L1_1
+  local L0_2, temp1
+  L0_2 = targetPlayer
   L0_2 = nil ~= L0_2
   return L0_2
 end

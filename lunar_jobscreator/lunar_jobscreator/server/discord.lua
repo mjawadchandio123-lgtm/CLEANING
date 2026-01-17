@@ -1,90 +1,59 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- discord.lua
--- Server discord logging system
+-- Discord integration
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1
-L0_1 = {}
-
--- Local function handler
-
--- Local function handler
-function L1_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2
-  L1_2 = GetPlayerIdentifierByType
-  L2_2 = A0_2
-  L3_2 = "discord"
-  L1_2 = L1_2(L2_2, L3_2)
-  L3_2 = L1_2
-  L2_2 = L1_2.find
-  L4_2 = ":"
-  L2_2 = L2_2(L3_2, L4_2)
-  L3_2 = L2_2 or L3_2
-  if L2_2 then
-    L4_2 = L1_2
-    L3_2 = L1_2.sub
-    L5_2 = L2_2 + 1
-    L3_2 = L3_2(L4_2, L5_2)
-  end
-  return L3_2
-end
-L2_1 = lib
-L2_1 = L2_1.callback
-L2_1 = L2_1.register
-L3_1 = "lunar_unijob:getDiscordIcon"
-
--- Local function handler
-
--- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
-  L1_2 = SvConfig
-  L1_2 = L1_2.discordBotToken
-  if L1_2 then
-    L1_2 = SvConfig
-    L1_2 = L1_2.discordBotToken
-    if "TOKEN_HERE" ~= L1_2 then
+function player(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  temp1 = SvConfig
+  temp1 = temp1.discordBotToken
+  if temp1 then
+    temp1 = SvConfig
+    temp1 = temp1.discordBotToken
+    if "TOKEN_HERE" ~= temp1 then
       goto lbl_13
     end
   end
-  L1_2 = warn
-  L2_2 = "Discord bot token missing."
-  L1_2(L2_2)
+  temp1 = warn
+  temp2 = "Discord bot token missing."
+  temp1(temp2)
   do return end
   ::lbl_13::
-  L1_2 = L0_1
-  L1_2 = L1_2[A0_2]
-  if L1_2 then
+  temp1 = isActive
+  temp1 = temp1[param1]
+  if temp1 then
     return
   end
-  L1_2 = L0_1
-  L1_2[A0_2] = true
-  L1_2 = L1_1
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L2_2 = "users/"
-  L3_2 = L1_2
-  L2_2 = L2_2 .. L3_2
-  L3_2 = promise
-  L3_2 = L3_2.new
-  L3_2 = L3_2()
-  if not L1_2 then
+  temp1 = isActive
+  temp1[param1] = true
+  temp1 = data
+  temp2 = param1
+  temp1 = temp1(temp2)
+  temp2 = "users/"
+  temp3 = temp1
+  temp2 = temp2 .. temp3
+  temp3 = promise
+  temp3 = temp3.new
+  temp3 = temp3()
+  if not temp1 then
     return
   end
   while true do
-    L4_2 = PerformHttpRequest
-    L5_2 = "https://discord.com/api/"
-    L6_2 = L2_2
-    L5_2 = L5_2 .. L6_2
+    temp4 = PerformHttpRequest
+    temp5 = "https://discord.com/api/"
+    temp6 = temp2
+    temp5 = temp5 .. temp6
 
 -- Local function handler
 
 -- Local function handler
-    function L6_2(A0_3, A1_3, A2_3)
+    function temp6(A0_3, A1_3, A2_3)
       local L3_3, L4_3, L5_3
-      L3_3 = L3_2
+      L3_3 = temp3
       L4_3 = L3_3
       L3_3 = L3_3.resolve
       L5_3 = {}
@@ -93,70 +62,70 @@ function L4_1(A0_2)
       L5_3.headers = A2_3
       L3_3(L4_3, L5_3)
     end
-    L7_2 = "GET"
-    L8_2 = ""
-    L9_2 = {}
-    L9_2["Content-Type"] = "application/json"
-    L10_2 = "Bot "
-    L11_2 = SvConfig
-    L11_2 = L11_2.discordBotToken
-    L10_2 = L10_2 .. L11_2
-    L9_2.Authorization = L10_2
-    L4_2(L5_2, L6_2, L7_2, L8_2, L9_2)
-    L4_2 = Citizen
-    L4_2 = L4_2.Await
-    L5_2 = L3_2
-    L4_2 = L4_2(L5_2)
-    L5_2 = L4_2.code
-    if 200 == L5_2 then
-      L5_2 = json
-      L5_2 = L5_2.decode
-      L6_2 = L4_2.data
-      L5_2 = L5_2(L6_2)
-      L6_2 = L5_2.avatar
-      L7_2 = string
-      L7_2 = L7_2.format
-      L8_2 = "https://cdn.discordapp.com/avatars/%s/%s.png"
-      L9_2 = L1_2
-      L10_2 = L6_2
-      L7_2 = L7_2(L8_2, L9_2, L10_2)
-      return L7_2
+    temp7 = "GET"
+    temp8 = ""
+    temp9 = {}
+    temp9["Content-Type"] = "application/json"
+    temp10 = "Bot "
+    temp11 = SvConfig
+    temp11 = temp11.discordBotToken
+    temp10 = temp10 .. temp11
+    temp9.Authorization = temp10
+    temp4(temp5, temp6, temp7, temp8, temp9)
+    temp4 = Citizen
+    temp4 = temp4.Await
+    temp5 = temp3
+    temp4 = temp4(temp5)
+    temp5 = temp4.code
+    if 200 == temp5 then
+      temp5 = json
+      temp5 = temp5.decode
+      temp6 = temp4.data
+      temp5 = temp5(temp6)
+      temp6 = temp5.avatar
+      temp7 = string
+      temp7 = temp7.format
+      temp8 = "https://cdn.discordapp.com/avatars/%s/%s.png"
+      temp9 = temp1
+      temp10 = temp6
+      temp7 = temp7(temp8, temp9, temp10)
+      return temp7
     else
-      L5_2 = L4_2.code
-      if 429 == L5_2 then
-        L5_2 = tonumber
-        L6_2 = L4_2.headers
-        L6_2 = L6_2["Retry-After"]
-        L5_2 = L5_2(L6_2)
-        if L5_2 then
-          L6_2 = warn
-          L7_2 = "Rate-limited. Waiting "
-          L8_2 = L5_2
-          L9_2 = " seconds before retrying..."
-          L7_2 = L7_2 .. L8_2 .. L9_2
-          L6_2(L7_2)
-          L6_2 = Wait
-          L7_2 = L5_2 * 1000
-          L6_2(L7_2)
+      temp5 = temp4.code
+      if 429 == temp5 then
+        temp5 = tonumber
+        temp6 = temp4.headers
+        temp6 = temp6["Retry-After"]
+        temp5 = temp5(temp6)
+        if temp5 then
+          temp6 = warn
+          temp7 = "Rate-limited. Waiting "
+          temp8 = temp5
+          temp9 = " seconds before retrying..."
+          temp7 = temp7 .. temp8 .. temp9
+          temp6(temp7)
+          temp6 = Wait
+          temp7 = temp5 * 1000
+          temp6(temp7)
         else
-          L6_2 = warn
-          L7_2 = "Rate limited but no Retry-After header provided."
-          L6_2(L7_2)
-          L6_2 = Wait
-          L7_2 = 5000
-          L6_2(L7_2)
+          temp6 = warn
+          temp7 = "Rate limited but no Retry-After header provided."
+          temp6(temp7)
+          temp6 = Wait
+          temp7 = 5000
+          temp6(temp7)
         end
       else
-        L5_2 = warn
-        L6_2 = "Couldn't fetch discord user data: HTTP "
-        L7_2 = tostring
-        L8_2 = L4_2.code
-        L7_2 = L7_2(L8_2)
-        L6_2 = L6_2 .. L7_2
-        L5_2(L6_2)
+        temp5 = warn
+        temp6 = "Couldn't fetch discord user data: HTTP "
+        temp7 = tostring
+        temp8 = temp4.code
+        temp7 = temp7(temp8)
+        temp6 = temp6 .. temp7
+        temp5(temp6)
         return
       end
     end
   end
 end
-L2_1(L3_1, L4_1)
+config(item, player)

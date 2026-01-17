@@ -1,198 +1,177 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- webhooks.lua
--- Server webhook/discord integration
+-- Discord webhook system
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1
-L0_1 = {}
-Webhooks = L0_1
-L0_1 = Webhooks
-L1_1 = GetResourceKvpString
-L2_1 = "webhook"
-L1_1 = L1_1(L2_1)
-L0_1.globalWebhook = L1_1
-L0_1 = GetResourceKvpString
-L1_1 = "webhookSettings"
-L0_1 = L0_1(L1_1)
-L1_1 = Webhooks
-if L0_1 then
-  L2_1 = json
-  L2_1 = L2_1.decode
-  L3_1 = L0_1
-  L2_1 = L2_1(L3_1)
-  if L2_1 then
-    goto lbl_32
-  end
-end
-L2_1 = {}
-L2_1.alarms = false
-L2_1.collecting = false
-L2_1.crafting = true
-L2_1.vehicleBought = true
-L2_1.registers = true
-L2_1.selling = true
-L2_1.shops = true
-L2_1.stashes = true
-::lbl_32::
-L1_1.settings = L2_1
-L1_1 = Webhooks
-L2_1 = {}
-L1_1.jobs = L2_1
-L1_1 = MySQL
-L1_1 = L1_1.ready
+data.settings = config
+data = Webhooks
+config = {}
+data.jobs = config
+data = MySQL
+data = data.ready
 
 -- Local function handler
 
 -- Local function handler
-function L2_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
+
+-- ─── FUNCTION ─────────────
+function config()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8
   L0_2 = Wait
-  L1_2 = 1000
-  L0_2(L1_2)
+  temp1 = 1000
+  L0_2(temp1)
   L0_2 = MySQL
   L0_2 = L0_2.query
   L0_2 = L0_2.await
-  L1_2 = "SELECT * FROM lunar_jobscreator_webhooks"
-  L0_2 = L0_2(L1_2)
-  L1_2 = 1
-  L2_2 = #L0_2
-  L3_2 = 1
-  for L4_2 = L1_2, L2_2, L3_2 do
-    L5_2 = L0_2[L4_2]
-    L6_2 = Webhooks
-    L6_2 = L6_2.jobs
-    L7_2 = L5_2.name
-    L8_2 = L5_2.url
-    L6_2[L7_2] = L8_2
+  temp1 = "SELECT * FROM lunar_jobscreator_webhooks"
+  L0_2 = L0_2(temp1)
+  temp1 = 1
+  temp2 = #L0_2
+  temp3 = 1
+  for temp4 = temp1, temp2, temp3 do
+    temp5 = L0_2[temp4]
+    temp6 = Webhooks
+    temp6 = temp6.jobs
+    temp7 = temp5.name
+    temp8 = temp5.url
+    temp6[temp7] = temp8
   end
 end
-L1_1(L2_1)
-L1_1 = lib
-L1_1 = L1_1.callback
-L1_1 = L1_1.register
-L2_1 = "lunar_unijob:getWebhookData"
+data(config)
+data = lib
+data = data.callback
+data = data.register
+config = "lunar_unijob:getWebhookData"
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L1_2 = Framework
-  L1_2 = L1_2.getPlayerFromId
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  if L1_2 then
-    L2_2 = IsPlayerAdmin
-    L3_2 = L1_2.source
-    L2_2 = L2_2(L3_2)
-    if L2_2 then
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3
+  temp1 = Framework
+  temp1 = temp1.getPlayerFromId
+  temp2 = param1
+  temp1 = temp1(temp2)
+  if temp1 then
+    temp2 = IsPlayerAdmin
+    temp3 = temp1.source
+    temp2 = temp2(temp3)
+    if temp2 then
       goto lbl_13
     end
   end
   do return end
   ::lbl_13::
-  L2_2 = Webhooks
-  return L2_2
+  temp2 = Webhooks
+  return temp2
 end
-L1_1(L2_1, L3_1)
+data(config, item)
 
 -- Event handler registration
 
 -- Event handler registration
-L1_1 = RegisterNetEvent
-L2_1 = "lunar_unijob:updateWebhookData"
+data = RegisterNetEvent
+config = "lunar_unijob:updateWebhookData"
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L1_2 = source
-  L2_2 = Framework
-  L2_2 = L2_2.getPlayerFromId
-  L3_2 = L1_2
-  L2_2 = L2_2(L3_2)
-  if L2_2 then
-    L3_2 = IsPlayerAdmin
-    L4_2 = L2_2.source
-    L3_2 = L3_2(L4_2)
-    if L3_2 then
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6
+  temp1 = source
+  temp2 = Framework
+  temp2 = temp2.getPlayerFromId
+  temp3 = temp1
+  temp2 = temp2(temp3)
+  if temp2 then
+    temp3 = IsPlayerAdmin
+    temp4 = temp2.source
+    temp3 = temp3(temp4)
+    if temp3 then
       goto lbl_14
     end
   end
   do return end
   ::lbl_14::
-  L3_2 = Webhooks
-  L4_2 = A0_2.globalWebhook
-  L3_2.globalWebhook = L4_2
-  L3_2 = Webhooks
-  L4_2 = A0_2.settings
-  L3_2.settings = L4_2
-  L3_2 = A0_2.globalWebhook
-  if L3_2 then
-    L3_2 = SetResourceKvp
-    L4_2 = "webhook"
-    L5_2 = A0_2.globalWebhook
-    L3_2(L4_2, L5_2)
+  temp3 = Webhooks
+  temp4 = param1.globalWebhook
+  temp3.globalWebhook = temp4
+  temp3 = Webhooks
+  temp4 = param1.settings
+  temp3.settings = temp4
+  temp3 = param1.globalWebhook
+  if temp3 then
+    temp3 = SetResourceKvp
+    temp4 = "webhook"
+    temp5 = param1.globalWebhook
+    temp3(temp4, temp5)
   end
-  L3_2 = A0_2.settings
-  if L3_2 then
-    L3_2 = SetResourceKvp
-    L4_2 = "webhookSettings"
-    L5_2 = json
-    L5_2 = L5_2.encode
-    L6_2 = A0_2.settings
-    L5_2, L6_2 = L5_2(L6_2)
-    L3_2(L4_2, L5_2, L6_2)
+  temp3 = param1.settings
+  if temp3 then
+    temp3 = SetResourceKvp
+    temp4 = "webhookSettings"
+    temp5 = json
+    temp5 = temp5.encode
+    temp6 = param1.settings
+    temp5, temp6 = temp5(temp6)
+    temp3(temp4, temp5, temp6)
   end
 end
-L1_1(L2_1, L3_1)
+data(config, item)
 
 -- Event handler registration
 
 -- Event handler registration
-L1_1 = RegisterNetEvent
-L2_1 = "lunar_unijob:updateJobWebhook"
+data = RegisterNetEvent
+config = "lunar_unijob:updateJobWebhook"
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
-  L2_2 = source
-  L3_2 = Framework
-  L3_2 = L3_2.getPlayerFromId
-  L4_2 = L2_2
-  L3_2 = L3_2(L4_2)
-  if L3_2 then
-    L4_2 = IsPlayerAdmin
-    L5_2 = L3_2.source
-    L4_2 = L4_2(L5_2)
-    if L4_2 then
-      L5_2 = A1_2
-      L4_2 = A1_2.len
-      L4_2 = L4_2(L5_2)
-      if 0 ~= L4_2 then
+
+-- ─── FUNCTION ─────────────
+function item(param1, param2)
+  local temp2, temp3, temp4, temp5, temp6, temp7, temp8
+  temp2 = source
+  temp3 = Framework
+  temp3 = temp3.getPlayerFromId
+  temp4 = temp2
+  temp3 = temp3(temp4)
+  if temp3 then
+    temp4 = IsPlayerAdmin
+    temp5 = temp3.source
+    temp4 = temp4(temp5)
+    if temp4 then
+      temp5 = param2
+      temp4 = param2.len
+      temp4 = temp4(temp5)
+      if 0 ~= temp4 then
         goto lbl_18
       end
     end
   end
   do return end
   ::lbl_18::
-  L4_2 = Webhooks
-  L4_2 = L4_2.jobs
-  L4_2[A0_2] = A1_2
-  L4_2 = MySQL
-  L4_2 = L4_2.update
-  L4_2 = L4_2.await
-  L5_2 = "INSERT INTO lunar_jobscreator_webhooks (name, url) VALUES(?, ?) ON DUPLICATE KEY UPDATE url = VALUES(url)"
-  L6_2 = {}
-  L7_2 = A0_2
-  L8_2 = A1_2
-  L6_2[1] = L7_2
-  L6_2[2] = L8_2
-  L4_2(L5_2, L6_2)
+  temp4 = Webhooks
+  temp4 = temp4.jobs
+  temp4[param1] = param2
+  temp4 = MySQL
+  temp4 = temp4.update
+  temp4 = temp4.await
+  temp5 = "INSERT INTO lunar_jobscreator_webhooks (name, url) VALUES(?, ?) ON DUPLICATE KEY UPDATE url = VALUES(url)"
+  temp6 = {}
+  temp7 = param1
+  temp8 = param2
+  temp6[1] = temp7
+  temp6[2] = temp8
+  temp4(temp5, temp6)
 end
-L1_1(L2_1, L3_1)
+data(config, item)

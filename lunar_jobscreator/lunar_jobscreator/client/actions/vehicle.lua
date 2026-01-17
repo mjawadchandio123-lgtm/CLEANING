@@ -1,278 +1,270 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- vehicle.lua
--- Client-side vehicle action handler
+-- Vehicle actions - entry, exit, damage
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1
-
--- Local function handler
-
--- Local function handler
-function L0_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
-  L2_2 = NetworkGetNetworkIdFromEntity
-  L3_2 = A0_2
-  L2_2 = L2_2(L3_2)
-  L3_2 = TriggerServerEvent
-  L4_2 = "lunar_unijob:performVehicleAction"
-  L5_2 = L2_2
-  L6_2 = A1_2
-  L3_2(L4_2, L5_2, L6_2)
-end
-
--- Event handler registration
-
--- Event handler registration
-L1_1 = RegisterNetEvent
-L2_1 = "lunar_unijob:performVehicleAction"
-
--- Local function handler
-
--- Local function handler
-function L3_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
-  L2_2 = NetworkGetEntityFromNetworkId
-  L3_2 = A0_2
-  L2_2 = L2_2(L3_2)
-  L3_2 = DoesEntityExist
-  L4_2 = L2_2
-  L3_2 = L3_2(L4_2)
-  if not L3_2 then
+function item(param1, param2)
+  local temp2, temp3, temp4, temp5, temp6
+  temp2 = NetworkGetEntityFromNetworkId
+  temp3 = param1
+  temp2 = temp2(temp3)
+  temp3 = DoesEntityExist
+  temp4 = temp2
+  temp3 = temp3(temp4)
+  if not temp3 then
     return
   end
-  if "hijack" == A1_2 then
-    L3_2 = SetVehicleDoorsLocked
-    L4_2 = L2_2
-    L5_2 = 1
-    L3_2(L4_2, L5_2)
-    L3_2 = SetVehicleDoorsLockedForAllPlayers
-    L4_2 = L2_2
-    L5_2 = false
-    L3_2(L4_2, L5_2)
-  elseif "repair" == A1_2 then
-    L3_2 = SetVehicleFixed
-    L4_2 = L2_2
-    L3_2(L4_2)
-    L3_2 = SetVehicleDeformationFixed
-    L4_2 = L2_2
-    L3_2(L4_2)
-    L3_2 = SetVehicleUndriveable
-    L4_2 = L2_2
-    L5_2 = false
-    L3_2(L4_2, L5_2)
-    L3_2 = SetVehicleEngineOn
-    L4_2 = L2_2
-    L5_2 = true
-    L6_2 = true
-    L3_2(L4_2, L5_2, L6_2)
-  elseif "clean" == A1_2 then
-    L3_2 = SetVehicleDirtLevel
-    L4_2 = L2_2
-    L5_2 = 0.0
-    L3_2(L4_2, L5_2)
-  elseif "impound" == A1_2 then
-    L3_2 = SetEntityAsMissionEntity
-    L4_2 = L2_2
-    L3_2(L4_2)
-    L3_2 = DeleteVehicle
-    L4_2 = L2_2
-    L3_2(L4_2)
+  if "hijack" == param2 then
+    temp3 = SetVehicleDoorsLocked
+    temp4 = temp2
+    temp5 = 1
+    temp3(temp4, temp5)
+    temp3 = SetVehicleDoorsLockedForAllPlayers
+    temp4 = temp2
+    temp5 = false
+    temp3(temp4, temp5)
+  elseif "repair" == param2 then
+    temp3 = SetVehicleFixed
+    temp4 = temp2
+    temp3(temp4)
+    temp3 = SetVehicleDeformationFixed
+    temp4 = temp2
+    temp3(temp4)
+    temp3 = SetVehicleUndriveable
+    temp4 = temp2
+    temp5 = false
+    temp3(temp4, temp5)
+    temp3 = SetVehicleEngineOn
+    temp4 = temp2
+    temp5 = true
+    temp6 = true
+    temp3(temp4, temp5, temp6)
+  elseif "clean" == param2 then
+    temp3 = SetVehicleDirtLevel
+    temp4 = temp2
+    temp5 = 0.0
+    temp3(temp4, temp5)
+  elseif "impound" == param2 then
+    temp3 = SetEntityAsMissionEntity
+    temp4 = temp2
+    temp3(temp4)
+    temp3 = DeleteVehicle
+    temp4 = temp2
+    temp3(temp4)
   end
 end
-L1_1(L2_1, L3_1)
-L1_1 = Actions
-L1_1 = L1_1.createVehicle
-L2_1 = "hijack"
-L3_1 = "user-ninja"
+vehicleId(seat, item)
+vehicleId = Actions
+vehicleId = vehicleId.createVehicle
+seat = "hijack"
+item = "user-ninja"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L1_2 = lib
-  L1_2 = L1_2.callback
-  L1_2 = L1_2.await
-  L2_2 = "lunar_unijob:hijackVehicle"
-  L3_2 = false
-  L1_2 = L1_2(L2_2, L3_2)
-  L2_2 = TaskStartScenarioInPlace
-  L3_2 = cache
-  L3_2 = L3_2.ped
-  L4_2 = "PROP_HUMAN_BUM_BIN"
-  L5_2 = 0
-  L6_2 = true
-  L2_2(L3_2, L4_2, L5_2, L6_2)
-  if L1_2 then
-    L2_2 = Editable
-    L2_2 = L2_2.lockpickMinigame
-    L2_2 = L2_2()
-    if L2_2 then
-      L2_2 = LR
-      L2_2 = L2_2.progressBar
-      L3_2 = locale
-      L4_2 = "progress_hijack"
-      L3_2 = L3_2(L4_2)
-      L4_2 = Settings
-      L4_2 = L4_2.durations
-      L4_2 = L4_2.hijack
-      L5_2 = false
-      L2_2 = L2_2(L3_2, L4_2, L5_2)
-      if L2_2 then
-        L2_2 = L0_1
-        L3_2 = A0_2
-        L4_2 = "hijack"
-        L2_2(L3_2, L4_2)
-        L2_2 = LR
-        L2_2 = L2_2.notify
-        L3_2 = locale
-        L4_2 = "hijacked"
-        L3_2 = L3_2(L4_2)
-        L4_2 = "success"
-        L2_2(L3_2, L4_2)
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6
+  temp1 = lib
+  temp1 = temp1.callback
+  temp1 = temp1.await
+  temp2 = "lunar_unijob:hijackVehicle"
+  temp3 = false
+  temp1 = temp1(temp2, temp3)
+  temp2 = TaskStartScenarioInPlace
+  temp3 = cache
+  temp3 = temp3.ped
+  temp4 = "PROP_HUMAN_BUM_BIN"
+  temp5 = 0
+  temp6 = true
+  temp2(temp3, temp4, temp5, temp6)
+  if temp1 then
+    temp2 = Editable
+    temp2 = temp2.lockpickMinigame
+    temp2 = temp2()
+    if temp2 then
+      temp2 = LR
+      temp2 = temp2.progressBar
+      temp3 = locale
+      temp4 = "progress_hijack"
+      temp3 = temp3(temp4)
+      temp4 = Settings
+      temp4 = temp4.durations
+      temp4 = temp4.hijack
+      temp5 = false
+      temp2 = temp2(temp3, temp4, temp5)
+      if temp2 then
+        temp2 = vehicleData
+        temp3 = param1
+        temp4 = "hijack"
+        temp2(temp3, temp4)
+        temp2 = LR
+        temp2 = temp2.notify
+        temp3 = locale
+        temp4 = "hijacked"
+        temp3 = temp3(temp4)
+        temp4 = "success"
+        temp2(temp3, temp4)
       end
     end
   end
-  L2_2 = ClearPedTasks
-  L3_2 = cache
-  L3_2 = L3_2.ped
-  L2_2(L3_2)
+  temp2 = ClearPedTasks
+  temp3 = cache
+  temp3 = temp3.ped
+  temp2(temp3)
 end
-L1_1(L2_1, L3_1, L4_1)
-L1_1 = Actions
-L1_1 = L1_1.createVehicle
-L2_1 = "repair"
-L3_1 = "screwdriver-wrench"
+vehicleId(seat, item, player)
+vehicleId = Actions
+vehicleId = vehicleId.createVehicle
+seat = "repair"
+item = "screwdriver-wrench"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L1_2 = lib
-  L1_2 = L1_2.callback
-  L1_2 = L1_2.await
-  L2_2 = "lunar_unijob:repairVehicle"
-  L3_2 = false
-  L1_2 = L1_2(L2_2, L3_2)
-  if L1_2 then
-    L2_2 = LR
-    L2_2 = L2_2.progressBar
-    L3_2 = locale
-    L4_2 = "progress_repair"
-    L3_2 = L3_2(L4_2)
-    L4_2 = Settings
-    L4_2 = L4_2.durations
-    L4_2 = L4_2.repair
-    L5_2 = false
-    L6_2 = {}
-    L6_2.scenario = "PROP_HUMAN_BUM_BIN"
-    L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
-    if L2_2 then
-      L2_2 = L0_1
-      L3_2 = A0_2
-      L4_2 = "repair"
-      L2_2(L3_2, L4_2)
-      L2_2 = LR
-      L2_2 = L2_2.notify
-      L3_2 = locale
-      L4_2 = "repaired"
-      L3_2 = L3_2(L4_2)
-      L4_2 = "success"
-      L2_2(L3_2, L4_2)
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6
+  temp1 = lib
+  temp1 = temp1.callback
+  temp1 = temp1.await
+  temp2 = "lunar_unijob:repairVehicle"
+  temp3 = false
+  temp1 = temp1(temp2, temp3)
+  if temp1 then
+    temp2 = LR
+    temp2 = temp2.progressBar
+    temp3 = locale
+    temp4 = "progress_repair"
+    temp3 = temp3(temp4)
+    temp4 = Settings
+    temp4 = temp4.durations
+    temp4 = temp4.repair
+    temp5 = false
+    temp6 = {}
+    temp6.scenario = "PROP_HUMAN_BUM_BIN"
+    temp2 = temp2(temp3, temp4, temp5, temp6)
+    if temp2 then
+      temp2 = vehicleData
+      temp3 = param1
+      temp4 = "repair"
+      temp2(temp3, temp4)
+      temp2 = LR
+      temp2 = temp2.notify
+      temp3 = locale
+      temp4 = "repaired"
+      temp3 = temp3(temp4)
+      temp4 = "success"
+      temp2(temp3, temp4)
     end
   end
 end
-L1_1(L2_1, L3_1, L4_1)
-L1_1 = Actions
-L1_1 = L1_1.createVehicle
-L2_1 = "clean"
-L3_1 = "hand-sparkles"
+vehicleId(seat, item, player)
+vehicleId = Actions
+vehicleId = vehicleId.createVehicle
+seat = "clean"
+item = "hand-sparkles"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L1_2 = lib
-  L1_2 = L1_2.callback
-  L1_2 = L1_2.await
-  L2_2 = "lunar_unijob:cleanVehicle"
-  L3_2 = false
-  L1_2 = L1_2(L2_2, L3_2)
-  if L1_2 then
-    L2_2 = LR
-    L2_2 = L2_2.progressBar
-    L3_2 = locale
-    L4_2 = "progress_clean"
-    L3_2 = L3_2(L4_2)
-    L4_2 = Settings
-    L4_2 = L4_2.durations
-    L4_2 = L4_2.clean
-    L5_2 = false
-    L6_2 = {}
-    L6_2.scenario = "WORLD_HUMAN_MAID_CLEAN"
-    L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
-    if L2_2 then
-      L2_2 = L0_1
-      L3_2 = A0_2
-      L4_2 = "clean"
-      L2_2(L3_2, L4_2)
-      L2_2 = LR
-      L2_2 = L2_2.notify
-      L3_2 = locale
-      L4_2 = "cleaned"
-      L3_2 = L3_2(L4_2)
-      L4_2 = "success"
-      L2_2(L3_2, L4_2)
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6
+  temp1 = lib
+  temp1 = temp1.callback
+  temp1 = temp1.await
+  temp2 = "lunar_unijob:cleanVehicle"
+  temp3 = false
+  temp1 = temp1(temp2, temp3)
+  if temp1 then
+    temp2 = LR
+    temp2 = temp2.progressBar
+    temp3 = locale
+    temp4 = "progress_clean"
+    temp3 = temp3(temp4)
+    temp4 = Settings
+    temp4 = temp4.durations
+    temp4 = temp4.clean
+    temp5 = false
+    temp6 = {}
+    temp6.scenario = "WORLD_HUMAN_MAID_CLEAN"
+    temp2 = temp2(temp3, temp4, temp5, temp6)
+    if temp2 then
+      temp2 = vehicleData
+      temp3 = param1
+      temp4 = "clean"
+      temp2(temp3, temp4)
+      temp2 = LR
+      temp2 = temp2.notify
+      temp3 = locale
+      temp4 = "cleaned"
+      temp3 = temp3(temp4)
+      temp4 = "success"
+      temp2(temp3, temp4)
     end
   end
 end
-L1_1(L2_1, L3_1, L4_1)
-L1_1 = Actions
-L1_1 = L1_1.createVehicle
-L2_1 = "impound"
-L3_1 = "truck"
+vehicleId(seat, item, player)
+vehicleId = Actions
+vehicleId = vehicleId.createVehicle
+seat = "impound"
+item = "truck"
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L1_2 = lib
-  L1_2 = L1_2.callback
-  L1_2 = L1_2.await
-  L2_2 = "lunar_unijob:impoundVehicle"
-  L3_2 = false
-  L1_2 = L1_2(L2_2, L3_2)
-  if L1_2 then
-    L2_2 = LR
-    L2_2 = L2_2.progressBar
-    L3_2 = locale
-    L4_2 = "progress_impound"
-    L3_2 = L3_2(L4_2)
-    L4_2 = Settings
-    L4_2 = L4_2.durations
-    L4_2 = L4_2.impound
-    L5_2 = false
-    L6_2 = {}
-    L6_2.scenario = "CODE_HUMAN_MEDIC_TEND_TO_DEAD"
-    L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
-    if L2_2 then
-      L2_2 = L0_1
-      L3_2 = A0_2
-      L4_2 = "impound"
-      L2_2(L3_2, L4_2)
-      L2_2 = LR
-      L2_2 = L2_2.notify
-      L3_2 = locale
-      L4_2 = "impounded"
-      L3_2 = L3_2(L4_2)
-      L4_2 = "success"
-      L2_2(L3_2, L4_2)
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6
+  temp1 = lib
+  temp1 = temp1.callback
+  temp1 = temp1.await
+  temp2 = "lunar_unijob:impoundVehicle"
+  temp3 = false
+  temp1 = temp1(temp2, temp3)
+  if temp1 then
+    temp2 = LR
+    temp2 = temp2.progressBar
+    temp3 = locale
+    temp4 = "progress_impound"
+    temp3 = temp3(temp4)
+    temp4 = Settings
+    temp4 = temp4.durations
+    temp4 = temp4.impound
+    temp5 = false
+    temp6 = {}
+    temp6.scenario = "CODE_HUMAN_MEDIC_TEND_TO_DEAD"
+    temp2 = temp2(temp3, temp4, temp5, temp6)
+    if temp2 then
+      temp2 = vehicleData
+      temp3 = param1
+      temp4 = "impound"
+      temp2(temp3, temp4)
+      temp2 = LR
+      temp2 = temp2.notify
+      temp3 = locale
+      temp4 = "impounded"
+      temp3 = temp3(temp4)
+      temp4 = "success"
+      temp2(temp3, temp4)
     end
   end
 end
-L1_1(L2_1, L3_1, L4_1)
+vehicleId(seat, item, player)

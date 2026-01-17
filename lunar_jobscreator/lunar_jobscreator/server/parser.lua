@@ -1,399 +1,385 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- parser.lua
--- Server configuration parser
+-- Configuration parser
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
-L0_1 = {}
-Parser = L0_1
-
--- Local function handler
-
--- Local function handler
-function L0_1(A0_2, A1_2, A2_2)
-  local L3_2, L4_2, L5_2
-  if not A0_2 then
-    return A2_2
+function data(param1)
+  local temp1, temp2, temp3, temp4
+  temp1 = isActive
+  temp2 = param1.name
+  temp3 = "string"
+  temp4 = false
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "the name field needs to be a valid string."
+    return temp1, temp2
   end
-  L3_2 = type
-  L4_2 = A0_2
-  L3_2 = L3_2(L4_2)
-  L4_2 = L3_2 == A1_2
-  return L4_2
+  temp1 = isActive
+  temp2 = param1.label
+  temp3 = "string"
+  temp4 = false
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "the label field needs to be a valid string."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.grades
+  temp3 = "array"
+  temp4 = false
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid grades in an array."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.blips
+  temp3 = "array"
+  temp4 = true
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid blips data in an array."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.cloakrooms
+  temp3 = "table"
+  temp4 = true
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid cloakrooms table."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.collecting
+  temp3 = "array"
+  temp4 = true
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid collecting data in an array."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.crafting
+  temp3 = "array"
+  temp4 = true
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid crafting data in an array."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.garages
+  temp3 = "array"
+  temp4 = true
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid garage data in an array."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.selling
+  temp3 = "array"
+  temp4 = true
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid selling data in an array."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.shops
+  temp3 = "array"
+  temp4 = true
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid shops in an array."
+    return temp1, temp2
+  end
+  temp1 = isActive
+  temp2 = param1.stashes
+  temp3 = "array"
+  temp4 = true
+  temp1 = temp1(temp2, temp3, temp4)
+  if not temp1 then
+    temp1 = false
+    temp2 = "provide valid stashes in an array."
+    return temp1, temp2
+  end
+  temp1 = true
+  return temp1
 end
 
 -- Local function handler
 
 -- Local function handler
-function L1_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
-  L1_2 = L0_1
-  L2_2 = A0_2.name
-  L3_2 = "string"
-  L4_2 = false
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "the name field needs to be a valid string."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.label
-  L3_2 = "string"
-  L4_2 = false
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "the label field needs to be a valid string."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.grades
-  L3_2 = "array"
-  L4_2 = false
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid grades in an array."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.blips
-  L3_2 = "array"
-  L4_2 = true
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid blips data in an array."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.cloakrooms
-  L3_2 = "table"
-  L4_2 = true
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid cloakrooms table."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.collecting
-  L3_2 = "array"
-  L4_2 = true
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid collecting data in an array."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.crafting
-  L3_2 = "array"
-  L4_2 = true
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid crafting data in an array."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.garages
-  L3_2 = "array"
-  L4_2 = true
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid garage data in an array."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.selling
-  L3_2 = "array"
-  L4_2 = true
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid selling data in an array."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.shops
-  L3_2 = "array"
-  L4_2 = true
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid shops in an array."
-    return L1_2, L2_2
-  end
-  L1_2 = L0_1
-  L2_2 = A0_2.stashes
-  L3_2 = "array"
-  L4_2 = true
-  L1_2 = L1_2(L2_2, L3_2, L4_2)
-  if not L1_2 then
-    L1_2 = false
-    L2_2 = "provide valid stashes in an array."
-    return L1_2, L2_2
-  end
-  L1_2 = true
-  return L1_2
-end
 
--- Local function handler
-
--- Local function handler
-function L2_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
-  L1_2 = nil
-  L3_2 = A0_2
-  L2_2 = A0_2.gmatch
-  L4_2 = [[
+-- ─── FUNCTION ─────────────
+function config(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2
+  temp1 = nil
+  temp3 = param1
+  temp2 = param1.gmatch
+  temp4 = [[
 [^
 ]+]]
-  L2_2, L3_2, L4_2, L5_2 = L2_2(L3_2, L4_2)
-  for L6_2 in L2_2, L3_2, L4_2, L5_2 do
-    L8_2 = L6_2
-    L7_2 = L6_2.find
-    L9_2 = "---@if_resource"
-    L7_2 = L7_2(L8_2, L9_2)
-    if not L7_2 then
-      L8_2 = L6_2
-      L7_2 = L6_2.find
-      L9_2 = "---@if_not_resource"
-      L7_2 = L7_2(L8_2, L9_2)
+  temp2, temp3, temp4, temp5 = temp2(temp3, temp4)
+  for temp6 in temp2, temp3, temp4, temp5 do
+    temp8 = temp6
+    temp7 = temp6.find
+    temp9 = "---@if_resource"
+    temp7 = temp7(temp8, temp9)
+    if not temp7 then
+      temp8 = temp6
+      temp7 = temp6.find
+      temp9 = "---@if_not_resource"
+      temp7 = temp7(temp8, temp9)
     end
-    if L7_2 then
-      if not L1_2 then
-        L9_2 = L6_2
-        L8_2 = L6_2.match
-        L10_2 = "%((.-)%)"
-        L8_2 = L8_2(L9_2, L10_2)
-        if L8_2 then
+    if temp7 then
+      if not temp1 then
+        temp9 = temp6
+        temp8 = temp6.match
+        temp10 = "%((.-)%)"
+        temp8 = temp8(temp9, temp10)
+        if temp8 then
           goto lbl_30
         end
       end
-      L8_2 = print
-      L9_2 = "Invalid: "
-      L10_2 = L6_2
-      L9_2 = L9_2 .. L10_2
-      L8_2(L9_2)
-      L8_2 = false
-      do return L8_2 end
+      temp8 = print
+      temp9 = "Invalid: "
+      temp10 = temp6
+      temp9 = temp9 .. temp10
+      temp8(temp9)
+      temp8 = false
+      do return temp8 end
       ::lbl_30::
-      L1_2 = "if_resource"
+      temp1 = "if_resource"
     else
-      L9_2 = L6_2
-      L8_2 = L6_2.find
-      L10_2 = "---@elseif_resource"
-      L8_2 = L8_2(L9_2, L10_2)
-      if not L8_2 then
-        L9_2 = L6_2
-        L8_2 = L6_2.find
-        L10_2 = "---@elseif_not_resource"
-        L8_2 = L8_2(L9_2, L10_2)
+      temp9 = temp6
+      temp8 = temp6.find
+      temp10 = "---@elseif_resource"
+      temp8 = temp8(temp9, temp10)
+      if not temp8 then
+        temp9 = temp6
+        temp8 = temp6.find
+        temp10 = "---@elseif_not_resource"
+        temp8 = temp8(temp9, temp10)
       end
-      if L8_2 then
-        if "if_resource" == L1_2 or "elseif_resource" == L1_2 then
-          L10_2 = L6_2
-          L9_2 = L6_2.match
-          L11_2 = "%((.-)%)"
-          L9_2 = L9_2(L10_2, L11_2)
-          if L9_2 then
+      if temp8 then
+        if "if_resource" == temp1 or "elseif_resource" == temp1 then
+          temp10 = temp6
+          temp9 = temp6.match
+          temp11 = "%((.-)%)"
+          temp9 = temp9(temp10, temp11)
+          if temp9 then
             goto lbl_53
           end
         end
-        L9_2 = false
-        do return L9_2 end
+        temp9 = false
+        do return temp9 end
         ::lbl_53::
-        L1_2 = "elseif_resource"
+        temp1 = "elseif_resource"
       else
-        L10_2 = L6_2
-        L9_2 = L6_2.find
-        L11_2 = "---@else"
-        L9_2 = L9_2(L10_2, L11_2)
-        if L9_2 then
-          if "if_resource" == L1_2 or "elseif_resource" == L1_2 then
-            L11_2 = L6_2
-            L10_2 = L6_2.match
-            L12_2 = "%((.-)%)"
-            L10_2 = L10_2(L11_2, L12_2)
-            if not L10_2 then
+        temp10 = temp6
+        temp9 = temp6.find
+        temp11 = "---@else"
+        temp9 = temp9(temp10, temp11)
+        if temp9 then
+          if "if_resource" == temp1 or "elseif_resource" == temp1 then
+            temp11 = temp6
+            temp10 = temp6.match
+            temp12 = "%((.-)%)"
+            temp10 = temp10(temp11, temp12)
+            if not temp10 then
               goto lbl_71
             end
           end
-          L10_2 = false
-          do return L10_2 end
+          temp10 = false
+          do return temp10 end
           ::lbl_71::
-          L1_2 = "else"
+          temp1 = "else"
         else
-          L11_2 = L6_2
-          L10_2 = L6_2.find
-          L12_2 = "---@end"
-          L10_2 = L10_2(L11_2, L12_2)
-          if L10_2 then
-            if L1_2 then
-              L12_2 = L6_2
-              L11_2 = L6_2.match
+          temp11 = temp6
+          temp10 = temp6.find
+          temp12 = "---@end"
+          temp10 = temp10(temp11, temp12)
+          if temp10 then
+            if temp1 then
+              temp12 = temp6
+              temp11 = temp6.match
               L13_2 = "%((.-)%)"
-              L11_2 = L11_2(L12_2, L13_2)
-              if not L11_2 then
+              temp11 = temp11(temp12, L13_2)
+              if not temp11 then
                 goto lbl_87
               end
             end
-            L11_2 = false
-            do return L11_2 end
+            temp11 = false
+            do return temp11 end
             ::lbl_87::
-            L1_2 = false
+            temp1 = false
           end
         end
       end
     end
   end
-  if L1_2 then
-    L2_2 = false
-    return L2_2
+  if temp1 then
+    temp2 = false
+    return temp2
   end
-  L2_2 = true
-  return L2_2
+  temp2 = true
+  return temp2
 end
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2
-  L1_2 = GetResourceState
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L1_2 = "started" == L1_2
-  return L1_2
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2
+  temp1 = GetResourceState
+  temp2 = param1
+  temp1 = temp1(temp2)
+  temp1 = "started" == temp1
+  return temp1
 end
 
 -- Local function handler
 
 -- Local function handler
-function L4_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2
-  L1_2 = L2_1
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  if not L1_2 then
+
+-- ─── FUNCTION ─────────────
+function player(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, L13_2, L14_2, L15_2, L16_2
+  temp1 = config
+  temp2 = param1
+  temp1 = temp1(temp2)
+  if not temp1 then
     return
   end
-  L1_2 = ""
-  L2_2 = "reading"
-  L4_2 = A0_2
-  L3_2 = A0_2.gmatch
-  L5_2 = [[
+  temp1 = ""
+  temp2 = "reading"
+  temp4 = param1
+  temp3 = param1.gmatch
+  temp5 = [[
 [^
 ]+]]
-  L3_2, L4_2, L5_2, L6_2 = L3_2(L4_2, L5_2)
-  for L7_2 in L3_2, L4_2, L5_2, L6_2 do
-    L9_2 = L7_2
-    L8_2 = L7_2.find
-    L10_2 = "---@if_resource"
-    L8_2 = L8_2(L9_2, L10_2)
-    if L8_2 and "reading" == L2_2 then
-      L10_2 = L7_2
-      L9_2 = L7_2.match
-      L11_2 = "%((.-)%)"
-      L9_2 = L9_2(L10_2, L11_2)
-      L10_2 = L3_1
-      L11_2 = L9_2
-      L10_2 = L10_2(L11_2)
-      if not L10_2 then
-        L2_2 = "skipping"
+  temp3, temp4, temp5, temp6 = temp3(temp4, temp5)
+  for temp7 in temp3, temp4, temp5, temp6 do
+    temp9 = temp7
+    temp8 = temp7.find
+    temp10 = "---@if_resource"
+    temp8 = temp8(temp9, temp10)
+    if temp8 and "reading" == temp2 then
+      temp10 = temp7
+      temp9 = temp7.match
+      temp11 = "%((.-)%)"
+      temp9 = temp9(temp10, temp11)
+      temp10 = item
+      temp11 = temp9
+      temp10 = temp10(temp11)
+      if not temp10 then
+        temp2 = "skipping"
       else
-        L2_2 = "reading_to_end"
+        temp2 = "reading_to_end"
       end
     else
-      L10_2 = L7_2
-      L9_2 = L7_2.find
-      L11_2 = "---@if_not_resource"
-      L9_2 = L9_2(L10_2, L11_2)
-      if L9_2 and "reading" == L2_2 then
-        L11_2 = L7_2
-        L10_2 = L7_2.match
-        L12_2 = "%((.-)%)"
-        L10_2 = L10_2(L11_2, L12_2)
-        L11_2 = L3_1
-        L12_2 = L10_2
-        L11_2 = L11_2(L12_2)
-        if L11_2 then
-          L2_2 = "skipping"
+      temp10 = temp7
+      temp9 = temp7.find
+      temp11 = "---@if_not_resource"
+      temp9 = temp9(temp10, temp11)
+      if temp9 and "reading" == temp2 then
+        temp11 = temp7
+        temp10 = temp7.match
+        temp12 = "%((.-)%)"
+        temp10 = temp10(temp11, temp12)
+        temp11 = item
+        temp12 = temp10
+        temp11 = temp11(temp12)
+        if temp11 then
+          temp2 = "skipping"
         else
-          L2_2 = "reading_to_end"
+          temp2 = "reading_to_end"
         end
       else
-        L11_2 = L7_2
-        L10_2 = L7_2.find
-        L12_2 = "---@elseif_resource"
-        L10_2 = L10_2(L11_2, L12_2)
-        if L10_2 then
-          if "skipping" == L2_2 then
-            L12_2 = L7_2
-            L11_2 = L7_2.match
+        temp11 = temp7
+        temp10 = temp7.find
+        temp12 = "---@elseif_resource"
+        temp10 = temp10(temp11, temp12)
+        if temp10 then
+          if "skipping" == temp2 then
+            temp12 = temp7
+            temp11 = temp7.match
             L13_2 = "%((.-)%)"
-            L11_2 = L11_2(L12_2, L13_2)
-            L12_2 = L3_1
-            L13_2 = L11_2
-            L12_2 = L12_2(L13_2)
-            if L12_2 then
-              L2_2 = "reading_to_end"
+            temp11 = temp11(temp12, L13_2)
+            temp12 = item
+            L13_2 = temp11
+            temp12 = temp12(L13_2)
+            if temp12 then
+              temp2 = "reading_to_end"
             end
-          elseif "reading_to_end" == L2_2 then
-            L2_2 = "skipping_to_end"
+          elseif "reading_to_end" == temp2 then
+            temp2 = "skipping_to_end"
           end
         else
-          L12_2 = L7_2
-          L11_2 = L7_2.find
+          temp12 = temp7
+          temp11 = temp7.find
           L13_2 = "---@elseif_not_resource"
-          L11_2 = L11_2(L12_2, L13_2)
-          if L11_2 then
-            if "skipping" == L2_2 then
-              L13_2 = L7_2
-              L12_2 = L7_2.match
+          temp11 = temp11(temp12, L13_2)
+          if temp11 then
+            if "skipping" == temp2 then
+              L13_2 = temp7
+              temp12 = temp7.match
               L14_2 = "%((.-)%)"
-              L12_2 = L12_2(L13_2, L14_2)
-              L13_2 = L3_1
-              L14_2 = L12_2
+              temp12 = temp12(L13_2, L14_2)
+              L13_2 = item
+              L14_2 = temp12
               L13_2 = L13_2(L14_2)
               if not L13_2 then
-                L2_2 = "reading_to_end"
+                temp2 = "reading_to_end"
               end
-            elseif "reading_to_end" == L2_2 then
-              L2_2 = "skipping_to_end"
+            elseif "reading_to_end" == temp2 then
+              temp2 = "skipping_to_end"
             end
           else
-            L13_2 = L7_2
-            L12_2 = L7_2.find
+            L13_2 = temp7
+            temp12 = temp7.find
             L14_2 = "---@else"
-            L12_2 = L12_2(L13_2, L14_2)
-            if L12_2 then
-              if "skipping" == L2_2 then
-                L2_2 = "reading_to_end"
+            temp12 = temp12(L13_2, L14_2)
+            if temp12 then
+              if "skipping" == temp2 then
+                temp2 = "reading_to_end"
               else
-                L2_2 = "skipping"
+                temp2 = "skipping"
               end
             else
-              L14_2 = L7_2
-              L13_2 = L7_2.find
+              L14_2 = temp7
+              L13_2 = temp7.find
               L15_2 = "---@end"
               L13_2 = L13_2(L14_2, L15_2)
               if L13_2 then
-                if "skipping" == L2_2 or "reading_to_end" == L2_2 or "skipping_to_end" == L2_2 then
-                  L2_2 = "reading"
+                if "skipping" == temp2 or "reading_to_end" == temp2 or "skipping_to_end" == temp2 then
+                  temp2 = "reading"
                 end
-              elseif "reading" == L2_2 or "reading_to_end" == L2_2 then
-                L14_2 = L1_2
+              elseif "reading" == temp2 or "reading_to_end" == temp2 then
+                L14_2 = temp1
                 L15_2 = "\n"
-                L16_2 = L7_2
+                L16_2 = temp7
                 L14_2 = L14_2 .. L15_2 .. L16_2
-                L1_2 = L14_2
+                temp1 = L14_2
               end
             end
           end
@@ -401,60 +387,62 @@ function L4_1(A0_2)
       end
     end
   end
-  return L1_2
+  return temp1
 end
-L5_1 = Parser
+result = Parser
 
 -- Local function handler
 
 -- Local function handler
-function L6_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
-  L1_2 = L4_1
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L2_2 = load
-  L3_2 = L1_2 or L3_2
-  if not L1_2 then
-    L3_2 = A0_2
+
+-- ─── FUNCTION ─────────────
+function callback(param1)
+  local temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10
+  temp1 = player
+  temp2 = param1
+  temp1 = temp1(temp2)
+  temp2 = load
+  temp3 = temp1 or temp3
+  if not temp1 then
+    temp3 = param1
   end
-  L2_2, L3_2 = L2_2(L3_2)
-  if not L2_2 then
-    L4_2 = false
-    L5_2 = "Couldn't load %s due to a syntax error: "
-    L6_2 = L3_2
-    L5_2 = L5_2 .. L6_2
-    return L4_2, L5_2
+  temp2, temp3 = temp2(temp3)
+  if not temp2 then
+    temp4 = false
+    temp5 = "Couldn't load %s due to a syntax error: "
+    temp6 = temp3
+    temp5 = temp5 .. temp6
+    return temp4, temp5
   end
-  L4_2 = L2_2
-  L4_2 = L4_2()
-  if not L4_2 then
-    L5_2 = false
-    L6_2 = "Couldn't load %s due to no return statement."
-    return L5_2, L6_2
+  temp4 = temp2
+  temp4 = temp4()
+  if not temp4 then
+    temp5 = false
+    temp6 = "Couldn't load %s due to no return statement."
+    return temp5, temp6
   end
-  L5_2 = L1_1
-  L6_2 = L4_2
-  L5_2, L6_2 = L5_2(L6_2)
-  if L5_2 then
-    if not L1_2 then
-      L7_2 = warn
-      L8_2 = "Ignoring annotations in job %s."
-      L9_2 = L8_2
-      L8_2 = L8_2.format
-      L10_2 = L4_2.name
-      L8_2, L9_2, L10_2 = L8_2(L9_2, L10_2)
-      L7_2(L8_2, L9_2, L10_2)
+  temp5 = data
+  temp6 = temp4
+  temp5, temp6 = temp5(temp6)
+  if temp5 then
+    if not temp1 then
+      temp7 = warn
+      temp8 = "Ignoring annotations in job %s."
+      temp9 = temp8
+      temp8 = temp8.format
+      temp10 = temp4.name
+      temp8, temp9, temp10 = temp8(temp9, temp10)
+      temp7(temp8, temp9, temp10)
     end
-    L7_2 = true
-    L8_2 = L4_2
-    return L7_2, L8_2
+    temp7 = true
+    temp8 = temp4
+    return temp7, temp8
   else
-    L7_2 = false
-    L8_2 = "Couldn't load %s due to invalid data: "
-    L9_2 = L6_2
-    L8_2 = L8_2 .. L9_2
-    return L7_2, L8_2
+    temp7 = false
+    temp8 = "Couldn't load %s due to invalid data: "
+    temp9 = temp6
+    temp8 = temp8 .. temp9
+    return temp7, temp8
   end
 end
-L5_1.parse = L6_1
+result.parse = callback

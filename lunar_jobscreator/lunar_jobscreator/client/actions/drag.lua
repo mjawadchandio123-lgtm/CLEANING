@@ -1,60 +1,25 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- drag.lua
--- Client-side drag action handler
+-- Drag action - drag other players
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1
-L0_1 = nil
-
--- Local function handler
-
--- Local function handler
-function L1_1()
-  local L0_2, L1_2
-  L0_2 = L0_1
-  if L0_2 then
-    L0_2 = TriggerServerEvent
-    L1_2 = "lunar_unijob:drag"
-    L0_2(L1_2)
-    L0_2 = Binds
-    L0_2 = L0_2.interact
-    L0_2 = L0_2.removeListener
-    L1_2 = "stop_drag"
-    L0_2(L1_2)
-    L0_2 = ClearPedSecondaryTask
-    L1_2 = cache
-    L1_2 = L1_2.ped
-    L0_2(L1_2)
-    L0_2 = LR
-    L0_2 = L0_2.hideUI
-    L0_2()
-    L0_2 = nil
-    L0_1 = L0_2
-  end
-end
-StopDrag = L1_1
-L1_1 = "amb@world_human_drinking@coffee@male@base"
-L2_1 = "base"
-L3_1 = SetInterval
-
--- Local function handler
-
--- Local function handler
-function L4_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
-  L0_2 = L0_1
+function player()
+  local L0_2, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11
+  L0_2 = isDragging
   if not L0_2 then
     return
   end
   L0_2 = DoesEntityExist
-  L1_2 = L0_1
-  L0_2 = L0_2(L1_2)
+  temp1 = isDragging
+  L0_2 = L0_2(temp1)
   if L0_2 then
     L0_2 = IsEntityDead
-    L1_2 = L0_1
-    L0_2 = L0_2(L1_2)
+    temp1 = isDragging
+    L0_2 = L0_2(temp1)
     if not L0_2 then
       goto lbl_19
     end
@@ -62,136 +27,148 @@ function L4_1()
   L0_2 = StopDrag
   L0_2()
   L0_2 = nil
-  L0_1 = L0_2
+  isDragging = L0_2
   ::lbl_19::
   L0_2 = IsEntityPlayingAnim
-  L1_2 = cache
-  L1_2 = L1_2.ped
-  L2_2 = L1_1
-  L3_2 = L2_1
-  L4_2 = 3
-  L0_2 = L0_2(L1_2, L2_2, L3_2, L4_2)
+  temp1 = cache
+  temp1 = temp1.ped
+  temp2 = targetPlayer
+  temp3 = dragData
+  temp4 = 3
+  L0_2 = L0_2(temp1, temp2, temp3, temp4)
   if not L0_2 then
     L0_2 = lib
     L0_2 = L0_2.requestAnimDict
-    L1_2 = L1_1
-    L0_2(L1_2)
+    temp1 = targetPlayer
+    L0_2(temp1)
     L0_2 = TaskPlayAnim
-    L1_2 = cache
-    L1_2 = L1_2.ped
-    L2_2 = L1_1
-    L3_2 = L2_1
-    L4_2 = 4.0
-    L5_2 = 4.0
-    L6_2 = -1
-    L7_2 = 49
-    L8_2 = 0.0
-    L9_2 = false
-    L10_2 = false
-    L11_2 = false
-    L0_2(L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2)
+    temp1 = cache
+    temp1 = temp1.ped
+    temp2 = targetPlayer
+    temp3 = dragData
+    temp4 = 4.0
+    temp5 = 4.0
+    temp6 = -1
+    temp7 = 49
+    temp8 = 0.0
+    temp9 = false
+    temp10 = false
+    temp11 = false
+    L0_2(temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11)
     L0_2 = RemoveAnimDict
-    L1_2 = L1_1
-    L0_2(L1_2)
+    temp1 = targetPlayer
+    L0_2(temp1)
   end
 end
-L5_1 = 200
-L3_1(L4_1, L5_1)
-L3_1 = Settings
-L3_1 = L3_1.sprintWhileDrag
-if not L3_1 then
-  L3_1 = CreateThread
+result = 200
+item(player, result)
+item = Settings
+item = item.sprintWhileDrag
+if not item then
+  item = CreateThread
 
 -- Local function handler
 
 -- Local function handler
-  function L4_1()
-    local L0_2, L1_2, L2_2
+  function player()
+    local L0_2, temp1, temp2
     while true do
-      L0_2 = L0_1
+      L0_2 = isDragging
       if L0_2 then
         L0_2 = DisableControlAction
-        L1_2 = 0
-        L2_2 = 21
-        L0_2(L1_2, L2_2)
+        temp1 = 0
+        temp2 = 21
+        L0_2(temp1, temp2)
         L0_2 = SetPlayerSprint
-        L1_2 = cache
-        L1_2 = L1_2.playerId
-        L2_2 = false
-        L0_2(L1_2, L2_2)
+        temp1 = cache
+        temp1 = temp1.playerId
+        temp2 = false
+        L0_2(temp1, temp2)
         L0_2 = Wait
-        L1_2 = 0
-        L0_2(L1_2)
+        temp1 = 0
+        L0_2(temp1)
       else
         L0_2 = Wait
-        L1_2 = 500
-        L0_2(L1_2)
+        temp1 = 500
+        L0_2(temp1)
       end
     end
   end
-  L3_1(L4_1)
+  item(player)
 end
-L3_1 = Actions
-L3_1 = L3_1.createPlayer
-L4_1 = "drag"
-L5_1 = "hand"
+item = Actions
+item = item.createPlayer
+player = "drag"
+result = "hand"
 
 -- Local function handler
 
 -- Local function handler
-function L6_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
-  L2_2 = TriggerServerEvent
-  L3_2 = "lunar_unijob:drag"
-  L4_2 = A0_2
-  L2_2(L3_2, L4_2)
-  L2_2 = LR
-  L2_2 = L2_2.showUI
-  L3_2 = locale
-  L4_2 = "stop_drag"
-  L5_2 = Binds
-  L5_2 = L5_2.interact
-  L6_2 = L5_2
-  L5_2 = L5_2.getCurrentKey
-  L5_2, L6_2 = L5_2(L6_2)
-  L3_2, L4_2, L5_2, L6_2 = L3_2(L4_2, L5_2, L6_2)
-  L2_2(L3_2, L4_2, L5_2, L6_2)
-  L2_2 = Binds
-  L2_2 = L2_2.interact
-  L2_2 = L2_2.addListener
-  L3_2 = "stop_drag"
-  L4_2 = StopDrag
-  L2_2(L3_2, L4_2)
-  L2_2 = Editable
-  L2_2 = L2_2.actionPerformed
-  L3_2 = "drag"
-  L2_2(L3_2)
-  L0_1 = A1_2
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function callback(param1, param2)
+  local temp2, temp3, temp4, temp5, temp6
+  temp2 = TriggerServerEvent
+  temp3 = "lunar_unijob:drag"
+  temp4 = param1
+  temp2(temp3, temp4)
+  temp2 = LR
+  temp2 = temp2.showUI
+  temp3 = locale
+  temp4 = "stop_drag"
+  temp5 = Binds
+  temp5 = temp5.interact
+  temp6 = temp5
+  temp5 = temp5.getCurrentKey
+  temp5, temp6 = temp5(temp6)
+  temp3, temp4, temp5, temp6 = temp3(temp4, temp5, temp6)
+  temp2(temp3, temp4, temp5, temp6)
+  temp2 = Binds
+  temp2 = temp2.interact
+  temp2 = temp2.addListener
+  temp3 = "stop_drag"
+  temp4 = StopDrag
+  temp2(temp3, temp4)
+  temp2 = Editable
+  temp2 = temp2.actionPerformed
+  temp3 = "drag"
+  temp2(temp3)
+  isDragging = param2
 end
 
 -- Local function handler
 
 -- Local function handler
-function L7_1(A0_2)
-  local L1_2, L2_2
-  L1_2 = IsPedCuffed
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  if L1_2 then
-    L1_2 = IsCarryActive
-    L1_2 = L1_2()
-    L1_2 = not L1_2
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function index(param1)
+  local temp1, temp2
+  temp1 = IsPedCuffed
+  temp2 = param1
+  temp1 = temp1(temp2)
+  if temp1 then
+    temp1 = IsCarryActive
+    temp1 = temp1()
+    temp1 = not temp1
   end
-  return L1_2
+  return temp1
 end
-L3_1(L4_1, L5_1, L6_1, L7_1)
+item(player, result, callback, index)
 
 -- Local function handler
 
 -- Local function handler
-function L3_1()
-  local L0_2, L1_2
-  L0_2 = L0_1
+
+-- FUNCTION DEFINITION
+
+-- ─── FUNCTION ─────────────
+function item()
+  local L0_2, temp1
+  L0_2 = isDragging
   return L0_2
 end
-GetDraggedPed = L3_1
+GetDraggedPed = item

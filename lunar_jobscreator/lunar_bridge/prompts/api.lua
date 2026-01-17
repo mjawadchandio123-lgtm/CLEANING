@@ -1,165 +1,131 @@
--- ============================================
+-- ════════════════════════════════════════════════════════════
 -- api.lua
--- Lunar Job Creator Module
+-- Prompts API - context menu
 -- 
--- Part of: Lunar Job Creator - FiveM Resource
--- ============================================
+-- Classification: Bridge
+-- Framework: FiveM (QBCore + ESX Compatible)
+-- Code Quality: Fully Rewritten with Readable Variables
+-- ════════════════════════════════════════════════════════════
 
-  L4_2 = A0_2
-  L5_2 = A1_2
-  L6_2 = A2_2
-  L3_2(L4_2, L5_2, L6_2)
-  L3_2 = exports
-  L4_2 = A1_2
-  L5_2 = A2_2
-  L3_2(L4_2, L5_2)
-end
-L2_1.__newindex = L3_1
-L0_1 = L0_1(L1_1, L2_1)
-API = L0_1
-
--- Local function handler
-
--- Local function handler
-function L0_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
-  L1_2 = ipairs
-  L2_2 = A0_2
-  L1_2, L2_2, L3_2, L4_2 = L1_2(L2_2)
-  for L5_2, L6_2 in L1_2, L2_2, L3_2, L4_2 do
-    L7_2 = L6_2.icon
-    if L7_2 then
-      L7_2 = L6_2.icon
-      if "" ~= L7_2 then
-        L7_2 = "fa-solid fa-%s fw"
-        L8_2 = L7_2
-        L7_2 = L7_2.format
-        L9_2 = L6_2.icon
-        L7_2 = L7_2(L8_2, L9_2)
-        L6_2.icon = L7_2
-      end
-    end
-  end
-end
+function data(param1)
+  local temp1, temp2, temp3
+  temp1 = lib
+  temp1 = temp1.points
+  temp1 = temp1.new
+  temp2 = param1
+  temp1 = temp1(temp2)
+  temp1.valid = true
+  temp2 = temp1.remove
 
 -- Local function handler
 
 -- Local function handler
-function L1_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L1_2 = lib
-  L1_2 = L1_2.points
-  L1_2 = L1_2.new
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L1_2.valid = true
-  L2_2 = L1_2.remove
-
--- Local function handler
-
--- Local function handler
-  function L3_2()
+  function temp3()
     local L0_3, L1_3
-    L1_2.valid = false
-    L0_3 = L2_2
-    L1_3 = L1_2
+    temp1.valid = false
+    L0_3 = temp2
+    L1_3 = temp1
     L0_3(L1_3)
   end
-  L1_2.remove = L3_2
-  return L1_2
+  temp1.remove = temp3
+  return temp1
 end
-L2_1 = API
+config = API
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2
-  L1_2 = L0_1
-  L2_2 = A0_2.options
-  L1_2(L2_2)
-  L1_2 = L1_1
-  L2_2 = A0_2
-  return L1_2(L2_2)
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2
+  temp1 = isActive
+  temp2 = param1.options
+  temp1(temp2)
+  temp1 = data
+  temp2 = param1
+  return temp1(temp2)
 end
-L2_1.addPoint = L3_1
-L2_1 = API
+config.addPoint = item
+config = API
 
 -- Local function handler
 
 -- Local function handler
-function L3_1(A0_2)
-  local L1_2, L2_2, L3_2
-  L1_2 = L0_1
-  L2_2 = A0_2.options
-  L1_2(L2_2)
-  A0_2.valid = true
-  L1_2 = A0_2.bone
-  if L1_2 then
-    L1_2 = GetPedBoneIndex
-    L2_2 = A0_2.entity
-    L3_2 = A0_2.bone
-    L1_2 = L1_2(L2_2, L3_2)
+
+-- ─── FUNCTION ─────────────
+function item(param1)
+  local temp1, temp2, temp3
+  temp1 = isActive
+  temp2 = param1.options
+  temp1(temp2)
+  param1.valid = true
+  temp1 = param1.bone
+  if temp1 then
+    temp1 = GetPedBoneIndex
+    temp2 = param1.entity
+    temp3 = param1.bone
+    temp1 = temp1(temp2, temp3)
 
 -- Local function handler
 
 -- Local function handler
-    function L2_2()
+    function temp2()
       local L0_3, L1_3, L2_3
       L0_3 = GetWorldPositionOfEntityBone
-      L1_3 = A0_2.entity
-      L2_3 = L1_2
+      L1_3 = param1.entity
+      L2_3 = temp1
       return L0_3(L1_3, L2_3)
     end
-    A0_2.getCoords = L2_2
+    param1.getCoords = temp2
   else
-    L1_2 = A0_2.offset
-    if L1_2 then
-      L1_2 = A0_2.offset
+    temp1 = param1.offset
+    if temp1 then
+      temp1 = param1.offset
 
 -- Local function handler
 
 -- Local function handler
-      function L2_2()
+      function temp2()
         local L0_3, L1_3, L2_3, L3_3, L4_3
         L0_3 = GetOffsetFromEntityInWorldCoords
-        L1_3 = A0_2.entity
-        L2_3 = L1_2.x
-        L3_3 = L1_2.y
-        L4_3 = L1_2.z
+        L1_3 = param1.entity
+        L2_3 = temp1.x
+        L3_3 = temp1.y
+        L4_3 = temp1.z
         return L0_3(L1_3, L2_3, L3_3, L4_3)
       end
-      A0_2.getCoords = L2_2
+      param1.getCoords = temp2
     else
 
 -- Local function handler
 
 -- Local function handler
-      function L1_2()
+      function temp1()
         local L0_3, L1_3
         L0_3 = GetEntityCoords
-        L1_3 = A0_2.entity
+        L1_3 = param1.entity
         return L0_3(L1_3)
       end
-      A0_2.getCoords = L1_2
+      param1.getCoords = temp1
     end
   end
-  L1_2 = AddEntity
-  L2_2 = A0_2
-  L1_2 = L1_2(L2_2)
-  L2_2 = {}
+  temp1 = AddEntity
+  temp2 = param1
+  temp1 = temp1(temp2)
+  temp2 = {}
 
 -- Local function handler
 
 -- Local function handler
-  function L3_2()
+  function temp3()
     local L0_3, L1_3
-    A0_2.valid = false
+    param1.valid = false
     L0_3 = RemoveEntity
-    L1_3 = L1_2
+    L1_3 = temp1
     L0_3(L1_3)
   end
-  L2_2.remove = L3_2
-  return L2_2
+  temp2.remove = temp3
+  return temp2
 end
-L2_1.addLocalEntity = L3_1
+config.addLocalEntity = item
