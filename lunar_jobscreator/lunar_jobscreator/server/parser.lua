@@ -1,16 +1,17 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- parser.lua
+-- Server configuration parser
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
 L0_1 = {}
 Parser = L0_1
+
+-- Local function handler
+
+-- Local function handler
 function L0_1(A0_2, A1_2, A2_2)
   local L3_2, L4_2, L5_2
   if not A0_2 then
@@ -22,6 +23,10 @@ function L0_1(A0_2, A1_2, A2_2)
   L4_2 = L3_2 == A1_2
   return L4_2
 end
+
+-- Local function handler
+
+-- Local function handler
 function L1_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2
   L1_2 = L0_1
@@ -137,6 +142,10 @@ function L1_1(A0_2)
   L1_2 = true
   return L1_2
 end
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
   L1_2 = nil
@@ -251,6 +260,10 @@ function L2_1(A0_2)
   L2_2 = true
   return L2_2
 end
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2
   L1_2 = GetResourceState
@@ -259,6 +272,10 @@ function L3_1(A0_2)
   L1_2 = "started" == L1_2
   return L1_2
 end
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2
   L1_2 = L2_1
@@ -387,6 +404,10 @@ function L4_1(A0_2)
   return L1_2
 end
 L5_1 = Parser
+
+-- Local function handler
+
+-- Local function handler
 function L6_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L1_2 = L4_1

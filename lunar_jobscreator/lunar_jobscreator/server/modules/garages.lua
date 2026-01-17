@@ -1,12 +1,9 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- garages.lua
+-- Server garage management module
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1
 L0_1 = nil
@@ -31,8 +28,16 @@ L2_1 = "lunar_unijob:buyVehicle"
 L3_1 = Editable
 L3_1 = L3_1.buyVehicle
 L1_1(L2_1, L3_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L1_1 = RegisterNetEvent
 L2_1 = "lunar_unijob:saveTemporaryVehicle"
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2, A1_2, A2_2)
   local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L3_2 = source
@@ -87,6 +92,10 @@ function L3_1(A0_2, A1_2, A2_2)
 end
 L1_1(L2_1, L3_1)
 L1_1 = {}
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2)
   local L1_2
   L0_1 = A0_2

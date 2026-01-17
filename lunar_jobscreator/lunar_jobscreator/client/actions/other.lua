@@ -1,12 +1,9 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- other.lua
+-- Lunar Job Creator Module
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1
 L0_1 = Actions
@@ -34,6 +31,10 @@ L0_1 = Actions
 L0_1 = L0_1.createVehicle
 L1_1 = "putInsideVehicle"
 L2_1 = "user-plus"
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
   L1_2 = GetDraggedPed
@@ -63,6 +64,10 @@ function L3_1(A0_2)
   L4_2 = "putInVehicle"
   L3_2(L4_2)
 end
+
+-- Local function handler
+
+-- Local function handler
 function L4_1()
   local L0_2, L1_2
   L0_2 = GetDraggedPed
@@ -75,6 +80,10 @@ L0_1 = Actions
 L0_1 = L0_1.createVehicle
 L1_1 = "takeOutOfVehicle"
 L2_1 = "user-minus"
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L1_2 = GetVehicleMaxNumberOfPassengers
@@ -114,6 +123,10 @@ function L3_1(A0_2)
     end
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L1_2 = GetVehicleMaxNumberOfPassengers

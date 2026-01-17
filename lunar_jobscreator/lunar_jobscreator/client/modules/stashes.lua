@@ -1,16 +1,17 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- stashes.lua
+-- Client stash management module
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
 L0_1 = {}
 L1_1 = {}
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2
   L2_2 = A0_2.stashes
@@ -63,6 +64,10 @@ function L2_1(A0_2, A1_2)
     L14_2.name = L9_2
     L14_2.data = L2_2
     L13_2.args = L14_2
+
+-- Local function handler
+
+-- Local function handler
     function L14_2()
       local L0_3, L1_3
       L0_3 = L2_2.global
@@ -93,6 +98,10 @@ function L2_1(A0_2, A1_2)
     L11_2(L12_2, L13_2)
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
   L1_2 = A0_2.stashes
@@ -112,6 +121,10 @@ function L3_1(A0_2)
     end
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L4_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
   L0_2 = ipairs
@@ -126,6 +139,10 @@ function L4_1()
   L1_2 = L0_1
   L0_2(L1_2)
 end
+
+-- Local function handler
+
+-- Local function handler
 function L5_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2
   L0_2 = ipairs

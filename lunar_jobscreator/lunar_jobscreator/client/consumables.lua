@@ -1,16 +1,21 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- consumables.lua
+-- Client consumable items handler
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
 
-
-
 local L0_1, L1_1, L2_1
+
+-- Event handler registration
+
+-- Event handler registration
 L0_1 = RegisterNetEvent
 L1_1 = "lunar_unijob:useConsumable"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L1_2 = Config

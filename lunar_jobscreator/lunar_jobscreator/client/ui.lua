@@ -1,17 +1,18 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- ui.lua
+-- Client UI system and notifications
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1
 L0_1 = {}
 UI = L0_1
 L0_1 = UI
+
+-- Local function handler
+
+-- Local function handler
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2
   L2_2 = SendNUIMessage
@@ -22,6 +23,10 @@ function L1_1(A0_2, A1_2)
 end
 L0_1.sendMessage = L1_1
 L0_1 = UI
+
+-- Local function handler
+
+-- Local function handler
 function L1_1(A0_2)
   local L1_2, L2_2, L3_2
   L1_2 = UI
@@ -32,6 +37,10 @@ function L1_1(A0_2)
 end
 L0_1.updateJob = L1_1
 L0_1 = UI
+
+-- Local function handler
+
+-- Local function handler
 function L1_1(A0_2)
   local L1_2, L2_2, L3_2
   L1_2 = UI
@@ -42,6 +51,10 @@ function L1_1(A0_2)
 end
 L0_1.removeJob = L1_1
 L0_1 = UI
+
+-- Local function handler
+
+-- Local function handler
 function L1_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L1_2 = {}
@@ -62,6 +75,10 @@ end
 L0_1.updateJobs = L1_1
 L0_1 = RegisterNUICallback
 L1_1 = "getJobs"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L2_2 = GetJobs
@@ -82,6 +99,10 @@ end
 L0_1(L1_1, L2_1)
 L0_1 = RegisterNUICallback
 L1_1 = "createJob"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
   L2_2 = TriggerServerEvent
@@ -95,6 +116,10 @@ end
 L0_1(L1_1, L2_1)
 L0_1 = RegisterNUICallback
 L1_1 = "updateJobField"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
   L5_2 = A0_2
@@ -114,6 +139,10 @@ end
 L0_1(L1_1, L2_1)
 L0_1 = RegisterNUICallback
 L1_1 = "updateJob"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
   L2_2 = TriggerServerEvent
@@ -127,6 +156,10 @@ end
 L0_1(L1_1, L2_1)
 L0_1 = RegisterNUICallback
 L1_1 = "removeJob"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
   L2_2 = TriggerServerEvent
@@ -140,6 +173,10 @@ end
 L0_1(L1_1, L2_1)
 L0_1 = RegisterNUICallback
 L1_1 = "hideFrame"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
   L2_2 = SetNuiFocus
@@ -153,6 +190,10 @@ end
 L0_1(L1_1, L2_1)
 L0_1 = RegisterNUICallback
 L1_1 = "updateWebhookData"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
   L2_2 = TriggerServerEvent
@@ -166,6 +207,10 @@ end
 L0_1(L1_1, L2_1)
 L0_1 = RegisterNUICallback
 L1_1 = "updateJobWebhook"
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
   L2_2 = TriggerServerEvent
@@ -183,13 +228,25 @@ L1_1 = lib
 L1_1 = L1_1.callback
 L2_1 = "lunar_unijob:getHistory"
 L3_1 = false
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2
   L0_1 = A0_2
 end
 L1_1(L2_1, L3_1, L4_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L1_1 = RegisterNetEvent
 L2_1 = "lunar_unijob:updateHistory"
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2, L3_2
   L0_1 = A0_2
@@ -202,6 +259,10 @@ end
 L1_1(L2_1, L3_1)
 L1_1 = RegisterNUICallback
 L2_1 = "getHistory"
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2, A1_2)
   local L2_2, L3_2
   while true do
@@ -223,6 +284,10 @@ L2_1 = lib
 L2_1 = L2_1.callback
 L3_1 = "lunar_unijob:getStats"
 L4_1 = false
+
+-- Local function handler
+
+-- Local function handler
 function L5_1(A0_2)
   local L1_2
   L1_1 = A0_2
@@ -230,6 +295,10 @@ end
 L2_1(L3_1, L4_1, L5_1)
 L2_1 = RegisterNUICallback
 L3_1 = "getStats"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2, A1_2)
   local L2_2, L3_2
   while true do
@@ -246,8 +315,16 @@ function L4_1(A0_2, A1_2)
   L2_2(L3_2)
 end
 L2_1(L3_1, L4_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L2_1 = RegisterNetEvent
 L3_1 = "lunar_unijob:updateStats"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2
   L1_1 = A0_2
@@ -260,6 +337,10 @@ end
 L2_1(L3_1, L4_1)
 L2_1 = RegisterNUICallback
 L3_1 = "getFramework"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2, A1_2)
   local L2_2, L3_2
   L2_2 = A1_2
@@ -270,6 +351,10 @@ end
 L2_1(L3_1, L4_1)
 L2_1 = RegisterNUICallback
 L3_1 = "getLanguage"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2, A1_2)
   local L2_2, L3_2
   L2_2 = A1_2
@@ -280,6 +365,10 @@ end
 L2_1(L3_1, L4_1)
 L2_1 = RegisterNUICallback
 L3_1 = "getProfile"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
   L2_2 = A1_2
@@ -303,6 +392,10 @@ L4_1 = L4_1.command
 if not L4_1 then
   L4_1 = "jobscreator"
 end
+
+-- Local function handler
+
+-- Local function handler
 function L5_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2
   L0_2 = lib
@@ -320,6 +413,10 @@ function L5_1()
     L1_2 = L1_2.callback
     L2_2 = "lunar_unijob:getDiscordIcon"
     L3_2 = false
+
+-- Local function handler
+
+-- Local function handler
     function L4_2(A0_3)
       local L1_3, L2_3, L3_3, L4_3, L5_3
       L1_3 = UI
@@ -358,6 +455,10 @@ end
 L3_1(L4_1, L5_1)
 L3_1 = RegisterCommand
 L4_1 = "edit"
+
+-- Local function handler
+
+-- Local function handler
 function L5_1(A0_2, A1_2, A2_2)
   local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L3_2 = lib
@@ -405,6 +506,10 @@ end
 L3_1(L4_1, L5_1)
 L3_1 = RegisterNUICallback
 L4_1 = "teleport"
+
+-- Local function handler
+
+-- Local function handler
 function L5_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
   L2_2 = A0_2

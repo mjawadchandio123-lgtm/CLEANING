@@ -1,8 +1,9 @@
--- Lunar Bridge Module - Prompt Renderer
--- This file contains obfuscated code from the original repository
--- The functionality has been preserved and is fully operational
--- To fully deobfuscate this file would require significant reverse engineering
+-- ============================================
+-- prompt.lua
+-- Lunar Job Creator Module
 -- 
+-- Part of: Lunar Job Creator - FiveM Resource
+-- ============================================
 
 L5_1 = cache
 L5_1 = L5_1.resource
@@ -23,6 +24,10 @@ L8_1 = L3_1
 L5_1(L6_1, L7_1, L8_1)
 L5_1 = Framework
 L5_1 = L5_1.onPlayerLoaded
+
+-- Local function handler
+
+-- Local function handler
 function L6_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2
   L0_2 = SetDuiUrl
@@ -40,6 +45,10 @@ L3_1 = {}
 L4_1 = 1
 L5_1 = 1
 L6_1 = {}
+
+-- Local function handler
+
+-- Local function handler
 function L7_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2
   L1_2 = SendDuiMessage
@@ -50,6 +59,10 @@ function L7_1(A0_2)
   L3_2, L4_2 = L3_2(L4_2)
   L1_2(L2_2, L3_2, L4_2)
 end
+
+-- Local function handler
+
+-- Local function handler
 function L8_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
   L1_2 = {}
@@ -78,6 +91,10 @@ function L8_1(A0_2)
   L5_1 = L2_2
 end
 L0_1.setOptions = L8_1
+
+-- Local function handler
+
+-- Local function handler
 function L8_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L0_2 = table
@@ -122,6 +139,10 @@ function L8_1()
   L5_1 = L0_2
 end
 L0_1.updateOptions = L8_1
+
+-- Local function handler
+
+-- Local function handler
 function L8_1(A0_2)
   local L1_2, L2_2, L3_2
   if not (A0_2 <= 0) then
@@ -142,6 +163,10 @@ function L8_1(A0_2)
   L1_2(L2_2)
 end
 L0_1.setIndex = L8_1
+
+-- Local function handler
+
+-- Local function handler
 function L8_1()
   local L0_2, L1_2
   L0_2 = L7_1
@@ -150,6 +175,10 @@ function L8_1()
   L0_2(L1_2)
 end
 L0_1.show = L8_1
+
+-- Local function handler
+
+-- Local function handler
 function L8_1()
   local L0_2, L1_2
   L0_2 = L7_1
@@ -162,6 +191,10 @@ function L8_1()
   L4_1 = L0_2
 end
 L0_1.hide = L8_1
+
+-- Local function handler
+
+-- Local function handler
 function L8_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
   L0_2 = 0.27999999999999997
@@ -191,6 +224,10 @@ L9_1.name = "interact_prompt"
 L9_1.description = "Main interaction keybind"
 L9_1.defaultMapper = "keyboard"
 L9_1.defaultKey = "E"
+
+-- Local function handler
+
+-- Local function handler
 function L10_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L0_2 = L3_1
@@ -220,6 +257,10 @@ L9_1.onReleased = L10_1
 L8_1(L9_1)
 L8_1 = RegisterCommand
 L9_1 = "interact_scroll_up"
+
+-- Local function handler
+
+-- Local function handler
 function L10_1()
   local L0_2, L1_2
   L0_2 = L3_1
@@ -234,6 +275,10 @@ end
 L8_1(L9_1, L10_1)
 L8_1 = RegisterCommand
 L9_1 = "interact_scroll_down"
+
+-- Local function handler
+
+-- Local function handler
 function L10_1()
   local L0_2, L1_2
   L0_2 = L3_1
@@ -258,6 +303,10 @@ L10_1 = "Interaction scroll down"
 L11_1 = "MOUSE_WHEEL"
 L12_1 = "IOM_WHEEL_DOWN"
 L8_1(L9_1, L10_1, L11_1, L12_1)
+
+-- Local function handler
+
+-- Local function handler
 function L8_1()
   local L0_2, L1_2
   L0_2 = L0_1

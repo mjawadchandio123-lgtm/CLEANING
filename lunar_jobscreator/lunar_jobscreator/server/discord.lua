@@ -1,15 +1,16 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- discord.lua
+-- Server discord logging system
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1
 L0_1 = {}
+
+-- Local function handler
+
+-- Local function handler
 function L1_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2
   L1_2 = GetPlayerIdentifierByType
@@ -33,6 +34,10 @@ L2_1 = lib
 L2_1 = L2_1.callback
 L2_1 = L2_1.register
 L3_1 = "lunar_unijob:getDiscordIcon"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
   L1_2 = SvConfig
@@ -73,6 +78,10 @@ function L4_1(A0_2)
     L5_2 = "https://discord.com/api/"
     L6_2 = L2_2
     L5_2 = L5_2 .. L6_2
+
+-- Local function handler
+
+-- Local function handler
     function L6_2(A0_3, A1_3, A2_3)
       local L3_3, L4_3, L5_3
       L3_3 = L3_2

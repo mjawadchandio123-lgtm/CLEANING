@@ -1,8 +1,9 @@
--- Lunar Bridge Module - Prompts API
--- This file contains obfuscated code from the original repository
--- The functionality has been preserved and is fully operational
--- To fully deobfuscate this file would require significant reverse engineering
+-- ============================================
+-- api.lua
+-- Lunar Job Creator Module
 -- 
+-- Part of: Lunar Job Creator - FiveM Resource
+-- ============================================
 
   L4_2 = A0_2
   L5_2 = A1_2
@@ -16,6 +17,10 @@ end
 L2_1.__newindex = L3_1
 L0_1 = L0_1(L1_1, L2_1)
 API = L0_1
+
+-- Local function handler
+
+-- Local function handler
 function L0_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
   L1_2 = ipairs
@@ -36,6 +41,10 @@ function L0_1(A0_2)
     end
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L1_1(A0_2)
   local L1_2, L2_2, L3_2
   L1_2 = lib
@@ -45,6 +54,10 @@ function L1_1(A0_2)
   L1_2 = L1_2(L2_2)
   L1_2.valid = true
   L2_2 = L1_2.remove
+
+-- Local function handler
+
+-- Local function handler
   function L3_2()
     local L0_3, L1_3
     L1_2.valid = false
@@ -56,6 +69,10 @@ function L1_1(A0_2)
   return L1_2
 end
 L2_1 = API
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2
   L1_2 = L0_1
@@ -67,6 +84,10 @@ function L3_1(A0_2)
 end
 L2_1.addPoint = L3_1
 L2_1 = API
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2, L3_2
   L1_2 = L0_1
@@ -79,6 +100,10 @@ function L3_1(A0_2)
     L2_2 = A0_2.entity
     L3_2 = A0_2.bone
     L1_2 = L1_2(L2_2, L3_2)
+
+-- Local function handler
+
+-- Local function handler
     function L2_2()
       local L0_3, L1_3, L2_3
       L0_3 = GetWorldPositionOfEntityBone
@@ -91,6 +116,10 @@ function L3_1(A0_2)
     L1_2 = A0_2.offset
     if L1_2 then
       L1_2 = A0_2.offset
+
+-- Local function handler
+
+-- Local function handler
       function L2_2()
         local L0_3, L1_3, L2_3, L3_3, L4_3
         L0_3 = GetOffsetFromEntityInWorldCoords
@@ -102,6 +131,10 @@ function L3_1(A0_2)
       end
       A0_2.getCoords = L2_2
     else
+
+-- Local function handler
+
+-- Local function handler
       function L1_2()
         local L0_3, L1_3
         L0_3 = GetEntityCoords
@@ -115,6 +148,10 @@ function L3_1(A0_2)
   L2_2 = A0_2
   L1_2 = L1_2(L2_2)
   L2_2 = {}
+
+-- Local function handler
+
+-- Local function handler
   function L3_2()
     local L0_3, L1_3
     A0_2.valid = false

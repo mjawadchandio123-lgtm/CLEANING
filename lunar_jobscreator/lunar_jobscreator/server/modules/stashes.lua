@@ -1,12 +1,9 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- stashes.lua
+-- Server stash management module
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
 L0_1 = nil
@@ -25,6 +22,10 @@ if L1_1 then
     L4_1 = L3_1
     L3_1 = L3_1.registerHook
     L5_1 = "swapItems"
+
+-- Local function handler
+
+-- Local function handler
     function L6_1(A0_2)
       local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2
       L1_2 = Webhooks
@@ -163,6 +164,10 @@ Gave: %s]]
     L3_1(L4_1, L5_1, L6_1)
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2
   L1_2 = A0_2.stashes
@@ -203,6 +208,10 @@ function L3_1(A0_2)
     end
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L0_1 = A0_2

@@ -1,12 +1,9 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- alarms.lua
+-- Server alarm system module
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1
 L0_1 = nil
@@ -15,6 +12,10 @@ L2_1 = lib
 L2_1 = L2_1.callback
 L2_1 = L2_1.register
 L3_1 = "lunar_unijob:triggerAlarm"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L2_2 = Framework
@@ -59,6 +60,10 @@ function L4_1(A0_2, A1_2)
   L5_2[L6_2] = true
   L5_2 = SetTimeout
   L6_2 = L4_2.cooldown
+
+-- Local function handler
+
+-- Local function handler
   function L7_2()
     local L0_3, L1_3
     L1_3 = A1_2.job
@@ -110,6 +115,10 @@ function L4_1(A0_2, A1_2)
   return L5_2
 end
 L2_1(L3_1, L4_1)
+
+-- Local function handler
+
+-- Local function handler
 function L2_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
   L0_1 = A0_2
@@ -123,6 +132,10 @@ function L2_1(A0_2)
     L7_2[L8_2] = L9_2
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2)
   local L1_2, L2_2, L3_2
   L2_2 = A0_2.name

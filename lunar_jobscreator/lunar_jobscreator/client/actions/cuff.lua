@@ -1,12 +1,9 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- cuff.lua
+-- Client-side cuff action handler
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1, L8_1, L9_1, L10_1, L11_1, L12_1, L13_1, L14_1, L15_1, L16_1, L17_1, L18_1, L19_1
 L0_1 = false
@@ -55,6 +52,10 @@ L5_1 = Actions
 L5_1 = L5_1.createPlayer
 L6_1 = "handcuff"
 L7_1 = "handcuffs"
+
+-- Local function handler
+
+-- Local function handler
 function L8_1(A0_2)
   local L1_2, L2_2, L3_2
   L1_2 = TriggerServerEvent
@@ -63,6 +64,10 @@ function L8_1(A0_2)
   L1_2(L2_2, L3_2)
 end
 L5_1(L6_1, L7_1, L8_1)
+
+-- Local function handler
+
+-- Local function handler
 function L5_1(A0_2)
   local L1_2, L2_2, L3_2
   L1_2 = GetPlayerFromServerId
@@ -81,8 +86,16 @@ L7_1 = "mp_arresting"
 L8_1 = "cop_p2_back_left"
 L9_1 = "crook_p2_back_left"
 L10_1 = "a_uncuff"
+
+-- Event handler registration
+
+-- Event handler registration
 L11_1 = RegisterNetEvent
 L12_1 = "lunar_unijob:cuffReceiver"
+
+-- Local function handler
+
+-- Local function handler
 function L13_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2, L23_2
   L1_2 = lib
@@ -281,8 +294,16 @@ function L13_1(A0_2)
   L0_1 = L1_2
 end
 L11_1(L12_1, L13_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L11_1 = RegisterNetEvent
 L12_1 = "lunar_unijob:cuffSender"
+
+-- Local function handler
+
+-- Local function handler
 function L13_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
   L1_2 = lib
@@ -361,8 +382,16 @@ function L13_1(A0_2)
   end
 end
 L11_1(L12_1, L13_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L11_1 = RegisterNetEvent
 L12_1 = "lunar_unijob:syncCuff"
+
+-- Local function handler
+
+-- Local function handler
 function L13_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2
   L0_2 = lib
@@ -407,8 +436,16 @@ end
 L11_1(L12_1, L13_1)
 L11_1 = "anim@move_m@prisoner_cuffed"
 L12_1 = "anim@move_m@trash"
+
+-- Event handler registration
+
+-- Event handler registration
 L13_1 = RegisterNetEvent
 L14_1 = "lunar_unijob:drag"
+
+-- Local function handler
+
+-- Local function handler
 function L15_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2
   L1_2 = L0_1
@@ -464,8 +501,16 @@ function L15_1(A0_2)
   L1_1 = A0_2
 end
 L13_1(L14_1, L15_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L13_1 = RegisterNetEvent
 L14_1 = "lunar_unijob:putInVehicle"
+
+-- Local function handler
+
+-- Local function handler
 function L15_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L1_2 = L0_1
@@ -508,8 +553,16 @@ function L15_1(A0_2)
   end
 end
 L13_1(L14_1, L15_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L13_1 = RegisterNetEvent
 L14_1 = "lunar_unijob:outTheVehicle"
+
+-- Local function handler
+
+-- Local function handler
 function L15_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2
   L0_2 = L0_1
@@ -537,6 +590,10 @@ function L15_1()
   L1_2(L2_2, L3_2, L4_2)
 end
 L13_1(L14_1, L15_1)
+
+-- Local function handler
+
+-- Local function handler
 function L13_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
   L1_2 = IsPedWalking
@@ -641,6 +698,10 @@ L14_1 = "mp_arresting"
 L15_1 = false
 L16_1 = false
 L17_1 = SetInterval
+
+-- Local function handler
+
+-- Local function handler
 function L18_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
   L0_2 = L0_1
@@ -732,6 +793,10 @@ end
 L19_1 = 100
 L17_1(L18_1, L19_1)
 L17_1 = CreateThread
+
+-- Local function handler
+
+-- Local function handler
 function L18_1()
   local L0_2, L1_2
   while true do
@@ -751,12 +816,20 @@ function L18_1()
   end
 end
 L17_1(L18_1)
+
+-- Local function handler
+
+-- Local function handler
 function L17_1()
   local L0_2, L1_2
   L0_2 = L0_1
   return L0_2
 end
 IsHandcuffed = L17_1
+
+-- Local function handler
+
+-- Local function handler
 function L17_1()
   local L0_2, L1_2
   L0_2 = L1_1

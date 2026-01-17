@@ -1,15 +1,16 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- carry.lua
+-- Client-side carry action handler
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1, L8_1
 L0_1 = nil
+
+-- Local function handler
+
+-- Local function handler
 function L1_1(A0_2)
   local L1_2, L2_2, L3_2
   L1_2 = GetPlayerFromServerId
@@ -23,6 +24,10 @@ function L1_1(A0_2)
   L3_2 = L1_2
   return L2_2(L3_2)
 end
+
+-- Local function handler
+
+-- Local function handler
 function L2_1()
   local L0_2, L1_2
   L0_2 = L0_1
@@ -37,6 +42,10 @@ function L2_1()
     L0_2(L1_2)
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L3_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
   L0_2 = Binds
@@ -99,6 +108,10 @@ function L3_1()
   L0_2 = L0_2.hideUI
   L0_2()
 end
+
+-- Local function handler
+
+-- Local function handler
 function L4_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
   L0_2 = Binds
@@ -174,6 +187,10 @@ L5_1 = Actions
 L5_1 = L5_1.createPlayer
 L6_1 = "carry"
 L7_1 = "hands"
+
+-- Local function handler
+
+-- Local function handler
 function L8_1(A0_2)
   local L1_2, L2_2, L3_2
   L0_1 = A0_2
@@ -190,8 +207,16 @@ function L8_1(A0_2)
   L1_2(L2_2)
 end
 L5_1(L6_1, L7_1, L8_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L5_1 = RegisterNetEvent
 L6_1 = "lunar_unijob:syncCarry"
+
+-- Local function handler
+
+-- Local function handler
 function L7_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2
   L0_1 = A0_2
@@ -224,8 +249,16 @@ function L7_1(A0_2)
   L2_2(L3_2)
 end
 L5_1(L6_1, L7_1)
+
+-- Event handler registration
+
+-- Event handler registration
 L5_1 = RegisterNetEvent
 L6_1 = "lunar_unijob:stopCarry"
+
+-- Local function handler
+
+-- Local function handler
 function L7_1(A0_2)
   local L1_2, L2_2
   L1_2 = nil
@@ -242,6 +275,10 @@ function L7_1(A0_2)
   L1_2(L2_2)
 end
 L5_1(L6_1, L7_1)
+
+-- Local function handler
+
+-- Local function handler
 function L5_1()
   local L0_2, L1_2
   L0_2 = L0_1

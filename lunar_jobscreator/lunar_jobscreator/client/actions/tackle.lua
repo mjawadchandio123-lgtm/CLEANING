@@ -1,18 +1,19 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- tackle.lua
+-- Client-side tackle action handler
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1
 L0_1 = "missmic2ig_11"
 L1_1 = "mic_2_ig_11_intro_goon"
 L2_1 = "mic_2_ig_11_intro_p_one"
 L3_1 = false
+
+-- Local function handler
+
+-- Local function handler
 function L4_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2
   L0_2 = HasAccess
@@ -63,6 +64,10 @@ function L4_1()
   L3_2 = SetTimeout
   L4_2 = Settings
   L4_2 = L4_2.tackleCooldown
+
+-- Local function handler
+
+-- Local function handler
   function L5_2()
     local L0_3, L1_3
     L0_3 = false
@@ -97,8 +102,16 @@ function L4_1()
   L4_2 = L0_1
   L3_2(L4_2)
 end
+
+-- Event handler registration
+
+-- Event handler registration
 L5_1 = RegisterNetEvent
 L6_1 = "lunar_unijob:playTackledAnim"
+
+-- Local function handler
+
+-- Local function handler
 function L7_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2
   L1_2 = lib
@@ -150,6 +163,10 @@ function L7_1(A0_2)
   L3_2 = L3_2.ped
   L2_2(L3_2)
   L2_2 = CreateThread
+
+-- Local function handler
+
+-- Local function handler
   function L3_2()
     local L0_3, L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3
     L0_3 = 1

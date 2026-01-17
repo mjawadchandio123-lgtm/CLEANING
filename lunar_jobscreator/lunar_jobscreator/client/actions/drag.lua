@@ -1,15 +1,16 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- drag.lua
+-- Client-side drag action handler
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1
 L0_1 = nil
+
+-- Local function handler
+
+-- Local function handler
 function L1_1()
   local L0_2, L1_2
   L0_2 = L0_1
@@ -37,6 +38,10 @@ StopDrag = L1_1
 L1_1 = "amb@world_human_drinking@coffee@male@base"
 L2_1 = "base"
 L3_1 = SetInterval
+
+-- Local function handler
+
+-- Local function handler
 function L4_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
   L0_2 = L0_1
@@ -96,6 +101,10 @@ L3_1 = Settings
 L3_1 = L3_1.sprintWhileDrag
 if not L3_1 then
   L3_1 = CreateThread
+
+-- Local function handler
+
+-- Local function handler
   function L4_1()
     local L0_2, L1_2, L2_2
     while true do
@@ -126,6 +135,10 @@ L3_1 = Actions
 L3_1 = L3_1.createPlayer
 L4_1 = "drag"
 L5_1 = "hand"
+
+-- Local function handler
+
+-- Local function handler
 function L6_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = TriggerServerEvent
@@ -155,6 +168,10 @@ function L6_1(A0_2, A1_2)
   L2_2(L3_2)
   L0_1 = A1_2
 end
+
+-- Local function handler
+
+-- Local function handler
 function L7_1(A0_2)
   local L1_2, L2_2
   L1_2 = IsPedCuffed
@@ -168,6 +185,10 @@ function L7_1(A0_2)
   return L1_2
 end
 L3_1(L4_1, L5_1, L6_1, L7_1)
+
+-- Local function handler
+
+-- Local function handler
 function L3_1()
   local L0_2, L1_2
   L0_2 = L0_1

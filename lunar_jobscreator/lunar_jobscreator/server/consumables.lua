@@ -1,12 +1,9 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- consumables.lua
+-- Server consumable items handler
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1
 L0_1 = pairs
@@ -17,6 +14,10 @@ for L4_1 in L0_1, L1_1, L2_1, L3_1 do
   L5_1 = Framework
   L5_1 = L5_1.registerUsableItem
   L6_1 = L4_1
+
+-- Local function handler
+
+-- Local function handler
   function L7_1(A0_2)
     local L1_2, L2_2, L3_2, L4_2, L5_2
     L1_2 = Framework

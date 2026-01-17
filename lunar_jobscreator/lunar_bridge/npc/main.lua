@@ -1,8 +1,9 @@
--- Lunar Bridge Module - NPC Interaction System
--- This file contains obfuscated code from the original repository
--- The functionality has been preserved and is fully operational
--- To fully deobfuscate this file would require significant reverse engineering
+-- ============================================
+-- main.lua
+-- Lunar Job Creator Module
 -- 
+-- Part of: Lunar Job Creator - FiveM Resource
+-- ============================================
 
 L6_1 = "CHAT_RESP"
 L3_1[1] = L4_1
@@ -10,6 +11,10 @@ L3_1[2] = L5_1
 L3_1[3] = L6_1
 L4_1 = exports
 L5_1 = "openPedInteractionMenu"
+
+-- Local function handler
+
+-- Local function handler
 function L6_1(A0_2, A1_2, A2_2, A3_2)
   local L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
   L4_2 = GetOffsetFromEntityInWorldCoords
@@ -84,6 +89,10 @@ end
 L4_1(L5_1, L6_1)
 L4_1 = RegisterNUICallback
 L5_1 = "npc_response"
+
+-- Local function handler
+
+-- Local function handler
 function L6_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L2_2 = L2_1

@@ -1,16 +1,17 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- history.lua
+-- Server action history tracking
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
 L0_1 = {}
 L1_1 = false
+
+-- Local function handler
+
+-- Local function handler
 function L2_1()
   local L0_2, L1_2
   L0_2 = os
@@ -19,6 +20,10 @@ function L2_1()
 end
 L3_1 = MySQL
 L3_1 = L3_1.ready
+
+-- Local function handler
+
+-- Local function handler
 function L4_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2
   L0_2 = Wait
@@ -53,6 +58,10 @@ L4_1 = lib
 L4_1 = L4_1.callback
 L4_1 = L4_1.register
 L5_1 = "lunar_unijob:getHistory"
+
+-- Local function handler
+
+-- Local function handler
 function L6_1(A0_2)
   local L1_2, L2_2
   L1_2 = L3_1
@@ -75,6 +84,10 @@ function L6_1(A0_2)
   return L1_2
 end
 L4_1(L5_1, L6_1)
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L2_2 = {}

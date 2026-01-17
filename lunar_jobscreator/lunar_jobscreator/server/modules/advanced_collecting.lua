@@ -1,12 +1,9 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- advanced_collecting.lua
+-- Server advanced collecting module
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
-
-
 
 local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
 L0_1 = nil
@@ -16,6 +13,10 @@ L3_1 = lib
 L3_1 = L3_1.callback
 L3_1 = L3_1.register
 L4_1 = "lunar_unijob:getCollectables"
+
+-- Local function handler
+
+-- Local function handler
 function L5_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L1_2 = L2_1
@@ -47,6 +48,10 @@ function L5_1(A0_2)
   return L1_2
 end
 L3_1(L4_1, L5_1)
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
   L2_2 = 1
@@ -82,6 +87,10 @@ L4_1 = lib
 L4_1 = L4_1.callback
 L4_1 = L4_1.register
 L5_1 = "lunar_unijob:harvestCollectable"
+
+-- Local function handler
+
+-- Local function handler
 function L6_1(A0_2, A1_2, A2_2)
   local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
   L3_2 = L1_1
@@ -126,6 +135,10 @@ function L6_1(A0_2, A1_2, A2_2)
   L6_2 = SetTimeout
   L7_2 = L3_2.data
   L7_2 = L7_2.duration
+
+-- Local function handler
+
+-- Local function handler
   function L8_2()
     local L0_3, L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3
     L1_3 = A1_2
@@ -197,6 +210,10 @@ function L6_1(A0_2, A1_2, A2_2)
   return L6_2
 end
 L4_1(L5_1, L6_1)
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2
   L1_2 = {}
@@ -258,6 +275,10 @@ function L4_1(A0_2)
       L15_2 = L1_1
       L15_2 = L15_2[L14_2]
       L16_2 = SetInterval
+
+-- Local function handler
+
+-- Local function handler
       function L17_2()
         local L0_3, L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3, L12_3, L13_3
         L1_3 = L14_2
@@ -347,6 +368,10 @@ function L4_1(A0_2)
     end
   end
 end
+
+-- Local function handler
+
+-- Local function handler
 function L5_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L0_1 = A0_2

@@ -1,14 +1,15 @@
 -- ============================================
--- More exclusive content you will find here:
--- Cleaned and working - hot scripts and more.
---
--- https://unlocknow.net/releases
--- https://discord.gg/unlocknoww
+-- vehicle.lua
+-- Client-side vehicle action handler
+-- 
+-- Part of: Lunar Job Creator - FiveM Resource
 -- ============================================
 
-
-
 local L0_1, L1_1, L2_1, L3_1, L4_1
+
+-- Local function handler
+
+-- Local function handler
 function L0_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = NetworkGetNetworkIdFromEntity
@@ -20,8 +21,16 @@ function L0_1(A0_2, A1_2)
   L6_2 = A1_2
   L3_2(L4_2, L5_2, L6_2)
 end
+
+-- Event handler registration
+
+-- Event handler registration
 L1_1 = RegisterNetEvent
 L2_1 = "lunar_unijob:performVehicleAction"
+
+-- Local function handler
+
+-- Local function handler
 function L3_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = NetworkGetEntityFromNetworkId
@@ -77,6 +86,10 @@ L1_1 = Actions
 L1_1 = L1_1.createVehicle
 L2_1 = "hijack"
 L3_1 = "user-ninja"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
   L1_2 = lib
@@ -132,6 +145,10 @@ L1_1 = Actions
 L1_1 = L1_1.createVehicle
 L2_1 = "repair"
 L3_1 = "screwdriver-wrench"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
   L1_2 = lib
@@ -173,6 +190,10 @@ L1_1 = Actions
 L1_1 = L1_1.createVehicle
 L2_1 = "clean"
 L3_1 = "hand-sparkles"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
   L1_2 = lib
@@ -214,6 +235,10 @@ L1_1 = Actions
 L1_1 = L1_1.createVehicle
 L2_1 = "impound"
 L3_1 = "truck"
+
+-- Local function handler
+
+-- Local function handler
 function L4_1(A0_2)
   local L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
   L1_2 = lib
